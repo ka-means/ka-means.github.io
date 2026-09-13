@@ -1,5 +1,5 @@
 cv:
-  name: Katherin Liced Molina Granados
+  name: Katherin Molina Granados
   headline: Computational Researcher — Autonomous Systems, Multi-Agent Systems, Computational Modelling
   email: kath.kahlo@hotmail.com
   location: Australia
@@ -67,7 +67,7 @@ cv:
     Certificates:
       - name: Diploma in Business
       - name: AWS Data Analytics
-      - name: Diploma in Project Management
+      - name: "Diploma in Project Management (Universidad EAN/Colombia)"
 
     Publications:
       - title: "Structural Coordination Capacity, Not Incentive Intensity, Governs Decentralized Heterogeneous Multi-Robot Missions: Evidence from the MOSAIC Agent-Based Model"
@@ -118,10 +118,9 @@ cv:
           - Design of auditability, observability, and human-supervision mechanisms for autonomous systems
       - company: KITBC Consulting
         position: Consultant Data Analyst
-        location: Chile
         start_date: 2025-02
         end_date: 2025-02
-        summary: Short-duration analytics engagement (client Intelligent Chile) supporting operational improvement for large-scale automated mining operations.
+        summary: Short-duration analytics engagement supporting operational improvement for large-scale automated mining operations.
         highlights:
           - Analyzed operational information to identify performance bottlenecks and process inefficiencies
           - "Direct exposure to autonomous fleet operations, operational analytics, resource utilisation, and the interaction between autonomous technology and operational management"
