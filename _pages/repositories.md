@@ -2,7 +2,7 @@
 layout: page
 permalink: /repositories/
 title: Repositories
-description: Live-pulled public repositories from GitHub (ka-means personal account and the KahloGroup/LAB604 org), forks excluded, sorted by last updated.
+description: Live-pulled public repositories from GitHub (ka-means personal account and the KahloGroup org), forks excluded, sorted by last updated.
 nav: true
 nav_order: 4
 ---
@@ -14,6 +14,7 @@ nav_order: 4
 (function () {
   var USERS = ["ka-means"];
   var ORGS = ["KahloGroup"];
+  var HIDDEN_REPOS = ["ka-means/ka-means.github.io"];
   var statusEl = document.getElementById("gh-repos-status");
   var listEl = document.getElementById("gh-repos-list");
 
@@ -42,6 +43,7 @@ nav_order: 4
       var seen = {};
       repos = repos.filter(function (repo) {
         if (!repo || repo.fork) return false;
+        if (HIDDEN_REPOS.indexOf(repo.full_name) !== -1) return false;
         if (seen[repo.full_name]) return false;
         seen[repo.full_name] = true;
         return true;

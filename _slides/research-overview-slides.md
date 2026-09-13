@@ -1,10 +1,10 @@
 ---
 layout: page
-title: "LAB604: Year One"
-description: Slide deck accompanying the Media vlog on LAB604's first year, exported from Keynote as PDF.
+title: "Research Overview: Complex Systems, Autonomy, and Coordination"
+description: Slide deck accompanying the Media section, exported from Keynote as PDF.
 tags: engineering
 pdf: assets/pdf/example_pdf.pdf
-permalink: /vault/slides/lab604-year-one-slides/
+permalink: /vault/slides/research-overview-slides/
 ---
 
 <div class="d-flex">

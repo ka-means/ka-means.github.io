@@ -4,7 +4,7 @@ title: Agent-Based Simulation Toolkit
 description: A lightweight Python toolkit for building and visualizing agent-based models of complex adaptive systems.
 img: assets/img/9.jpg
 importance: 1
-category: LAB604
+category: AOOS
 tags: engineering
 github: https://github.com/KahloGroup/agent-based-simulation-toolkit
 related_publications: false

@@ -5,7 +5,7 @@ permalink: /projects/
 description: Engineering and research projects, linked to their GitHub repos.
 nav: true
 nav_order: 3
-display_categories: [LAB604]
+display_categories: [AOOS]
 horizontal: false
 ---
 

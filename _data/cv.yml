@@ -1,8 +1,8 @@
 cv:
-  name: Katherin Molina
-  headline: Independent Researcher — Complex Systems, Economics & Politics, Science & Technology, Engineering
+  name: Katherin Liced Molina Granados
+  headline: Computational Researcher — Autonomous Systems, Multi-Agent Systems, Computational Modelling
   email: kath.kahlo@hotmail.com
-  location: ""
+  location: Australia
   social_networks:
     - network: GitHub
       username: ka-means
@@ -10,54 +10,124 @@ cv:
       username: katherin-molina
 
   sections:
+    Research Profile:
+      - Computational researcher with an interdisciplinary background in Information Technology, Business Analytics, and software engineering. Current research focuses on coordination, communication, and distributed decision-making in heterogeneous autonomous systems operating under uncertainty.
+      - Develops computational frameworks combining Multi-Agent Systems, Agent-Based Modelling, distributed artificial intelligence, experimental design, and software engineering — examining how autonomous software agents, robotic platforms, and human supervisors share mission information, allocate tasks, coordinate resources, and adapt when operational conditions change.
+      - "Long-term research objective: generalizable frameworks for real-time mission communication, adaptive task execution, and collaborative autonomy in complex field environments."
+
     Education:
-      - institution: "[Institution name]"
-        location: "[City, Country]"
-        area: "[Field of study]"
-        degree: "[Degree]"
-        start_date: 2000-01
-        end_date: 2000-06
+      - institution: Pontificia Universidad Católica de Chile
+        area: Business Analytics
+        degree: Master
+        start_date: 2024-01
+        end_date: 2026-03
+        location: Chile
         highlights:
-          - "[Add education highlight]"
+          - "Graduated with Maximum Distinction; GPA 6.7/7.0"
+          - Ranked 1st in Graduation Seminars I, II, and III; overall ranking 4th of 40 graduates
+          - Research on the integration of machine learning, topological segmentation, survival analysis, explainable AI, and financial simulation
+      - institution: Pontificia Universidad Católica de Chile
+        area: Business Intelligence
+        degree: Diploma
+        start_date: 2024-01
+        end_date: 2024-12
+        location: Chile
+        highlights:
+          - "GPA 6.6/7.0 — business intelligence, data analytics, decision-support systems, data warehousing, organisational performance analysis"
+      - institution: Victoria University
+        area: Web & Mobile Application Development
+        degree: Bachelor of Information Technology
+        start_date: 2020-01
+        end_date: 2023-12
+        location: Australia
+        highlights:
+          - "GPA 6.13/7.0 — software development, systems analysis, databases, object-oriented programming, computer networks"
+          - "Capstone: designed, engineered, and deployed a full social network platform for Victoria University, end to end"
+      - institution: Universidad Cooperativa de Colombia
+        area: Telecommunications and Electronics Engineering
+        degree: Undergraduate (5 semesters)
+        start_date: 2009-01
+        end_date: 2011-12
+        location: Colombia
+        highlights:
+          - Foundational studies in electronics, telecommunications, mathematics, and engineering systems
 
     Experience:
-      - company: LAB604
-        position: Co-founder
-        location: ""
-        start_date: 2025-01
+      - company: Kahlo Group Pty Ltd
+        position: CPTO
+        location: Sydney, Australia
+        start_date: 2015-01
         end_date: present
-        summary: "[Add a summary of the role and its focus areas]"
+        summary: Leads technology, analysis, and research-oriented initiatives involving organisational systems, software architecture, business processes, and applied artificial intelligence.
         highlights:
-          - "[Add experience highlight]"
+          - Development of the AOOS (Autonomous Organization Operating System) research and technology programme
+          - Design of architectures for autonomous software agents and investigation of multi-agent coordination and governance mechanisms
+          - Development of structured workflows, information models, and decision systems; integration of research, engineering, and product-development practices
+      - company: KITBC Consulting
+        position: Consultant Data Analyst
+        location: Chile
+        start_date: 2025-02
+        end_date: 2025-02
+        summary: Short-duration analytics engagement (client Intelligent Chile) supporting operational improvement for large-scale automated mining operations.
+        highlights:
+          - Analyzed operational information to identify performance bottlenecks and process inefficiencies
+          - "Direct exposure to autonomous fleet operations, operational analytics, and the interaction between autonomous technology and operational management"
 
-    Awards:
-      - "[Award name] — [Awarding body] ([year])"
+    Research and Technology Development:
+      - name: "AOOS — Autonomous Organization Operating System"
+        summary: "Kahlo Group. Industrial research and technology development programme combining investigation of autonomous cognitive and multi-agent systems with the engineering of an enterprise software platform for autonomous organisations."
+        start_date: 2023-01
+        end_date: present
+        highlights:
+          - Multi-agent orchestration, autonomous cognitive systems, and agent communication protocols
+          - Agent capability/role representation and organisational knowledge ontologies
+          - Auditability, decision traceability, explainable agent behaviour, and human-in-the-loop supervision
 
-    Publications:
-      - title: "See the Publications page for the full, BibTeX-driven list"
+    Selected Publications:
+      - title: "Structural Coordination Capacity, Not Incentive Intensity, Governs Decentralized Heterogeneous Multi-Robot Missions: Evidence from the MOSAIC Agent-Based Model"
         authors:
           - Katherin Molina
-        journal: ""
-        date: 2026-01
-        summary: "Publications are maintained in _bibliography/papers.bib and rendered on the Publications page; this entry is a placeholder pointer."
+          - Lorena Holguin
+        journal: Zenodo preprint
+        date: 2026-07
+        url: https://zenodo.org/records/21718799
+      - title: "MOSAIC v1.1.0 — Mission-Oriented Self-Organization through Auctions, Incentives, and Coalitions"
+        authors:
+          - Katherin Molina
+        journal: CoMSES Computational Model Library (peer-reviewed)
+        date: 2026-08
+        url: https://www.comses.net/codebases/2174fbc6-55cd-4f6e-abc7-9a79aa25ef81/releases/1.1.0/
+      - title: "A Multi-Layer Analytical Framework for Customer Retention in Voluntary Health Insurance"
+        authors:
+          - Katherin Molina
+        journal: Zenodo preprint
+        date: 2026-04
+        url: https://zenodo.org/records/19815868
 
-    Skills:
-      - label: "[Skill area]"
-        details: "[comma, separated, keywords]"
+    Research Skills:
+      - label: Computational Research
+        details: "Problem formulation, experimental design, Agent-Based Modelling, computational simulation, statistical analysis, model verification and validation, reproducible research"
+      - label: Autonomous & Multi-Agent Systems
+        details: "Mission-level coordination, distributed decision-making, agent communication, adaptive task allocation, coalition formation, market-based coordination, human-autonomy teaming"
+      - label: AI & Analytics
+        details: "Machine learning, explainable AI, topological data analysis, behavioural segmentation, survival analysis, business analytics"
+      - label: Programming & Software Engineering
+        details: "Python, R, SQL, NetLogo, Git/GitHub, software architecture, data pipelines"
+      - label: Analytical Methods
+        details: "XGBoost, Random Survival Forest, Kaplan–Meier, Cox proportional hazards, SHAP, UMAP, HDBSCAN, financial simulation"
+      - label: Robotics Foundations
+        details: "Localisation, path planning, search algorithms, autonomous navigation, ROS concepts"
+
+    Professional Memberships:
+      - Australian Computer Society — Associate Member, No. 4448962
+      - IEEE (Institute of Electrical and Electronics Engineers) — Member, No. 101391129
+
+    Research Preparation:
+      - Introduction to Agent-Based Modeling — Santa Fe Institute, Complexity Explorer (2026)
+      - Robotics Software Engineer Nanodegree — Udacity
 
     Languages:
+      - label: Spanish
+        details: Native
       - label: English
-        details: "[Fluency level]"
-
-    Interests:
-      - label: "[Interest area]"
-        details: "complex systems, economics, politics, science, technology, engineering"
-
-    Certificates:
-      - "[Certificate name] — [Issuer] ([year])"
-
-    Projects:
-      - name: "See the Projects page for the full list"
-        summary: "Engineering/research projects are maintained in _projects/ and rendered on the Projects page; this entry is a placeholder pointer."
-        start_date: 2026-01
-        end_date: 2026-01
+        details: Full Professional Proficiency
