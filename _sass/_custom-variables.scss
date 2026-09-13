@@ -210,3 +210,37 @@ samp,
 .about-page .post-header {
   margin-bottom: 2rem;
 }
+
+// -----------------------------------------------------------------------------
+// About page hero: photo aligned beside the title + bio, instead of floated
+// only next to the bio text. Plain CSS (see the Media note above re: the
+// precompiled tailwind.css) using flexbox, with .profile-align-right as the
+// only variant needed since the profile div is first in source order (left
+// by default).
+// -----------------------------------------------------------------------------
+
+.about-intro {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+.about-intro .profile {
+  margin-bottom: 1.5rem;
+}
+
+.about-intro .profile.profile-align-right {
+  order: 2;
+}
+
+.about-intro-text {
+  flex: 1 1 0%;
+  min-width: 0;
+}
+
+@media (min-width: 576px) {
+  .about-intro .profile {
+    margin-bottom: 0;
+  }
+}
