@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://ka-means.github.io/sitemap.xml
+Sitemap: https://kameans.site/sitemap.xml
