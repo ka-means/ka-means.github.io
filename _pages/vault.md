@@ -66,6 +66,22 @@ nav_order: 6
 
   <hr>
 
+  <h2 id="books"><a href="#books">Books</a></h2>
+  <p>Full books and other long-form documents.</p>
+  <ul class="post-list">
+    {% assign book_items = site.books | sort: "title" %}
+    {% for item in book_items %}
+    <li>
+      <h3><a class="post-title" href="{{ item.url | relative_url }}">{{ item.title }}</a></h3>
+      <p>{{ item.description }}</p>
+    </li>
+    {% else %}
+    <p>No books yet.</p>
+    {% endfor %}
+  </ul>
+
+  <hr>
+
   <h2 id="reports"><a href="#reports">Reports &amp; concept maps</a></h2>
   <p>Standalone reports and concept/mind maps not tied to a course or formal publication.</p>
   <ul class="post-list">

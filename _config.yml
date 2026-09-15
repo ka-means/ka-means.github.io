@@ -181,6 +181,7 @@ newsletter:
 collections:
   books:
     output: true
+    permalink: /vault/books/:path/
   news:
     defaults:
       layout: post
