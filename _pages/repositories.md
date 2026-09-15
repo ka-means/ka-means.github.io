@@ -87,7 +87,6 @@ nav_order: 4
         meta.className = "post-tags";
         var bits = [];
         if (repo.language) bits.push('<span><i class="fa-solid fa-circle fa-2xs"></i> ' + repo.language + "</span>");
-        bits.push('<span><i class="fa-solid fa-star fa-sm"></i> ' + repo.stargazers_count + "</span>");
         meta.innerHTML = bits.join(" &nbsp;&middot;&nbsp; ");
 
         body.appendChild(title);
