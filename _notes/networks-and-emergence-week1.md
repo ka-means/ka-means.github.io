@@ -15,4 +15,4 @@ Wiki-style notes for **Week 1** of the Complex Systems Seminar, grouped on the [
   <a href="{{ page.pdf | relative_url }}" class="btn btn-outline-primary" target="_blank" rel="noopener">Open PDF</a>
 </div>
 
-This is placeholder seed content for taxonomy and layout QA — real notes (and the referenced PDF) will replace it.
+Foundations of agent-based modeling in NetLogo (turtles, patches, links), the mechanics of emergence and feedback loops (traffic jams, the 1975 DC "slugging" phenomenon), Robert Axelrod's framing of simulation as a "third way" of science, strategic indicators for when to deploy ABM over equation-based models, and a walkthrough of the "Heroes and Cowards" model as a case study in emergent pattern formation.
