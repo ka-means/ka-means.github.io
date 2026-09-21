@@ -1,0 +1,414 @@
+<!DOCTYPE html> <html lang="en"> <head> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <title> Real Autonomy in Mining: Four Experiments to Understand What Happens Beyond the Autonomous Truck | Ka-means </title> <meta name="author" content="Katherin Molina"> <meta name="description" content="A vehicle may operate without a driver and still belong to a fragile, poorly coordinated system that depends on human decisions. This project uses a digital twin to study four less visible dimensions of mining autonomy — model validity, information latency, interoperability, and the distribution of control among people, centralised systems, and decentralised agents."> <meta name="keywords" content="research, complex-systems, economics, politics, science, technology, engineering"> <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; media-src 'self' https:; frame-src 'self' https:; connect-src 'self' https:;"> <style>
+  :root {
+    --max-content-width: 930px;
+  }
+</style> <link rel="stylesheet" href="/assets/css/tailwind.css?v=50c64c15cbb9fd1ce6056fdb8bcb4b62"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css" integrity="sha256-MVopmdyC2tYTiJ8wlktf0uh0v4NgT+vNdyVFepi7Q0c=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.5/css/academicons.min.css" integrity="sha256-SzrCOBJbGVFMahewkgjwnApaV2+av1DwMAA+/QGLyZw=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/scholar-icons@1.0.3/css/scholar-icons.css" integrity="sha256-VY3hHVj/hNX3fYG6wtbA6TcKJQl7+FthzGSyIB64klY=" crossorigin="anonymous"> <link defer rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,600&amp;family=JetBrains+Mono:wght@400;500&amp;family=Material+Icons&amp;display=swap"> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-github.css?v=591dab5a4e56573bf4ef7fd332894c99" media="" id="highlight_theme_light"> <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%F0%9F%9F%A1&lt;/text&gt;&lt;/svg&gt;"> <link rel="stylesheet" href="/assets/css/main.css?v=b7e280e57e2bc547c94fb59c914ff711"> <link rel="canonical" href="https://kameans.site/projects/real-autonomy-in-mining/"> </head> <body class="fixed-top-nav "> <header> <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top" role="navigation"> <div class="container"> <a class="navbar-brand title font-weight-lighter" href="/"> Ka-means </a> <button class="navbar-toggler collapsed navbar-toggler-main" type="button" data-nav-toggle="navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar top-bar"></span> <span class="icon-bar middle-bar"></span> <span class="icon-bar bottom-bar"></span> </button> <div class="collapse navbar-collapse navbar-collapse-main" id="navbarNav"> <ul class="navbar-nav navbar-menu-list flex-nowrap"> <li class="nav-item "> <a class="nav-link" href="/">About </a> </li> <li class="nav-item "> <a class="nav-link" href="/blog/">Blog </a> </li> <li class="nav-item "> <a class="nav-link" href="/publications/">Publications </a> </li> <li class="nav-item active"> <a class="nav-link" href="/projects/">Projects <span class="sr-only">(current)</span> </a> </li> <li class="nav-item "> <a class="nav-link" href="/repositories/">Repositories </a> </li> <li class="nav-item "> <a class="nav-link" href="/media/">Media </a> </li> <li class="nav-item "> <a class="nav-link" href="/vault/">Vault </a> </li> <li class="nav-item "> <a class="nav-link" href="/cv/">CV </a> </li> <li class="nav-item"> <button id="search-toggle" type="button" title="Search" aria-label="Open search"> <span class="nav-link">ctrl k <i class="fa-solid fa-magnifying-glass"></i></span> </button> </li> </ul> </div> </div> </nav> <progress id="progress" value="0"> <div class="progress-container"> <span class="progress-bar"></span> </div> </progress> </header> <div class="container mt-5" role="main"> <div class="post"> <header class="post-header"> <h1 class="post-title">Real Autonomy in Mining: Four Experiments to Understand What Happens Beyond the Autonomous Truck</h1> <p class="post-description">A vehicle may operate without a driver and still belong to a fragile, poorly coordinated system that depends on human decisions. This project uses a digital twin to study four less visible dimensions of mining autonomy — model validity, information latency, interoperability, and the distribution of control among people, centralised systems, and decentralised agents.</p> </header> <article> <p>When we talk about autonomous haulage in mining, we usually think first about the truck: its sensors, perception, navigation, and ability to travel without a driver. Yet a mine does not produce simply because one vehicle can move autonomously. It produces because an entire fleet can coordinate with shovels, dump points, crushers, roads, dispatch systems, operators, and other equipment.</p> <p>That shift in scale changes the question. It is not enough to ask whether the truck is autonomous. We must also ask:</p> <ul> <li>Is the information used to make decisions current?</li> <li>Does the system remember the decisions it has just made?</li> <li>Can it coordinate with equipment from other manufacturers and with manually operated vehicles?</li> <li>What happens when the central system fails?</li> <li>Where should the human sit: approving every decision, supervising the system, or managing exceptions?</li> <li>Could a decentralised layer sustain the operation when the central architecture loses visibility?</li> </ul> <p>To explore these questions, we developed a series of four computational notebooks under the title <em>Real Autonomy in Autonomous Haulage</em>. The notebooks share the same simulator, but each examines a different dimension of the problem. The aim is not to declare a winning technology. It is to build a transparent environment in which we can formulate hypotheses, observe mechanisms, and identify the evidence that is still missing.</p> <p><strong>Notebooks in this project:</strong></p> <ul> <li><a href="/vault/colab/calibration-and-tum-accounting/">Notebook 0 — Calibration and TUM Accounting</a></li> <li><a href="/vault/colab/rl-dispatch-information-latency/">Notebook 1 — RL Dispatch Under Information Latency</a></li> <li><a href="/vault/colab/heterogeneous-autonomous-communication/">Notebook 2 — Heterogeneous Autonomous Communication</a></li> <li><a href="/vault/colab/human-in-the-loop-vs-autonomous-vs-autopoietic/">Notebook 3 — Human-in-the-Loop vs. Autonomous vs. Autopoietic</a></li> </ul> <h2 id="a-small-but-deliberately-transparent-digital-twin">A Small but Deliberately Transparent Digital Twin</h2> <p>The project represents the haulage operation of an open-pit copper mine, anonymised as Mine A. The baseline configuration includes 23 autonomous haul trucks, five shovels, and one dump point with two bays. Each simulated shift lasts 12 hours, with the first hour discarded as a warm-up period.</p> <p>The model reproduces ten operating phases: travelling empty, queuing and spotting at the source, waiting and loading, travelling full, queuing and spotting at the destination, waiting, and dumping. Every minute of every truck is also assigned to a Time Usage Model (TUM) category: production, waiting, queuing, process delay, autonomy event, maintenance, or waiting for dispatch.</p> <p>The main indicators are:</p> <ul> <li>fleet production in tonnes per hour;</li> <li>cycle time;</li> <li>source and destination queues;</li> <li>availability and utilisation;</li> <li>shovel hang time;</li> <li>interaction stops and emergency stops;</li> <li>time spent waiting for decisions or approvals.</li> </ul> <p>Durations are not constant. They are sampled from lognormal distributions, and the model includes failures, repairs, refuelling, dump-point blockages, and process delays. Each scenario is replicated using different seeds, and 95% confidence intervals are calculated using Student’s t distribution.</p> <p>This matters because a single simulation run can be misleading. One policy may appear better simply because fewer failures occurred during that shift. Replication allows us to ask whether a difference persists under simulated variability.</p> <p>It is equally important to define what this model is not. It is not a complete operational replica of Mine A. It does not represent ore grades, blending constraints, bench sequences, detailed road geometry, weather, or a production plan. Some parameters come from aggregated dashboard indicators; others were calibrated, while others remain engineering assumptions. The results are therefore comparisons conditional on the model — not forecasts for a real mine.</p> <p>With that boundary made explicit, the four notebooks can be read as four stages of one investigation.</p> <h2 id="notebook-0">Notebook 0: Is the Twin Coherent Enough for Experimentation?</h2> <p><em><a href="/vault/colab/calibration-and-tum-accounting/">Run the interactive notebook →</a></em></p> <h3 id="the-question">The Question</h3> <p>Before comparing algorithms, we must establish whether the simulator can reproduce the broad form of the haul cycle and the observed time accounting. The first question was:</p> <p>Can a compact model reproduce the operation’s aggregated indicators with enough coherence to support policy comparisons within the same twin?</p> <p>This question may sound less exciting than training a reinforcement-learning agent, but it is the most important one. A sophisticated algorithm does not repair a misspecified environment; it merely learns how to exploit its errors.</p> <h3 id="what-we-did">What We Did</h3> <p>We compared the baseline allocation plan with values extracted from the operational dashboard: phase times, availability, utilisation, queues, productivity, and shovel hang time. We also classified every apparent agreement according to its origin:</p> <ul> <li>input, when the value was taken directly from the dashboard;</li> <li>by construction, when it followed directly from selected parameters;</li> <li>calibration target, when the model was adjusted to approximate it;</li> <li>check, when the indicator was not used in calibration.</li> </ul> <p>This distinction avoids a common mistake: presenting as validation something that the model received as an input.</p> <h3 id="the-provisional-answer">The Provisional Answer</h3> <p>The simulated total cycle was 32.24 minutes, compared with 33.51 minutes in the dashboard. Source queue was 5.81 minutes, compared with 6.06; destination queue was 1.54 versus 1.56 minutes; and utilisation was 67.31% versus 66.20%.</p> <p>In other words, the model can approximate the aggregated indicators it was designed to reproduce. But much of that agreement is calibration.</p> <p>The most informative test was the one that failed. Simulated shovel hang time reached 4.41 minutes, almost twice the dashboard value of 2.24 minutes. This discrepancy suggested that the five-shovel structure and the 9-5-4-3-2 baseline allocation might be generating a congestion pattern different from the one observed at the mine.</p> <p>We therefore tested five alternative structures. In every case, a greedy dispatcher using current information outperformed the baseline plan, but the size of the improvement ranged from 4.5% to 23.1%. With four reliable shovels and a more balanced allocation, shovel hang time fell to 2.3 minutes — very close to the dashboard. Yet that same variant did not simultaneously reproduce the observed queue and utilisation.</p> <p>The most honest conclusion from Notebook 0 is therefore twofold:</p> <ol> <li>The twin is internally coherent and useful for comparing policies under common assumptions.</li> <li>The magnitude of the gains depends strongly on how the operating structure is represented.</li> </ol> <p>As a benchmark, greedy dispatch with a current snapshot of committed trucks and shovel status increased throughput from 10,751 to 11,924 t/h — an improvement of 1,173 t/h, or 10.9%. Source queue fell from 5.81 to 2.00 minutes.</p> <p>We do not describe this result as an “upper bound.” The algorithm does not observe the entire physical state, and the model allows the shovel and haul mix to change freely. It is simply a reference point for the value of improved allocation within the assumed structure.</p> <h3 id="the-questions-it-opens">The Questions It Opens</h3> <ul> <li>How many shovels were genuinely active during the reference period?</li> <li>What was the effective truck allocation by shovel?</li> <li>How much of the source queue came from dispatch, and how much from failures, geometry, or production-plan constraints?</li> <li>Would the comparison change if grade, blending, and production priorities were included?</li> <li>Do the conclusions survive in a period of data not used for calibration?</li> </ul> <p>The natural next step is not more algorithmic complexity. It is structural validation using Fleet Management System (FMS) events and a period held out from calibration.</p> <h2 id="notebook-1">Notebook 1: What Does Stale Information Cost, and What Does RL Actually Add?</h2> <p><em><a href="/vault/colab/rl-dispatch-information-latency/">Run the interactive notebook →</a></em></p> <h3 id="the-question-1">The Question</h3> <p>A dispatch system operates as a feedback loop: it observes the operation, assigns trucks, and observes again. But if information arrives five or fifteen minutes late, the picture used for the next decision no longer describes the current state.</p> <p>This led to three questions:</p> <ol> <li>How much production is lost when dispatch trusts a stale snapshot literally?</li> <li>Is it enough to correct that snapshot using the decisions made since it was captured?</li> <li>Does a reinforcement-learning agent add anything beyond that simple correction?</li> </ol> <h3 id="the-mechanism-the-system-forgets-its-own-actions">The Mechanism: The System Forgets Its Own Actions</h3> <p>Imagine that the dashboard shows few trucks committed to one shovel. The dispatcher sends a truck there, but that decision will take several minutes to appear in telemetry. Before the picture updates, other trucks finish dumping and consult the same stale snapshot. They all see the same apparently empty shovel and receive the same destination. The result is a convoy followed by a queue.</p> <p>The proposed correction is simple: take the stale snapshot and add the trucks that the dispatcher itself has assigned during the latency window. The system receives no new field information. It simply stops forgetting its own decisions.</p> <h3 id="what-we-compared">What We Compared</h3> <p>We evaluated six policies under information delays of 0, 5, and 15 minutes:</p> <ul> <li>a static plan;</li> <li>nearest shovel;</li> <li>a probabilistic routing mix without queue telemetry, although it knows which shovels are available;</li> <li>a greedy rule that trusts the stale snapshot;</li> <li>the same greedy rule corrected using recent assignments;</li> <li>a linear RL agent trained for each latency level.</li> </ul> <p>The agent uses 12 features and minimises the time from dispatch until loading is completed. Importantly, it does not start from a blank slate: its features include a corrected estimate constructed using a 4.5-minute service constant. The comparison is therefore not “pure learning” versus “manual engineering.” It asks whether a learned linear combination improves upon an explicit rule that already contains the correction.</p> <h3 id="the-provisional-answer-1">The Provisional Answer</h3> <p>The rule that trusts stale information falls from 11,905 t/h at zero latency to 10,881 t/h with a five-minute delay and 9,514 t/h with a fifteen-minute delay. In the final scenario, source queue reaches 11.3 minutes and the policy performs worse than the static plan.</p> <p>The correction recovers much of the loss:</p> <ul> <li>at five minutes it adds 983 ± 165 t/h relative to the stale rule;</li> <li>at fifteen minutes it adds 2,008 ± 191 t/h.</li> </ul> <p>With fifteen minutes of delay, source queue falls from 11.3 to 1.5 minutes. The conclusion is strikingly practical: before training a more complex policy, make sure the system correctly accounts for its own pending decisions.</p> <p>What about RL? The difference between the agent and the corrected rule was:</p> <ul> <li>−363 ± 277 t/h at zero latency;</li> <li>−32 ± 168 t/h at five minutes;</li> <li>+90 ± 227 t/h at fifteen minutes.</li> </ul> <p>The corrected rule is better in the zero-latency scenario and statistically tied with RL in the other two. At fifteen minutes, both achieve similar throughput, but through different operating patterns: the corrected rule has 1.5 minutes of source queue and 77.3% utilisation; the agent has 3.7 minutes and 71.1%. RL concentrates more work on the nearer shovels, while the rule uses more of the distant-shovel capacity.</p> <p>The notebook does not conclude that reinforcement learning “does not work.” Its conclusion is more specific: this linear agent, with this training process and these features, does not demonstrate an advantage over a transparent rule that corrects latency using a memory of recent decisions.</p> <p>We also observed sensitivity to distribution shift. An agent trained with instantaneous information lost 862 t/h when deployed with a fifteen-minute delay, relative to the agent trained for that condition. A learned policy should not be validated once and assumed to remain valid when the data pipeline changes.</p> <h3 id="the-questions-it-opens-1">The Questions It Opens</h3> <ul> <li>What happens under variable latency, bursts, message loss, or asynchronous sources?</li> <li>Can a more expressive agent outperform the rule without sacrificing interpretability and stability?</li> <li>How does the result change when grade, blending, and bench priorities must be respected?</li> <li>How much uncertainty comes from training? Here, only one training run was used for each latency.</li> <li>How does RL compare with mathematical optimisation or predictive dispatch?</li> <li>Should the agent be trained with domain randomisation so it can tolerate changes in real latency?</li> </ul> <p>The future question is no longer “Can we use RL?” but “What incremental value does it deliver over the strongest simple and auditable benchmark?”</p> <h2 id="notebook-2">Notebook 2: What Is the Value of Interoperability in a Heterogeneous Mine?</h2> <p><em><a href="/vault/colab/heterogeneous-autonomous-communication/">Run the interactive notebook →</a></em></p> <h3 id="the-question-2">The Question</h3> <p>An autonomous mine is rarely a perfectly homogeneous fleet. Trucks from different manufacturers operate alongside manually driven vehicles, light vehicles, support equipment, shovels, and other autonomy platforms. When these agents cannot share intent, autonomous systems tend to behave conservatively: they slow down, stop, or escalate an uncertain situation.</p> <p>The question was: what changes when we move from perception without communication to partial or full interoperability?</p> <h3 id="what-we-modelled">What We Modelled</h3> <p>Encounters with external agents are represented through an interaction rate during travel. Without communication, an encounter produces a hard stop and may escalate to an emergency stop. With communication, it becomes a short negotiated slowdown.</p> <p>Full interoperability also includes an additional assumption: a truck–shovel handshake that reduces part of the spotting and waiting-for-load time. This point is decisive because the “full communication” scenario contains two different mechanisms: coordination on the road, and coordination between truck and shovel.</p> <h3 id="the-provisional-answer-2">The Provisional Answer</h3> <p>Mean throughput was:</p> <ul> <li>11,333 t/h without heterogeneous communication;</li> <li>11,881 t/h with partial coverage;</li> <li>12,349 t/h with full interoperability.</li> </ul> <p>Partial coverage added 548 ± 179 t/h (+4.8%), while full coverage added 1,016 ± 213 t/h (+9.0%) relative to no communication.</p> <p>Cycle time fell from 29.4 to 28.0 minutes, and utilisation increased from 71.1% to 73.8%. Emergency stops fell from 7.8 to 4.8 and then to zero. That zero, however, must not be interpreted as a safety prediction. It is a direct consequence of the model logic: escalation can occur only after an uncoordinated encounter, and the full-coverage scenario eliminates that branch.</p> <p>The TUM accounting helps explain where the improvement appears. Interaction stops fall from 2.99% to 0.49% of fleet time, while code 1010 production rises from 56.16% to 59.57%.</p> <p>The aggregate queue remains almost unchanged, but the bottleneck moves. Source queue falls from 3.32 to 2.70 minutes, while destination queue rises from 1.36 to 1.65 minutes. Increasing production and releasing trucks from the source more quickly can transfer pressure to the crusher. Simply stating that “queues did not change” would conceal that movement.</p> <p>The critical test was to switch off the shovel handshake. When communication improves only road interactions, the benefit falls to 372 ± 178 t/h, or 3.3%. A conditional decomposition assigns approximately 63% of the full improvement to the handshake.</p> <p>That 63% is not a universal causal proportion. The two mechanisms interact: reducing loading-related time increases cycle frequency and changes congestion. Even so, the test clearly identifies the assumption most in need of real data.</p> <p>Sensitivity to traffic density is equally revealing. The advantage of full interoperability over no communication grows from 4.3% under very light external traffic to around 13–14% in the densest scenarios. Interoperability appears most valuable precisely where the operation is most heterogeneous.</p> <h3 id="the-questions-it-opens-2">The Questions It Opens</h3> <ul> <li>What is the real interaction rate with external vehicles and equipment?</li> <li>How long do negotiated and uncoordinated stops actually last?</li> <li>What proportion genuinely escalates into autonomy or emergency events?</li> <li>How much can a real truck–shovel handshake reduce spotting and waiting-for-load time?</li> <li>Where are the highest-value zones: ramps, intersections, loading faces, or dump points?</li> <li>What happens under intermittent spatial coverage or a communication outage?</li> <li>Which protocols enable interoperability without introducing new cybersecurity risks?</li> <li>How should the productivity benefit be separated from the safety requirements of ISO 17757?</li> </ul> <p>The notebook offers a conditional answer about productivity. Safety and certification require a different form of evidence.</p> <h2 id="notebook-3">Notebook 3: Who Should Close the Control Loop?</h2> <p><em><a href="/vault/colab/human-in-the-loop-vs-autonomous-vs-autopoietic/">Run the interactive notebook →</a></em></p> <h3 id="the-question-3">The Question</h3> <p>The final notebook shifts the focus from information to governance. It compares five configurations:</p> <ol> <li>Human-only: radio dispatch using a delayed and noisy picture.</li> <li>Human-in-the-loop (HITL): an optimiser proposes and a person approves every assignment.</li> <li>Human-on-the-loop (HOTL): the optimiser executes while a person supervises exceptions.</li> <li>Central autonomy: a central optimiser with no human approval for each decision.</li> <li>Stigmergic or “autopoietic” configuration: decentralised coordination through environmental flow and cost marks that evaporate over time.</li> </ol> <p>The term autopoietic is used here in a narrow operational sense. The model does not reproduce full biological autopoiesis. The stigmergic policy does not read the global queue vector or central dispatch log. Each truck contributes to shared marks based on its local outcome; when it reaches a failed shovel and diverts, it leaves a temporary repellent signal.</p> <p>We tested all five configurations during a normal shift, a 120-minute FMS outage, a 120-minute shovel failure, and a compound failure in which both events occur simultaneously.</p> <h3 id="a-causal-precaution">A Causal Precaution</h3> <p>These configurations do not differ along only one dimension. Information lag, noise, approval, veto behaviour, redirection delay, exception treatment, and fallback logic all change together. We therefore cannot attribute every difference to “having or not having a human.” We are comparing complete governance configurations.</p> <h3 id="the-provisional-answer-under-normal-operations">The Provisional Answer Under Normal Operations</h3> <p>Mean throughput was:</p> <ul> <li>human-only: 10,916 t/h;</li> <li>HITL: 11,156 t/h;</li> <li>HOTL: 11,630 t/h;</li> <li>central autonomy: 11,533 t/h;</li> <li>stigmergic: 11,721 t/h.</li> </ul> <p>HOTL, central autonomy, and stigmergic control are statistically indistinguishable during a normal shift. Stigmergic control exceeds central autonomy by 187 ± 218 t/h, while HOTL exceeds it by 97 ± 219 t/h; both intervals include zero.</p> <p>The HITL configuration performs 475 ± 200 t/h below HOTL. Part of the difference appears as approval waiting time: HITL accumulates 1.77 minutes of hold per trip. The system reduces some queueing, but replaces it with time spent waiting for a decision.</p> <p>The sensitivity experiment confirms that approval latency is decisive. HITL produces 11,547 t/h with near-instant approval of 0.05 minutes, 11,191 with 1.5 minutes, 10,763 with 3 minutes, and 10,115 with 6 minutes. Near-zero approval is competitive with HOTL; at three minutes, its mean has already fallen below human radio dispatch.</p> <p>The 8% veto does not show a consistent cost. Removing it produces differences ranging from −64 to +110 t/h depending on latency. The evidence does not support assigning a fixed “veto cost.”</p> <h3 id="the-provisional-answer-under-failure">The Provisional Answer Under Failure</h3> <p>Under an FMS-only outage, human-only and stigmergic modes remain unchanged by construction because neither depends on the central node. With the configured fallback, the centralised modes lose less than 2%.</p> <p>Under a shovel-only outage, losses are modest across all five modes. The stigmergic system must locally detect the failed shovel, mark it, and redistribute itself; that process has a cost, although a limited one in this implementation.</p> <p>The difference appears during the compound failure. Stigmergic control maintains 11,555 t/h, compared with 10,905 for HOTL, 10,848 for central autonomy, and 10,536 for HITL. Its advantage is:</p> <ul> <li>650 ± 169 t/h over HOTL;</li> <li>707 ± 148 t/h over central autonomy.</li> </ul> <p>However, the result depends on the fallback selected for the centralised architectures. In the model, after waiting for several minutes, they return to a static allocation that may continue sending trucks to the failed shovel. As the fallback delay increases from 2 to 30 minutes, the advantage of the stigmergic mode grows. If the central modes simply hold until the FMS returns, throughput falls to around 9,000 t/h.</p> <p>This does not demonstrate that decentralisation is always superior. It demonstrates something more specific: a decentralised layer may provide resilience when the alternative is a naive central fallback or prolonged waiting without local decision authority. A central fallback supported by local sensing, radio dispatch, or a distributed backup layer could reduce or eliminate the difference.</p> <h3 id="what-about-human-workload">What About Human Workload?</h3> <p>Human-only and HITL record approximately 331 and 338 control interventions per shift; HOTL records 4.5; central and stigmergic modes record zero control-room interventions under this metric.</p> <p>“Zero” does not mean an absence of human work. The model does not count every physical action performed by field crews, maintenance teams, or emergency responders. The table measures control decisions and exceptions — not total employment or operational responsibility.</p> <h3 id="the-questions-it-opens-3">The Questions It Opens</h3> <ul> <li>What would a factorial comparison look like if latency, approval, veto, and fallback were isolated?</li> <li>Which hybrid fallback best combines central coordination with safe local decision-making?</li> <li>How should fatigue, expertise, cognitive load, and loss of situation awareness be represented?</li> <li>Which events must always be escalated to a person?</li> <li>How do the results change under network partitions, GNSS loss, weather, cyberattacks, or multiple simultaneous failures?</li> <li>How should resilience be measured without reducing it to throughput?</li> <li>What operational meaning can legitimately be assigned to autopoiesis without turning it into an overly broad metaphor?</li> <li>How should responsibility and authority be allocated when multiple agents make local decisions?</li> </ul> <h2 id="what-cross-cutting-answers-does-the-project-offer">What Cross-Cutting Answers Does the Project Offer?</h2> <p>The four notebooks do not close the debate, but they support five provisional answers.</p> <h3 id="1-autonomy-is-a-property-of-the-system-not-only-the-vehicle">1. Autonomy Is a Property of the System, Not Only the Vehicle</h3> <p>A truck may navigate autonomously while belonging to an operation that depends on stale information, incompatible protocols, or a single central node. Operational autonomy includes coordination, information quality, recovery capability, and governance.</p> <h3 id="2-more-data-does-not-help-if-the-system-forgets-its-own-decisions">2. More Data Does Not Help if the System Forgets Its Own Decisions</h3> <p>Latency does more than make information old. It creates a gap between the observed state and the actions already in flight. An explicit memory of those actions can recover more value than a more complex learned controller.</p> <h3 id="3-the-right-benchmark-changes-the-evaluation-of-ai">3. The Right Benchmark Changes the Evaluation of AI</h3> <p>Comparing RL only with a naive rule can create an artificial advantage. In this project, the relevant benchmark is a rule that incorporates a simple physical correction. Against that benchmark, the linear agent does not demonstrate an improvement.</p> <h3 id="4-interoperability-moves-bottlenecks">4. Interoperability Moves Bottlenecks</h3> <p>Reducing road stops and shovel-related delays increases production, but it may also transfer congestion towards the destination. A local improvement does not automatically produce a balanced system-wide improvement.</p> <h3 id="5-decentralisation-is-valuable-for-the-failure-it-allows-the-system-to-survive">5. Decentralisation Is Valuable for the Failure It Allows the System to Survive</h3> <p>The stigmergic mode has no detectable advantage over HOTL or central autonomy during normal operation. Its value emerges when a central outage and local failure coincide, and when the central fallback is weak. The right question is not “centralised or decentralised?” but “Which capabilities must survive locally when global coordination is lost?”</p> <h2 id="what-we-still-cannot-claim">What We Still Cannot Claim</h2> <p>The project does not demonstrate that a real mine will obtain these exact improvements. Nor does it demonstrate that RL is unnecessary, that full communication eliminates risk, or that a stigmergic system can replace human supervision.</p> <p>The results are conditioned by:</p> <ul> <li>an operation reduced to five abstract shovels and one destination;</li> <li>parameters calibrated against aggregated indicators;</li> <li>partially assumed event rates and response times;</li> <li>no grade, blending, bench sequencing, or production-plan constraints;</li> <li>a productivity representation rather than a safety model;</li> <li>a limited set of failures and policies.</li> </ul> <p>This boundary does not weaken the project. It defines precisely what kind of knowledge it produces: experimental evidence within an explicit, reproducible, and contestable model.</p> <h2 id="the-research-agenda-it-opens">The Research Agenda It Opens</h2> <p>The next stage requires less algorithmic spectacle and more contact with the operation. The priorities are:</p> <ol> <li>Validation using FMS events. Reconstruct trips, decisions, queues, failures, and delays at event level, and reserve an independent validation period.</li> <li>Real mining constraints. Add grade, blending, bench priorities, routes, gradients, and destination capacity.</li> <li>Real latency. Measure the complete distribution from sensor to decision: mean, variability, loss, asynchrony, and recovery.</li> <li>Measurable interoperability. Estimate encounters, durations, and handshake benefits by zone and agent type.</li> <li>Stronger comparators. Add mathematical optimisation, predictive control, and agents trained under uncertainty and domain shift.</li> <li>Causal governance design. Separate the effects of human approval, veto, supervision, response time, and fallback.</li> <li>Resilience and safety. Evaluate multiple scenarios and metrics beyond throughput: exposure, recovery, safe degradation, and operator workload.</li> <li>Economic evaluation. Translate production effects into cost, required infrastructure, risk, and the option value of backup capabilities.</li> </ol> <h2 id="an-open-conclusion">An Open Conclusion</h2> <p>The most important lesson from these four notebooks is not a percentage. It is a change in how the problem is framed.</p> <p>The initial question — “How autonomous is the truck?” — is too small. The relevant questions sit one level higher:</p> <ul> <li>What does the system know when it decides?</li> <li>What does it remember about its own actions?</li> <li>With whom can it coordinate?</li> <li>Which part of its intelligence depends on a central node?</li> <li>Which capabilities remain when that node fails?</li> <li>Where does a person add real value, and where do they merely add delay?</li> </ul> <p>The simulations offer a provisional answer: robust autonomy does not emerge from progressively removing the human or from adding a more complex algorithm. It emerges from designing information, coordination, benchmarks, recovery mechanisms, and limits of authority well.</p> <p>That is the space this project seeks to open: moving beyond autonomous vehicles to study autonomous systems that can operate, explain their decisions, and degrade safely when the world stops behaving as expected.</p> <h2 id="scope-note">Scope Note</h2> <p>This article summarises exploratory experiments conducted with a simplified digital twin and anonymised aggregated operational data. The results are not a production forecast, an operational recommendation, or a safety case. Application requires validation with held-out FMS data, mine-plan constraints, and the relevant engineering and safety standards.</p> <h2 id="main-references">Main References</h2> <ol> <li>Operator’s Operations &amp; Supply Chain Management – Time Usage Model (TUM): Our Requirements, v7.0 (12 Jan 2023), anonymised internal standard.</li> <li>Autonomous-Haulage Dashboard, Mine A, anonymised extracts for 9–16 March 2025.</li> <li>Banks, J., Carson, J. S., Nelson, B. L. &amp; Nicol, D. M. (2010). <em>Discrete-Event System Simulation</em> (5th ed.). Pearson.</li> <li>Law, A. M. (2015). <em>Simulation Modeling and Analysis</em> (5th ed.). McGraw-Hill.</li> <li>Alarie, S. &amp; Gamache, M. (2002). Overview of solution strategies used in truck dispatching systems for open pit mines. <em>International Journal of Surface Mining, Reclamation and Environment</em>, 16(1), 59–76.</li> <li>Sutton, R. S. &amp; Barto, A. G. (2018). <em>Reinforcement Learning: An Introduction</em> (2nd ed.). MIT Press.</li> <li>ISO 17757:2019. Earth-moving machinery and mining – Autonomous and semi-autonomous machine system safety.</li> <li>Bainbridge, L. (1983). Ironies of automation. <em>Automatica</em>, 19(6), 775–779.</li> <li>Endsley, M. R. &amp; Kiris, E. O. (1995). The out-of-the-loop performance problem and level of control in automation. <em>Human Factors</em>, 37(2), 381–394.</li> <li>Bonabeau, E., Dorigo, M. &amp; Theraulaz, G. (1999). <em>Swarm Intelligence: From Natural to Artificial Systems</em>. Oxford University Press.</li> </ol> </article> </div> </div> <footer class="fixed-bottom" role="contentinfo"> <div class="container mt-0"> © Copyright 2026 Katherin Molina. </div> </footer> <script>
+  window.alFolio = {
+    compatBootstrap: false
+  };
+</script> <script src="/assets/js/nav-toggle.js?v=141bd79a73ebc0f0b6ea58e440ae79fc"></script> <script defer src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script> <script defer src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js" integrity="sha256-htrLFfZJ6v5udOG+3kNLINIKh2gvoKqwEhHYfTTMICc=" crossorigin="anonymous"></script> <script defer src="/assets/js/masonry.js?v=e49affc7bd2646f6acdad1dbe02c2359" type="text/javascript"></script> <script defer type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js" integrity="sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI=" crossorigin="anonymous"></script> <script src="/assets/al_math/js/mathjax-setup.js"></script> <script src="/assets/js/tooltips-setup.js?v=fe487e99db6c43751e6e7bdb2d6a0611"></script> <script src="/assets/js/no_defer.js?v=53b1b1a645525975c963ce8bf8bfefcf"></script> <script defer src="/assets/js/common.js?v=87baac90f765f2f3362dcf6aaf312a8a"></script> <script defer src="/assets/js/copy_code.js?v=c8a01c11a92744d44b093fc3bda915df" type="text/javascript"></script> <script defer src="/assets/js/jupyter_new_tab.js?v=896d254890d9b47f0281f63bfccf0dee"></script> <script async src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script> <script async src="https://badge.dimensions.ai/badge.js"></script> <script defer src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous"></script> <script defer src="/assets/al_img_tools/js/zoom.js"></script> <script defer src="/assets/js/progress-bar.js?v=499464c5c63ced6cf7ad62509f1e2610" type="text/javascript"></script> <script src="https://cdn.jsdelivr.net/npm/vanilla-back-to-top@7.2.1/dist/vanilla-back-to-top.min.js" integrity="sha256-uMJJ3EoTyfRBoTbR+lrfu1uRQ87RZG8AR3cVNuQVeFg=" crossorigin="anonymous"></script> <script>
+    addBackToTop();
+  </script> <script type="module" src="/assets/al_search/js/search/ninja-keys.min.js"></script> <ninja-keys hidebreadcrumbs noautoloadmdicons placeholder="Type to start searching"></ninja-keys> <script src="/assets/al_search/js/search-setup.js"></script> <script>
+// get the ninja-keys element
+const ninja = document.querySelector('ninja-keys');
+
+// add the home and posts menu items
+ninja.data = [{
+    id: "nav-about",
+    title: "About",
+    section: "Navigation",
+    handler: () => {
+      window.location.href = "/";
+    },
+  },{id: "nav-blog",
+          title: "Blog",
+          description: "",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/blog/";
+          },
+        },{id: "nav-publications",
+          title: "Publications",
+          description: "Research publications, organized by topic.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/publications/";
+          },
+        },{id: "nav-projects",
+          title: "Projects",
+          description: "Engineering and research projects, linked to their GitHub repos.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/projects/";
+          },
+        },{id: "nav-repositories",
+          title: "Repositories",
+          description: "Live-pulled public repositories from GitHub (ka-means personal account), forks excluded, sorted by last updated.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/repositories/";
+          },
+        },{id: "nav-media",
+          title: "Media",
+          description: "Curated third-party learning resources, and my own recorded talks and podcast appearances.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/media/";
+          },
+        },{id: "nav-vault",
+          title: "Vault",
+          description: "Notes, Colab notebooks, slides, and reports &amp; concept maps.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/vault/";
+          },
+        },{id: "nav-cv",
+          title: "CV",
+          description: "Curriculum vitae, generated from _data/cv.yml.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/cv/";
+          },
+        },{id: "post-sci-tech-the-signal-and-the-noise",
+        
+          title: "Sci-Tech: The Signal and the Noise",
+        
+        description: "Our current era is largely defined by an obsession with accumulating data, driven by the false illusion that having more data inevitably equals having more knowledge.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/sci-tech-the-signal-and-the-noise/";
+          
+        },
+      },{id: "post-econ-politics-the-market-as-a-process-of-discovery",
+        
+          title: "Econ-Politics: The Market as a Process of Discovery",
+        
+        description: "It is common to talk about the economy as if it were a mechanical engine, something governments can speed up or slow down by simply adjusting a few levers of monetary policy.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/econ-politics-market-as-process-of-discovery/";
+          
+        },
+      },{id: "post-ai-ml-the-danger-of-rewards",
+        
+          title: "AI/ML: The Danger of Rewards",
+        
+        description: "Imagine you are training a dog. You give it a treat when it sits. Machine learning, at its core, operates on a surprisingly similar principle.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/ai-ml-the-danger-of-rewards/";
+          
+        },
+      },{id: "post-social-sciences-the-arithmetic-of-the-irrational",
+        
+          title: "Social Sciences: The Arithmetic of the Irrational",
+        
+        description: "Many of us grew up with the idea that human beings are strictly rational actors.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/social-sciences-arithmetic-of-the-irrational/";
+          
+        },
+      },{id: "post-abm-the-world-in-miniature",
+        
+          title: "ABM: The World in Miniature",
+        
+        description: "Traditional statistics often tries to predict human behavior using massive, sweeping equations.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/abm-the-world-in-miniature/";
+          
+        },
+      },{id: "post-robotics-the-intelligence-of-the-mechanical-crowd",
+        
+          title: "Robotics: The Intelligence of the Mechanical Crowd",
+        
+        description: "When you watch a flock of starlings murmurating at dusk, it is hard not to look for the invisible conductor.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2023/robotics-intelligence-of-the-mechanical-crowd/";
+          
+        },
+      },{id: "post-engineering-systems-that-build-themselves",
+        
+          title: "Engineering: Systems That Build Themselves",
+        
+        description: "Software engineering used to be a lot like clockmaking.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2023/engineering-systems-that-build-themselves/";
+          
+        },
+      },{id: "post-complex-systems-the-architecture-of-contagion",
+        
+          title: "Complex Systems: The Architecture of Contagion",
+        
+        description: "A biological virus, a fake news story, and a bank run all spread following the same fundamental laws.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2022/complex-systems-architecture-of-contagion/";
+          
+        },
+      },{id: "books-agent-based-modeling-and-simulation",
+          title: 'Agent-based Modeling and Simulation',
+          description: "Edited by Simon JE Taylor — The OR Essentials series (Palgrave Macmillan, 2014).",
+          section: "Books",handler: () => {
+              window.location.href = "/vault/books/agent-based-modeling-and-simulation/";
+            },},{id: "books-artificial-intelligence-a-modern-approach",
+          title: 'Artificial Intelligence: A Modern Approach',
+          description: "By Stuart Russell and Peter Norvig — the book that shaped how I think about this field.",
+          section: "Books",handler: () => {
+              window.location.href = "/vault/books/artificial-intelligence-a-modern-approach/";
+            },},{id: "colab-calibration-and-tum-accounting",
+          title: 'Calibration and TUM Accounting',
+          description: "Digital-twin validation experiment testing whether a compact haulage simulator reproduces the operation&#39;s aggregated indicators closely enough to support policy comparisons.",
+          section: "Colab",handler: () => {
+              window.location.href = "/vault/colab/calibration-and-tum-accounting/";
+            },},{id: "colab-network-dynamics-and-evolution-independent-cascade-model",
+          title: 'Network Dynamics and Evolution — Independent Cascade Model',
+          description: "Implementation of an independent cascade (diffusion/infection) model on a network, as a network science course exercise.",
+          section: "Colab",handler: () => {
+              window.location.href = "/vault/colab/dinamicas-y-evolucion-de-redes/";
+            },},{id: "colab-heterogeneous-autonomous-communication",
+          title: 'Heterogeneous Autonomous Communication',
+          description: "Digital-twin experiment measuring the production value of interoperability when an autonomous haul fleet shares the mine with other manufacturers&#39; equipment and manually driven vehicles.",
+          section: "Colab",handler: () => {
+              window.location.href = "/vault/colab/heterogeneous-autonomous-communication/";
+            },},{id: "colab-human-in-the-loop-vs-autonomous-vs-autopoietic",
+          title: 'Human-in-the-Loop vs. Autonomous vs. Autopoietic',
+          description: "Digital-twin experiment comparing five dispatch-governance configurations — human-only, human-in-the-loop, human-on-the-loop, central autonomy, and decentralized stigmergic control — under normal operation and simulated FMS or shovel failures.",
+          section: "Colab",handler: () => {
+              window.location.href = "/vault/colab/human-in-the-loop-vs-autonomous-vs-autopoietic/";
+            },},{id: "colab-machine-learning-on-graphs-graph-embeddings",
+          title: 'Machine Learning on Graphs — Graph Embeddings',
+          description: "Lab on graph embedding methods (DeepWalk, Node2Vec) for applying machine learning to network data.",
+          section: "Colab",handler: () => {
+              window.location.href = "/vault/colab/machine-learning-en-grafos/";
+            },},{id: "colab-implementation-of-the-coevolution-model",
+          title: 'Implementation of the Coevolution Model',
+          description: "Implementation of a coevolution model where node opinions and network structure change together, as a network science course exercise.",
+          section: "Colab",handler: () => {
+              window.location.href = "/vault/colab/modelo-de-coevolucion/";
+            },},{id: "colab-building-gpt-from-scratch-course-lab",
+          title: 'Building GPT from Scratch — Course Lab',
+          description: "Course lab implementing a GPT-style transformer decoder, including causal self-attention, from scratch.",
+          section: "Colab",handler: () => {
+              window.location.href = "/vault/colab/nlp-building-gpt-lab/";
+            },},{id: "colab-introduction-to-nlp-course-lab",
+          title: 'Introduction to NLP — Course Lab',
+          description: "Course lab introducing core Natural Language Processing concepts and tools.",
+          section: "Colab",handler: () => {
+              window.location.href = "/vault/colab/nlp-introduction-lab/";
+            },},{id: "colab-word2vec-course-lab",
+          title: 'Word2Vec — Course Lab',
+          description: "Course lab on Word2Vec word embeddings for Natural Language Processing.",
+          section: "Colab",handler: () => {
+              window.location.href = "/vault/colab/nlp-word2vec-lab/";
+            },},{id: "colab-rl-dispatch-under-information-latency",
+          title: 'RL Dispatch Under Information Latency',
+          description: "Digital-twin experiment on reinforcement-learning dispatch for autonomous haul fleets when telemetry arrives late.",
+          section: "Colab",handler: () => {
+              window.location.href = "/vault/colab/rl-dispatch-information-latency/";
+            },},{id: "colab-schelling-segregation-model-interactive-notebook",
+          title: 'Schelling Segregation Model — Interactive Notebook',
+          description: "Run the agent-based segregation model from the Models series blog post directly in Colab, no local setup required.",
+          section: "Colab",handler: () => {
+              window.location.href = "/vault/colab/segregation-model-colab/";
+            },},{id: "media-game-theory",
+          title: 'Game Theory',
+          description: "Game Theory, a full course taught by Ben Polak.",
+          section: "Media",handler: () => {
+              window.location.href = "/media/game-theory-ben-polak/";
+            },},{id: "media-cs223a-introduction-to-robotics",
+          title: 'CS223A: Introduction to Robotics',
+          description: "Full course on the fundamentals of robotics — kinematics, dynamics, trajectory planning, and control.",
+          section: "Media",handler: () => {
+              window.location.href = "/media/cs223a-introduction-to-robotics/";
+            },},{id: "media-lecciones-de-economía",
+          title: 'Lecciones de Economía',
+          description: "Lecciones de Economía, impartidas por Jesús Huerta de Soto.",
+          section: "Media",handler: () => {
+              window.location.href = "/media/lecciones-de-economia-huerta-de-soto/";
+            },},{id: "media-adaptive-computing",
+          title: 'Adaptive Computing',
+          description: "Curso sobre computación adaptativa.",
+          section: "Media",handler: () => {
+              window.location.href = "/media/adaptive-computing/";
+            },},{id: "media-pensamiento-sistémico-y-las-ciencias",
+          title: 'Pensamiento Sistémico y las Ciencias',
+          description: "Curso sobre pensamiento sistémico y las ciencias.",
+          section: "Media",handler: () => {
+              window.location.href = "/media/pensamiento-sistemico-y-las-ciencias/";
+            },},{id: "media-sistemas-complejos-y-teoría-de-redes",
+          title: 'Sistemas Complejos y Teoría de Redes',
+          description: "Curso sobre sistemas complejos y teoría de redes.",
+          section: "Media",handler: () => {
+              window.location.href = "/media/sistemas-complejos-teoria-de-redes/";
+            },},{id: "media-random-walks-tutorial",
+          title: 'Random Walks Tutorial',
+          description: "A tutorial playlist on random walks, published by Complexity Explorer.",
+          section: "Media",handler: () => {
+              window.location.href = "/media/random-walks-tutorial/";
+            },},{id: "media-dynamical-systems-and-chaos",
+          title: 'Dynamical Systems and Chaos',
+          description: "A playlist on dynamical systems and chaos theory, published by Complexity Explorer.",
+          section: "Media",handler: () => {
+              window.location.href = "/media/dynamical-systems-and-chaos/";
+            },},{id: "media-introduction-to-complexity",
+          title: 'Introduction to Complexity',
+          description: "These are videos from the Introduction to Complexity online course hosted on Complexity Explorer.",
+          section: "Media",handler: () => {
+              window.location.href = "/media/introduction-to-complexity/";
+            },},{id: "media-robotics-education-matlab-and-simulink-robotics-arena",
+          title: 'Robotics Education: MATLAB and Simulink Robotics Arena',
+          description: "A playlist on robotics education using MATLAB and Simulink, published by MathWorks&#39; Robotics Arena.",
+          section: "Media",handler: () => {
+              window.location.href = "/media/matlab-simulink-robotics-arena/";
+            },},{id: "media-análisis-y-diseño-de-algoritmos-a2025",
+          title: 'Análisis y Diseño de Algoritmos (A2025)',
+          description: "Curso de Análisis y Diseño de Algoritmos (A2025), publicado por el canal NDS LAB del Centro de Investigación en Computación del IPN.",
+          section: "Media",handler: () => {
+              window.location.href = "/media/algorithm-design-analysis-course/";
+            },},{id: "media-curso-de-aprendizaje-profundo-deep-learning",
+          title: 'Curso de Aprendizaje Profundo (Deep Learning)',
+          description: "Curso de Aprendizaje Profundo (Deep Learning), publicado por el canal NDS LAB del Centro de Investigación en Computación del IPN.",
+          section: "Media",handler: () => {
+              window.location.href = "/media/deep-learning-course-ipn/";
+            },},{id: "media-curso-de-aprendizaje-por-refuerzo",
+          title: 'Curso de Aprendizaje por Refuerzo',
+          description: "Curso de Aprendizaje por Refuerzo impartido por el Dr. Rolando Menchaca Méndez en el Centro de Investigación en Computación del IPN.",
+          section: "Media",handler: () => {
+              window.location.href = "/media/reinforcement-learning-course-ipn/";
+            },},{id: "media-autonomous-agents-run-google-and-siri",
+          title: 'Autonomous Agents Run Google and Siri',
+          description: "An AI-generated audio overview exploring how autonomous agents power products like Google Assistant and Siri.",
+          section: "Media",handler: () => {
+              window.location.href = "/media/autonomous-agents-google-siri/";
+            },},{id: "media-the-engineering-behind-artemis-ii",
+          title: 'The Engineering Behind Artemis II',
+          description: "An AI-generated audio overview exploring the engineering behind NASA&#39;s Artemis II mission.",
+          section: "Media",handler: () => {
+              window.location.href = "/media/engineering-behind-artemis-ii/";
+            },},{id: "notes-week-1-networks-and-emergence",
+          title: 'Week 1 — Networks and Emergence',
+          description: "Wiki-style notes from the first week of a graduate seminar on network science and emergent behavior.",
+          section: "Notes",handler: () => {
+              window.location.href = "/vault/notes/networks-and-emergence-week1/";
+            },},{id: "notes-the-clash-of-models-agent-based-vs-equation-based-modeling",
+          title: 'The Clash of Models: Agent-Based vs. Equation-Based Modeling',
+          description: "Notes on why Agent-Based Models (ABM) and Equation-Based Models (EBM) diverge, and how they complement rather than compete with each other.",
+          section: "Notes",handler: () => {
+              window.location.href = "/vault/notes/clash-of-models-abm-vs-ebm/";
+            },},{id: "projects-agent-based-simulation-toolkit",
+          title: 'Agent-Based Simulation Toolkit',
+          description: "A lightweight Python toolkit for building and visualizing agent-based models of complex adaptive systems.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/agent-based-simulation-toolkit/";
+            },},{id: "projects-real-autonomy-in-mining-four-experiments-to-understand-what-happens-beyond-the-autonomous-truck",
+          title: 'Real Autonomy in Mining: Four Experiments to Understand What Happens Beyond the Autonomous...',
+          description: "A vehicle may operate without a driver and still belong to a fragile, poorly coordinated system that depends on human decisions. This project uses a digital twin to study four less visible dimensions of mining autonomy — model validity, information latency, interoperability, and the distribution of control among people, centralised systems, and decentralised agents.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/real-autonomy-in-mining/";
+            },},{id: "reports-complex-systems-research-concept-map",
+          title: 'Complex Systems Research — Concept Map',
+          description: "A standalone concept map of how the four research areas on this site (complex systems, econ &amp; politics, sci-tech, engineering) connect, exported from Whimsical.",
+          section: "Reports",handler: () => {
+              window.location.href = "/vault/reports/complex-systems-research-map/";
+            },},{id: "reports-german-credit-credit-risk-case-study",
+          title: 'German Credit — Credit Risk Case Study',
+          description: "Logistic regression model for credit risk classification on the German Credit dataset, for the Modelos Analíticos course at Pontificia Universidad Católica de Chile.",
+          section: "Reports",handler: () => {
+              window.location.href = "/vault/reports/german-credit-case/";
+            },},{id: "reports-presenting-banking-products-amp-women-and-children-first-on-the-titanic-hbs-case-analyses",
+          title: 'Presenting Banking Products &amp;amp; Women and Children First on the Titanic — HBS...',
+          description: "Statistical analysis of two Harvard Business School cases, for the Modelos Analíticos course at Pontificia Universidad Católica de Chile.",
+          section: "Reports",handler: () => {
+              window.location.href = "/vault/reports/hbs-cases-banking-titanic/";
+            },},{id: "reports-survival-analysis-of-recidivism-rossi-tarp-study",
+          title: 'Survival Analysis of Recidivism (Rossi/TARP Study)',
+          description: "Survival analysis of recidivism risk on the classic Rossi/TARP dataset, for the MCD - Estadística Aplicada course at Pontificia Universidad Católica de Chile.",
+          section: "Reports",handler: () => {
+              window.location.href = "/vault/reports/survival-analysis-rossi-tarp/";
+            },},{id: "reports-mixed-effects-models-orthodont-case",
+          title: 'Mixed-Effects Models — Orthodont Case',
+          description: "Linear mixed-effects model of craniofacial growth on the classic Orthodont dataset, for the MCD - Estadística Aplicada course at Pontificia Universidad Católica de Chile.",
+          section: "Reports",handler: () => {
+              window.location.href = "/vault/reports/mixed-effects-models-orthodont-case/";
+            },},{id: "slides-engineering-autonomy-from-software-agents-to-human-agent-teaming",
+          title: 'Engineering Autonomy: From Software Agents to Human-Agent Teaming',
+          description: "A system-theoretic synthesis tracing the path from individual software agents to multi-agent systems to human-agent teams.",
+          section: "Slides",handler: () => {
+              window.location.href = "/vault/slides/engineering-autonomy-human-agent-teaming/";
+            },},{id: "slides-modeling-complexity-at-scale",
+          title: 'Modeling Complexity at Scale',
+          description: "A high-level strategic guide to Agent-Based Models (ABM) vs. traditional equation-based paradigms.",
+          section: "Slides",handler: () => {
+              window.location.href = "/vault/slides/modeling-complexity-at-scale/";
+            },},{id: "slides-research-overview-complex-systems-autonomy-and-coordination",
+          title: 'Research Overview: Complex Systems, Autonomy, and Coordination',
+          description: "Slide deck accompanying the Media section, exported from Keynote as PDF.",
+          section: "Slides",handler: () => {
+              window.location.href = "/vault/slides/research-overview-slides/";
+            },},{id: "teachings-data-science-fundamentals",
+          title: 'Data Science Fundamentals',
+          description: "This course covers the foundational aspects of data science, including data collection, cleaning, analysis, and visualization. Students will learn practical skills for working with real-world datasets.",
+          section: "Teachings",handler: () => {
+              window.location.href = "/teachings/data-science-fundamentals/";
+            },},{id: "teachings-introduction-to-machine-learning",
+          title: 'Introduction to Machine Learning',
+          description: "This course provides an introduction to machine learning concepts, algorithms, and applications. Students will learn about supervised and unsupervised learning, model evaluation, and practical implementations.",
+          section: "Teachings",handler: () => {
+              window.location.href = "/teachings/introduction-to-machine-learning/";
+            },},{
+        id: 'social-email',
+        title: 'email',
+        section: 'Socials',
+        handler: () => {
+          window.open("mailto:%6B%61%74%68.%6B%61%68%6C%6F@%68%6F%74%6D%61%69%6C.%63%6F%6D", "_blank");
+        },
+      },{
+        id: 'social-github',
+        title: 'GitHub',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://github.com/ka-means", "_blank");
+        },
+      },{
+        id: 'social-linkedin',
+        title: 'LinkedIn',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://www.linkedin.com/in/katherin-molina", "_blank");
+        },
+      },{
+        id: 'social-medium',
+        title: 'Medium',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://medium.com/@ka-means", "_blank");
+        },
+      },{
+        id: 'social-orcid',
+        title: 'ORCID',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://orcid.org/0009-0002-7194-9021", "_blank");
+        },
+      },{
+        id: 'social-rss',
+        title: 'RSS Feed',
+        section: 'Socials',
+        handler: () => {
+          window.open("/feed.xml", "_blank");
+        },
+      },];
+
+</script> <script src="/assets/al_search/js/shortcut-key.js"></script> </body> </html>
