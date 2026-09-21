@@ -1,8 +1,8 @@
 ---
 layout: page
-title: "Implementación del Modelo de Coevolución"
+title: "Implementation of the Coevolution Model"
 description: Implementation of a coevolution model where node opinions and network structure change together, as a network science course exercise.
-tags: [complex-systems, sci-tech]
+tags: [Spanish, complex-systems, sci-tech]
 permalink: /vault/colab/modelo-de-coevolucion/
 ---
 

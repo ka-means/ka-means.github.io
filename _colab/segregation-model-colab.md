@@ -4,7 +4,7 @@ title: Schelling Segregation Model — Interactive Notebook
 description: Run the agent-based segregation model from the Models series blog post directly in Colab, no local setup required.
 repo: https://github.com/KahloGroup/agent-based-simulation-toolkit
 colab_url: https://colab.research.google.com/github/KahloGroup/agent-based-simulation-toolkit/blob/main/notebooks/segregation_model.ipynb
-tags: complex-systems
+tags: [English, complex-systems]
 permalink: /vault/colab/segregation-model-colab/
 ---
 

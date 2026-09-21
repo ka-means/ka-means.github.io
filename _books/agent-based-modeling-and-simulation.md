@@ -3,7 +3,7 @@ layout: page
 title: "Agent-based Modeling and Simulation"
 description: Edited by Simon JE Taylor — The OR Essentials series (Palgrave Macmillan, 2014).
 date: 2026-09-15
-tags: [complex-systems, sci-tech]
+tags: [English, complex-systems, sci-tech]
 permalink: /vault/books/agent-based-modeling-and-simulation/
 ---
 

@@ -1,8 +1,8 @@
 ---
 layout: page
-title: "Dinámicas y Evolución de Redes — Independent Cascade Model"
+title: "Network Dynamics and Evolution — Independent Cascade Model"
 description: Implementation of an independent cascade (diffusion/infection) model on a network, as a network science course exercise.
-tags: [complex-systems, sci-tech]
+tags: [Spanish, complex-systems, sci-tech]
 permalink: /vault/colab/dinamicas-y-evolucion-de-redes/
 ---
 

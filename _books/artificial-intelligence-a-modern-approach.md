@@ -3,7 +3,7 @@ layout: page
 title: "Artificial Intelligence: A Modern Approach"
 description: By Stuart Russell and Peter Norvig — the book that shaped how I think about this field.
 date: 2026-09-15
-tags: [sci-tech, engineering]
+tags: [English, sci-tech, engineering]
 permalink: /vault/books/artificial-intelligence-a-modern-approach/
 ---
 

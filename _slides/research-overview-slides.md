@@ -2,7 +2,7 @@
 layout: page
 title: "Research Overview: Complex Systems, Autonomy, and Coordination"
 description: Slide deck accompanying the Media section, exported from Keynote as PDF.
-tags: engineering
+tags: [English, engineering]
 pdf: assets/pdf/example_pdf.pdf
 permalink: /vault/slides/research-overview-slides/
 ---

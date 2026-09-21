@@ -1,9 +1,9 @@
 ---
 layout: page
-title: "Análisis de Supervivencia de la Reincidencia (Estudio Rossi/TARP)"
+title: "Survival Analysis of Recidivism (Rossi/TARP Study)"
 description: Survival analysis of recidivism risk on the classic Rossi/TARP dataset, for the MCD - Estadística Aplicada course at Pontificia Universidad Católica de Chile.
 date: 2025-11-02
-tags: [econ-politics, sci-tech]
+tags: [Spanish, econ-politics, sci-tech]
 pdf: assets/pdf/reports/survival-analysis-rossi-tarp.pdf
 permalink: /vault/reports/survival-analysis-rossi-tarp/
 ---

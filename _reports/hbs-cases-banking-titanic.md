@@ -3,7 +3,7 @@ layout: page
 title: "Presenting Banking Products & Women and Children First on the Titanic — HBS Case Analyses"
 description: Statistical analysis of two Harvard Business School cases, for the Modelos Analíticos course at Pontificia Universidad Católica de Chile.
 date: 2024-12-01
-tags: [econ-politics, sci-tech]
+tags: [Spanish, econ-politics, sci-tech]
 doc: assets/docs/reports/hbs-cases-banking-titanic.docx
 permalink: /vault/reports/hbs-cases-banking-titanic/
 ---

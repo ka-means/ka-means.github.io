@@ -3,7 +3,7 @@ layout: page
 title: "German Credit — Credit Risk Case Study"
 description: Logistic regression model for credit risk classification on the German Credit dataset, for the Modelos Analíticos course at Pontificia Universidad Católica de Chile.
 date: 2024-11-18
-tags: [econ-politics, sci-tech]
+tags: [Spanish, econ-politics, sci-tech]
 doc: assets/docs/reports/german-credit-case.docx
 permalink: /vault/reports/german-credit-case/
 ---

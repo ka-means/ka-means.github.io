@@ -25,6 +25,13 @@ nav_order: 6
     <li>
       <h3><a class="post-title" href="{{ note.url | relative_url }}">{{ note.title }}</a></h3>
       <p>{{ note.description }}</p>
+      {% if note.tags.size > 0 %}
+      <p class="post-tags">
+        {% for topic in note.tags %}
+        <span class="category-badge">{{ topic }}</span>
+        {% endfor %}
+      </p>
+      {% endif %}
     </li>
     {% endfor %}
   </ul>
@@ -42,6 +49,13 @@ nav_order: 6
     <li>
       <h3><a class="post-title" href="{{ item.url | relative_url }}">{{ item.title }}</a></h3>
       <p>{{ item.description }}</p>
+      {% if item.tags.size > 0 %}
+      <p class="post-tags">
+        {% for topic in item.tags %}
+        <span class="category-badge">{{ topic }}</span>
+        {% endfor %}
+      </p>
+      {% endif %}
     </li>
     {% else %}
     <p>No Colab entries yet.</p>
@@ -58,6 +72,13 @@ nav_order: 6
     <li>
       <h3><a class="post-title" href="{{ item.url | relative_url }}">{{ item.title }}</a></h3>
       <p>{{ item.description }}</p>
+      {% if item.tags.size > 0 %}
+      <p class="post-tags">
+        {% for topic in item.tags %}
+        <span class="category-badge">{{ topic }}</span>
+        {% endfor %}
+      </p>
+      {% endif %}
     </li>
     {% else %}
     <p>No slide decks yet.</p>
@@ -74,6 +95,13 @@ nav_order: 6
     <li>
       <h3><a class="post-title" href="{{ item.url | relative_url }}">{{ item.title }}</a></h3>
       <p>{{ item.description }}</p>
+      {% if item.tags.size > 0 %}
+      <p class="post-tags">
+        {% for topic in item.tags %}
+        <span class="category-badge">{{ topic }}</span>
+        {% endfor %}
+      </p>
+      {% endif %}
     </li>
     {% else %}
     <p>No books yet.</p>
@@ -90,6 +118,13 @@ nav_order: 6
     <li>
       <h3><a class="post-title" href="{{ item.url | relative_url }}">{{ item.title }}</a></h3>
       <p>{{ item.description }}</p>
+      {% if item.tags.size > 0 %}
+      <p class="post-tags">
+        {% for topic in item.tags %}
+        <span class="category-badge">{{ topic }}</span>
+        {% endfor %}
+      </p>
+      {% endif %}
     </li>
     {% else %}
     <p>No reports yet.</p>

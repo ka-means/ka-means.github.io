@@ -4,7 +4,7 @@ title: "Week 1 — Networks and Emergence"
 description: Wiki-style notes from the first week of a graduate seminar on network science and emergent behavior.
 course: Complex Systems Seminar
 date: 2026-07-30
-tags: complex-systems
+tags: [English, complex-systems]
 pdf: assets/pdf/notes/networks-and-emergence-week1.pdf
 permalink: /vault/notes/networks-and-emergence-week1/
 ---

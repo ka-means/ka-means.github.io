@@ -1,8 +1,8 @@
 ---
 layout: page
-title: "Machine Learning en Grafos — Graph Embeddings"
+title: "Machine Learning on Graphs — Graph Embeddings"
 description: Lab on graph embedding methods (DeepWalk, Node2Vec) for applying machine learning to network data.
-tags: [complex-systems, sci-tech, engineering]
+tags: [Spanish, complex-systems, sci-tech, engineering]
 permalink: /vault/colab/machine-learning-en-grafos/
 ---
 
