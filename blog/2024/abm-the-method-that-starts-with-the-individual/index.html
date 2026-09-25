@@ -1,8 +1,8 @@
-<!DOCTYPE html> <html lang="en"> <head> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <title> Sci-Tech: The Signal and the Noise | Ka-means </title> <meta name="author" content="Katherin Molina"> <meta name="description" content="Our current era is largely defined by an obsession with accumulating data, driven by the false illusion that having more data inevitably equals having more knowledge."> <meta name="keywords" content="research, complex-systems, economics, politics, science, technology, engineering"> <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; media-src 'self' https:; frame-src 'self' https:; connect-src 'self' https:;"> <style>
+<!DOCTYPE html> <html lang="en"> <head> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <title> ABM: The Method That Starts with the Individual | Ka-means </title> <meta name="author" content="Katherin Molina"> <meta name="description" content="Nobody chose segregation at the system level. It emerged from decisions that, individually, seemed almost neutral."> <meta name="keywords" content="research, complex-systems, economics, politics, science, technology, engineering"> <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; media-src 'self' https:; frame-src 'self' https:; connect-src 'self' https:;"> <style>
   :root {
     --max-content-width: 930px;
   }
-</style> <link rel="stylesheet" href="/assets/css/tailwind.css?v=50c64c15cbb9fd1ce6056fdb8bcb4b62"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css" integrity="sha256-MVopmdyC2tYTiJ8wlktf0uh0v4NgT+vNdyVFepi7Q0c=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.5/css/academicons.min.css" integrity="sha256-SzrCOBJbGVFMahewkgjwnApaV2+av1DwMAA+/QGLyZw=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/scholar-icons@1.0.3/css/scholar-icons.css" integrity="sha256-VY3hHVj/hNX3fYG6wtbA6TcKJQl7+FthzGSyIB64klY=" crossorigin="anonymous"> <link defer rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,600&amp;family=JetBrains+Mono:wght@400;500&amp;family=Material+Icons&amp;display=swap"> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-github.css?v=591dab5a4e56573bf4ef7fd332894c99" media="" id="highlight_theme_light"> <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%F0%9F%9F%A1&lt;/text&gt;&lt;/svg&gt;"> <link rel="stylesheet" href="/assets/css/main.css?v=b7e280e57e2bc547c94fb59c914ff711"> <link rel="canonical" href="https://kameans.site/blog/2026/sci-tech-the-signal-and-the-noise/"> </head> <body class="fixed-top-nav "> <header> <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top" role="navigation"> <div class="container"> <a class="navbar-brand title font-weight-lighter" href="/"> Ka-means </a> <button class="navbar-toggler collapsed navbar-toggler-main" type="button" data-nav-toggle="navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar top-bar"></span> <span class="icon-bar middle-bar"></span> <span class="icon-bar bottom-bar"></span> </button> <div class="collapse navbar-collapse navbar-collapse-main" id="navbarNav"> <ul class="navbar-nav navbar-menu-list flex-nowrap"> <li class="nav-item "> <a class="nav-link" href="/">About </a> </li> <li class="nav-item active"> <a class="nav-link" href="/blog/">Blog </a> </li> <li class="nav-item "> <a class="nav-link" href="/publications/">Publications </a> </li> <li class="nav-item "> <a class="nav-link" href="/projects/">Projects </a> </li> <li class="nav-item "> <a class="nav-link" href="/repositories/">Repositories </a> </li> <li class="nav-item "> <a class="nav-link" href="/media/">Media </a> </li> <li class="nav-item "> <a class="nav-link" href="/vault/">Vault </a> </li> <li class="nav-item "> <a class="nav-link" href="/cv/">CV </a> </li> <li class="nav-item"> <button id="search-toggle" type="button" title="Search" aria-label="Open search"> <span class="nav-link">ctrl k <i class="fa-solid fa-magnifying-glass"></i></span> </button> </li> </ul> </div> </div> </nav> <progress id="progress" value="0"> <div class="progress-container"> <span class="progress-bar"></span> </div> </progress> </header> <div class="container mt-5" role="main"> <div class="post"> <header class="post-header"> <h1 class="post-title">Sci-Tech: The Signal and the Noise</h1> <p class="post-meta"> Created on March 11, 2026 </p> <p class="post-tags"> <a href="/blog/2026"> <i class="fa-solid fa-calendar fa-sm"></i> 2026 </a>   ·   <a href="/blog/category/sci-tech"> <i class="fa-solid fa-tag fa-sm"></i> sci-tech</a> </p> </header> <article class="post-content"> <div id="markdown-content"> <p>Our current era is largely defined by an obsession with accumulating data, driven by the false illusion that having more data inevitably equals having more knowledge. Information theory, however, defines real information as that which successfully reduces our uncertainty.</p> <p>Mathematically, this is measured through the concept of entropy. As we hyper-connect sensors, devices, and servers, the sheer volume of noise in the system grows exponentially. Our digital infrastructure becomes vast, but also incredibly fragile.</p> <p>Cybersecurity and network engineering are no longer just about building an impenetrable wall of code. They operate on the assumption that the wall will eventually fall. The true scientific challenge is not figuring out how to keep the noise out permanently, but rather how to design networks with true digital resilience.</p> <h2 id="questions-that-arise-from-thinking-about-this-topic">Questions that arise from thinking about this topic</h2> <ul> <li>How do we build technological architectures that do not just survive failure, but are capable of degrading gracefully and recovering autonomously?</li> </ul> </div> </article> </div> </div> <footer class="fixed-bottom" role="contentinfo"> <div class="container mt-0"> © Copyright 2026 Katherin Molina. </div> </footer> <script>
+</style> <link rel="stylesheet" href="/assets/css/tailwind.css?v=50c64c15cbb9fd1ce6056fdb8bcb4b62"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css" integrity="sha256-MVopmdyC2tYTiJ8wlktf0uh0v4NgT+vNdyVFepi7Q0c=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.5/css/academicons.min.css" integrity="sha256-SzrCOBJbGVFMahewkgjwnApaV2+av1DwMAA+/QGLyZw=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/scholar-icons@1.0.3/css/scholar-icons.css" integrity="sha256-VY3hHVj/hNX3fYG6wtbA6TcKJQl7+FthzGSyIB64klY=" crossorigin="anonymous"> <link defer rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,600&amp;family=JetBrains+Mono:wght@400;500&amp;family=Material+Icons&amp;display=swap"> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-github.css?v=591dab5a4e56573bf4ef7fd332894c99" media="" id="highlight_theme_light"> <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%F0%9F%9F%A1&lt;/text&gt;&lt;/svg&gt;"> <link rel="stylesheet" href="/assets/css/main.css?v=b7e280e57e2bc547c94fb59c914ff711"> <link rel="canonical" href="https://kameans.site/blog/2024/abm-the-method-that-starts-with-the-individual/"> </head> <body class="fixed-top-nav "> <header> <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top" role="navigation"> <div class="container"> <a class="navbar-brand title font-weight-lighter" href="/"> Ka-means </a> <button class="navbar-toggler collapsed navbar-toggler-main" type="button" data-nav-toggle="navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar top-bar"></span> <span class="icon-bar middle-bar"></span> <span class="icon-bar bottom-bar"></span> </button> <div class="collapse navbar-collapse navbar-collapse-main" id="navbarNav"> <ul class="navbar-nav navbar-menu-list flex-nowrap"> <li class="nav-item "> <a class="nav-link" href="/">About </a> </li> <li class="nav-item active"> <a class="nav-link" href="/blog/">Blog </a> </li> <li class="nav-item "> <a class="nav-link" href="/publications/">Publications </a> </li> <li class="nav-item "> <a class="nav-link" href="/projects/">Projects </a> </li> <li class="nav-item "> <a class="nav-link" href="/repositories/">Repositories </a> </li> <li class="nav-item "> <a class="nav-link" href="/media/">Media </a> </li> <li class="nav-item "> <a class="nav-link" href="/vault/">Vault </a> </li> <li class="nav-item "> <a class="nav-link" href="/cv/">CV </a> </li> <li class="nav-item"> <button id="search-toggle" type="button" title="Search" aria-label="Open search"> <span class="nav-link">ctrl k <i class="fa-solid fa-magnifying-glass"></i></span> </button> </li> </ul> </div> </div> </nav> <progress id="progress" value="0"> <div class="progress-container"> <span class="progress-bar"></span> </div> </progress> </header> <div class="container mt-5" role="main"> <div class="post"> <header class="post-header"> <h1 class="post-title">ABM: The Method That Starts with the Individual</h1> <p class="post-meta"> Created on June 03, 2024 </p> <p class="post-tags"> <a href="/blog/2024"> <i class="fa-solid fa-calendar fa-sm"></i> 2024 </a>   ·   <a href="/blog/tag/abm"> <i class="fa-solid fa-hashtag fa-sm"></i> ABM</a> </p> </header> <article class="post-content"> <div id="markdown-content"> <p>In 1871, Carl Menger published his Principles of Economics and argued that value does not reside in objects. It arises from the relationship between a specific person, a specific good, and a specific need at a specific moment. Economic phenomena, prices, trade, money itself, are not designed by anyone. They emerge from individual acts of exchange, each driven by subjective valuation, aggregating into structures that no individual intended or could have planned.</p> <p>One hundred years later, Thomas Schelling demonstrated the same logic on a checkerboard. Each agent prefers to have at least a few neighbors of the same type. That mild preference, iterated across thousands of agents, produces sharp spatial divisions. Nobody chose segregation at the system level. It emerged from decisions that, individually, seemed almost neutral. The mathematical method was new. The underlying intuition was Menger’s.</p> <p>Agent-based modeling formalized this computationally. You build a single agent, give it a small set of behavioral rules, populate the environment with thousands of copies, and watch the aggregate behavior emerge. The interesting result is almost always the gap between what the rules specify and what the system produces. Robert Axelrod showed that cooperation can evolve in a population of self-interested agents with no authority imposing it, just through iterated interaction and selection. Joshua Epstein and Robert Axtell grew artificial societies from resource competition rules and watched inequality, trade, and conflict emerge without anyone programming those outcomes in.</p> <p>Carl Menger’s theory of the origin of money is, in retrospect, one of the first proto-ABM arguments in social science. He described how money didn’t emerge from government decree or social contract, but from individual traders gradually discovering that accepting a widely traded commodity made their own future exchanges easier. Each trader was acting on local information and individual interest. The aggregate outcome, a common medium of exchange, was unintended and undesigned. That is precisely what an agent-based simulation would show.</p> <p>There is a tension in this that is worth naming honestly. Ludwig von Mises built Austrian economics on a praxeological foundation: the study of human action as such, derived a priori from the nature of purposeful behavior. From a strict Misesian standpoint, the truths of economics are not discovered by running simulations. They are derived from the logic of action itself. ABM is empirical and experimental. It makes predictions that can be tested and falsified. Mises would say that makes it a useful illustration of theoretical propositions, not a source of them.</p> <p>I think that tension is productive rather than paralyzing. What ABM cannot do, from my point of view, is serve as justification for policy intervention. Showing that a problematic pattern emerges from individual choices doesn’t tell you that a central authority can design a better aggregate outcome. The same emergence logic that produces the problem also applies to any attempted solution: interventions feed back into the system in ways that are as unpredictable as the original dynamics.</p> <h2 id="questions-worth-investigating">Questions worth investigating</h2> <ol> <li>Carl Menger’s origin-of-money argument is structurally identical to what ABM researchers would call an emergence argument. Has anyone built a formal agent-based model of Menger’s account, and what does it predict that Menger’s verbal argument doesn’t?</li> <li>What is the current debate in the philosophy of social science between Misesian apriorism and computational methods like ABM, and who are its main voices?</li> </ol> </div> </article> </div> </div> <footer class="fixed-bottom" role="contentinfo"> <div class="container mt-0"> © Copyright 2026 Katherin Molina. </div> </footer> <script>
   window.alFolio = {
     compatBootstrap: false
   };
@@ -69,92 +69,92 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/cv/";
           },
-        },{id: "post-sci-tech-the-signal-and-the-noise",
+        },{id: "post-sci-tech-the-difference-between-data-and-knowledge",
         
-          title: "Sci-Tech: The Signal and the Noise",
+          title: "Sci-Tech: The Difference Between Data and Knowledge",
         
-        description: "Our current era is largely defined by an obsession with accumulating data, driven by the false illusion that having more data inevitably equals having more knowledge.",
+        description: "A forecast that tells you something you already knew carries zero information regardless of how many bytes it occupies.",
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2026/sci-tech-the-signal-and-the-noise/";
+            window.location.href = "/blog/2026/sci-tech-the-difference-between-data-and-knowledge/";
           
         },
-      },{id: "post-econ-politics-the-market-as-a-process-of-discovery",
+      },{id: "post-econ-politics-why-prices-cannot-be-replaced",
         
-          title: "Econ-Politics: The Market as a Process of Discovery",
+          title: "Econ-Politics: Why Prices Cannot Be Replaced",
         
-        description: "It is common to talk about the economy as if it were a mechanical engine, something governments can speed up or slow down by simply adjusting a few levers of monetary policy.",
+        description: "The argument was not that central planning is difficult. The argument was that economic calculation without market prices is logically impossible.",
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2025/econ-politics-market-as-process-of-discovery/";
+            window.location.href = "/blog/2025/econ-politics-why-prices-cannot-be-replaced/";
           
         },
-      },{id: "post-ai-ml-the-danger-of-rewards",
+      },{id: "post-ai-ml-when-the-reward-is-wrong",
         
-          title: "AI/ML: The Danger of Rewards",
+          title: "AI/ML: When the Reward Is Wrong",
         
-        description: "Imagine you are training a dog. You give it a treat when it sits. Machine learning, at its core, operates on a surprisingly similar principle.",
+        description: "Machine learning doesn&#39;t think. It optimizes. That distinction matters more than most discussions let on.",
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2025/ai-ml-the-danger-of-rewards/";
+            window.location.href = "/blog/2025/ai-ml-when-the-reward-is-wrong/";
           
         },
-      },{id: "post-social-sciences-the-arithmetic-of-the-irrational",
+      },{id: "post-social-sciences-irrationality-is-not-an-argument-for-planners",
         
-          title: "Social Sciences: The Arithmetic of the Irrational",
+          title: "Social Sciences: Irrationality Is Not an Argument for Planners",
         
-        description: "Many of us grew up with the idea that human beings are strictly rational actors.",
+        description: "If irrationality undermines market outcomes, it also undermines the judgment of the planners who would correct those outcomes.",
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2024/social-sciences-arithmetic-of-the-irrational/";
+            window.location.href = "/blog/2024/social-sciences-irrationality-is-not-an-argument-for-planners/";
           
         },
-      },{id: "post-abm-the-world-in-miniature",
+      },{id: "post-abm-the-method-that-starts-with-the-individual",
         
-          title: "ABM: The World in Miniature",
+          title: "ABM: The Method That Starts with the Individual",
         
-        description: "Traditional statistics often tries to predict human behavior using massive, sweeping equations.",
+        description: "Nobody chose segregation at the system level. It emerged from decisions that, individually, seemed almost neutral.",
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2024/abm-the-world-in-miniature/";
+            window.location.href = "/blog/2024/abm-the-method-that-starts-with-the-individual/";
           
         },
-      },{id: "post-robotics-the-intelligence-of-the-mechanical-crowd",
+      },{id: "post-robotics-engineering-spontaneous-order",
         
-          title: "Robotics: The Intelligence of the Mechanical Crowd",
+          title: "Robotics: Engineering Spontaneous Order",
         
-        description: "When you watch a flock of starlings murmurating at dusk, it is hard not to look for the invisible conductor.",
+        description: "Reynolds hadn&#39;t programmed flocking behavior. He had programmed the conditions for it to emerge.",
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2023/robotics-intelligence-of-the-mechanical-crowd/";
+            window.location.href = "/blog/2023/robotics-engineering-spontaneous-order/";
           
         },
-      },{id: "post-engineering-systems-that-build-themselves",
+      },{id: "post-engineering-designing-conditions-not-outcomes",
         
-          title: "Engineering: Systems That Build Themselves",
+          title: "Engineering: Designing Conditions, Not Outcomes",
         
-        description: "Software engineering used to be a lot like clockmaking.",
+        description: "The engineer&#39;s job is shifting from writing correct behavior to designing the conditions under which correct behavior tends to emerge.",
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2023/engineering-systems-that-build-themselves/";
+            window.location.href = "/blog/2023/engineering-designing-conditions-not-outcomes/";
           
         },
-      },{id: "post-complex-systems-the-architecture-of-contagion",
+      },{id: "post-complex-systems-order-without-a-designer",
         
-          title: "Complex Systems: The Architecture of Contagion",
+          title: "Complex Systems: Order Without a Designer",
         
-        description: "A biological virus, a fake news story, and a bank run all spread following the same fundamental laws.",
+        description: "The vocabulary of network science arrived late. The phenomena it describes did not.",
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2022/complex-systems-architecture-of-contagion/";
+            window.location.href = "/blog/2022/complex-systems-order-without-a-designer/";
           
         },
       },{id: "books-agent-based-modeling-and-simulation",

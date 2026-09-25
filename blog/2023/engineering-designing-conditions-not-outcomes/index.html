@@ -1,8 +1,8 @@
-<!DOCTYPE html> <html lang="en"> <head> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <title> Robotics: The Intelligence of the Mechanical Crowd | Ka-means </title> <meta name="author" content="Katherin Molina"> <meta name="description" content="When you watch a flock of starlings murmurating at dusk, it is hard not to look for the invisible conductor."> <meta name="keywords" content="research, complex-systems, economics, politics, science, technology, engineering"> <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; media-src 'self' https:; frame-src 'self' https:; connect-src 'self' https:;"> <style>
+<!DOCTYPE html> <html lang="en"> <head> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <title> Engineering: Designing Conditions, Not Outcomes | Ka-means </title> <meta name="author" content="Katherin Molina"> <meta name="description" content="The engineer's job is shifting from writing correct behavior to designing the conditions under which correct behavior tends to emerge."> <meta name="keywords" content="research, complex-systems, economics, politics, science, technology, engineering"> <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; media-src 'self' https:; frame-src 'self' https:; connect-src 'self' https:;"> <style>
   :root {
     --max-content-width: 930px;
   }
-</style> <link rel="stylesheet" href="/assets/css/tailwind.css?v=50c64c15cbb9fd1ce6056fdb8bcb4b62"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css" integrity="sha256-MVopmdyC2tYTiJ8wlktf0uh0v4NgT+vNdyVFepi7Q0c=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.5/css/academicons.min.css" integrity="sha256-SzrCOBJbGVFMahewkgjwnApaV2+av1DwMAA+/QGLyZw=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/scholar-icons@1.0.3/css/scholar-icons.css" integrity="sha256-VY3hHVj/hNX3fYG6wtbA6TcKJQl7+FthzGSyIB64klY=" crossorigin="anonymous"> <link defer rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,600&amp;family=JetBrains+Mono:wght@400;500&amp;family=Material+Icons&amp;display=swap"> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-github.css?v=591dab5a4e56573bf4ef7fd332894c99" media="" id="highlight_theme_light"> <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%F0%9F%9F%A1&lt;/text&gt;&lt;/svg&gt;"> <link rel="stylesheet" href="/assets/css/main.css?v=b7e280e57e2bc547c94fb59c914ff711"> <link rel="canonical" href="https://kameans.site/blog/2023/robotics-intelligence-of-the-mechanical-crowd/"> </head> <body class="fixed-top-nav "> <header> <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top" role="navigation"> <div class="container"> <a class="navbar-brand title font-weight-lighter" href="/"> Ka-means </a> <button class="navbar-toggler collapsed navbar-toggler-main" type="button" data-nav-toggle="navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar top-bar"></span> <span class="icon-bar middle-bar"></span> <span class="icon-bar bottom-bar"></span> </button> <div class="collapse navbar-collapse navbar-collapse-main" id="navbarNav"> <ul class="navbar-nav navbar-menu-list flex-nowrap"> <li class="nav-item "> <a class="nav-link" href="/">About </a> </li> <li class="nav-item active"> <a class="nav-link" href="/blog/">Blog </a> </li> <li class="nav-item "> <a class="nav-link" href="/publications/">Publications </a> </li> <li class="nav-item "> <a class="nav-link" href="/projects/">Projects </a> </li> <li class="nav-item "> <a class="nav-link" href="/repositories/">Repositories </a> </li> <li class="nav-item "> <a class="nav-link" href="/media/">Media </a> </li> <li class="nav-item "> <a class="nav-link" href="/vault/">Vault </a> </li> <li class="nav-item "> <a class="nav-link" href="/cv/">CV </a> </li> <li class="nav-item"> <button id="search-toggle" type="button" title="Search" aria-label="Open search"> <span class="nav-link">ctrl k <i class="fa-solid fa-magnifying-glass"></i></span> </button> </li> </ul> </div> </div> </nav> <progress id="progress" value="0"> <div class="progress-container"> <span class="progress-bar"></span> </div> </progress> </header> <div class="container mt-5" role="main"> <div class="post"> <header class="post-header"> <h1 class="post-title">Robotics: The Intelligence of the Mechanical Crowd</h1> <p class="post-meta"> Created on November 14, 2023 </p> <p class="post-tags"> <a href="/blog/2023"> <i class="fa-solid fa-calendar fa-sm"></i> 2023 </a>   ·   <a href="/blog/tag/robotics"> <i class="fa-solid fa-hashtag fa-sm"></i> Robotics</a> </p> </header> <article class="post-content"> <div id="markdown-content"> <p>When you watch a flock of starlings murmurating at dusk, it is hard not to look for the invisible conductor. There must be someone, somewhere, calling the tune. But there is not. The breathtaking coordination we see is the result of each bird paying attention to just its closest neighbors, adjusting its speed and direction based on local information. In modern robotics, we are attempting a similar feat with swarms of autonomous systems.</p> <p>The core challenge is not simply programming a single machine to move. The real problem is designing the network topology. Think of this topology as the invisible map that dictates who can talk to whom. If a robot in the swarm loses its signal, gets stuck, or breaks down, how does the rest of the group know what to do without bringing the entire mission to a grinding halt?</p> <p>Instead of relying on a central brain to dictate every move, we are trying to design structural coordination capacities. We want each machine to make local decisions based on its limited perspective, trusting that these local interactions will result in a surprisingly intelligent global behavior.</p> <h2 id="questions-that-arise-from-thinking-about-this-topic">Questions that arise from thinking about this topic</h2> <ul> <li>When a swarm of machines operating without a defined leader makes a tactical decision, who is exactly the author of that action?</li> </ul> </div> </article> </div> </div> <footer class="fixed-bottom" role="contentinfo"> <div class="container mt-0"> © Copyright 2026 Katherin Molina. </div> </footer> <script>
+</style> <link rel="stylesheet" href="/assets/css/tailwind.css?v=50c64c15cbb9fd1ce6056fdb8bcb4b62"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css" integrity="sha256-MVopmdyC2tYTiJ8wlktf0uh0v4NgT+vNdyVFepi7Q0c=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.5/css/academicons.min.css" integrity="sha256-SzrCOBJbGVFMahewkgjwnApaV2+av1DwMAA+/QGLyZw=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/scholar-icons@1.0.3/css/scholar-icons.css" integrity="sha256-VY3hHVj/hNX3fYG6wtbA6TcKJQl7+FthzGSyIB64klY=" crossorigin="anonymous"> <link defer rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,600&amp;family=JetBrains+Mono:wght@400;500&amp;family=Material+Icons&amp;display=swap"> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-github.css?v=591dab5a4e56573bf4ef7fd332894c99" media="" id="highlight_theme_light"> <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%F0%9F%9F%A1&lt;/text&gt;&lt;/svg&gt;"> <link rel="stylesheet" href="/assets/css/main.css?v=b7e280e57e2bc547c94fb59c914ff711"> <link rel="canonical" href="https://kameans.site/blog/2023/engineering-designing-conditions-not-outcomes/"> </head> <body class="fixed-top-nav "> <header> <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top" role="navigation"> <div class="container"> <a class="navbar-brand title font-weight-lighter" href="/"> Ka-means </a> <button class="navbar-toggler collapsed navbar-toggler-main" type="button" data-nav-toggle="navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar top-bar"></span> <span class="icon-bar middle-bar"></span> <span class="icon-bar bottom-bar"></span> </button> <div class="collapse navbar-collapse navbar-collapse-main" id="navbarNav"> <ul class="navbar-nav navbar-menu-list flex-nowrap"> <li class="nav-item "> <a class="nav-link" href="/">About </a> </li> <li class="nav-item active"> <a class="nav-link" href="/blog/">Blog </a> </li> <li class="nav-item "> <a class="nav-link" href="/publications/">Publications </a> </li> <li class="nav-item "> <a class="nav-link" href="/projects/">Projects </a> </li> <li class="nav-item "> <a class="nav-link" href="/repositories/">Repositories </a> </li> <li class="nav-item "> <a class="nav-link" href="/media/">Media </a> </li> <li class="nav-item "> <a class="nav-link" href="/vault/">Vault </a> </li> <li class="nav-item "> <a class="nav-link" href="/cv/">CV </a> </li> <li class="nav-item"> <button id="search-toggle" type="button" title="Search" aria-label="Open search"> <span class="nav-link">ctrl k <i class="fa-solid fa-magnifying-glass"></i></span> </button> </li> </ul> </div> </div> </nav> <progress id="progress" value="0"> <div class="progress-container"> <span class="progress-bar"></span> </div> </progress> </header> <div class="container mt-5" role="main"> <div class="post"> <header class="post-header"> <h1 class="post-title">Engineering: Designing Conditions, Not Outcomes</h1> <p class="post-meta"> Created on April 27, 2023 </p> <p class="post-tags"> <a href="/blog/2023"> <i class="fa-solid fa-calendar fa-sm"></i> 2023 </a>   ·   <a href="/blog/tag/engineering"> <i class="fa-solid fa-hashtag fa-sm"></i> Engineering</a>   ·   <a href="/blog/category/engineering"> <i class="fa-solid fa-tag fa-sm"></i> engineering</a> </p> </header> <article class="post-content"> <div id="markdown-content"> <p>Friedrich Hayek distinguished two types of order. A taxis is designed: someone planned it, specified it, and it behaves according to that specification. A cosmos is emergent: it arose from individuals following local rules, and no one planned the overall structure. A factory assembly line is a taxis. The common law, which evolved from accumulated case decisions rather than legislative design, is a cosmos. The market is a cosmos. Language is a cosmos. Nobody designed English. It emerged from millions of speakers making local choices over centuries.</p> <p>For most of computing history, software was unambiguously taxis. Every branch specified, every output determined, every behavior planned. The mental model was: if A, then B. It was precise, testable, and fragile. Change one assumption and the whole structure needed renegotiation.</p> <p>That model remains appropriate for systems with stable and fully enumerable requirements. But it has become inadequate for a class of problems that grew rapidly in the last decade: systems operating in dynamic environments, interacting with unpredictable users, needing to maintain service while being continuously modified.</p> <p>The response has been a gradual, mostly tacit, shift from specifying behavior to specifying conditions. Continuous deployment pipelines don’t rewrite code autonomously. They automate the testing and release process, shrinking the feedback loop between writing a change and seeing it in production. Microservices replace a single monolithic program with many small services communicating through well-defined interfaces. When one fails, the others continue. The system degrades gracefully rather than collapsing completely. These are not autonomous systems. They are engineering disciplines that acknowledge the designer’s inability to anticipate every future state.</p> <p>The biological borrowings in this evolution are specific and traceable. The internet’s packet routing was designed to route around damage, a property directly inspired by the resilience of neural networks. ARPA’s original brief asked for a communication network that could survive partial destruction. The solution, distributed routing with no central coordinator, was informed by research on how biological systems maintain function under damage. Immune-system-inspired algorithms apply the principle of adaptive, distributed threat response to network security. These are not metaphors. Engineers looked at systems that had been selected for resilience over millions of years and asked what mechanisms produced that resilience.</p> <p>The systems that genuinely modify their own parameters based on feedback, recommendation engines, adaptive control systems, anomaly detectors that recalibrate on what they observe, are doing something meaningfully different from a conventional program. They are not following a fixed rule. They are refining the rule based on experience. That changes what the engineer’s job is: from writing correct behavior to designing the conditions under which correct behavior tends to emerge and incorrect behavior tends to be corrected.</p> <p>From my point of view, the engineering temperament trained on deterministic systems consistently underestimates how much order can arise without top-down specification, and overestimates how much control top-down specification actually delivers. Real systems are always more complex than their specifications. The question is whether you design for that gap or pretend it doesn’t exist and call what falls through it a bug.</p> <h2 id="questions-worth-investigating">Questions worth investigating</h2> <ol> <li>Hayek’s cosmos/taxis distinction was developed for social systems. Has it been formally applied in distributed systems theory or software architecture, and with what results?</li> <li>Beyond neural networks and immune systems, which biological resilience mechanisms have been most productively formalized in distributed computing architectures?</li> </ol> </div> </article> </div> </div> <footer class="fixed-bottom" role="contentinfo"> <div class="container mt-0"> © Copyright 2026 Katherin Molina. </div> </footer> <script>
   window.alFolio = {
     compatBootstrap: false
   };
@@ -69,92 +69,92 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/cv/";
           },
-        },{id: "post-sci-tech-the-signal-and-the-noise",
+        },{id: "post-sci-tech-the-difference-between-data-and-knowledge",
         
-          title: "Sci-Tech: The Signal and the Noise",
+          title: "Sci-Tech: The Difference Between Data and Knowledge",
         
-        description: "Our current era is largely defined by an obsession with accumulating data, driven by the false illusion that having more data inevitably equals having more knowledge.",
+        description: "A forecast that tells you something you already knew carries zero information regardless of how many bytes it occupies.",
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2026/sci-tech-the-signal-and-the-noise/";
+            window.location.href = "/blog/2026/sci-tech-the-difference-between-data-and-knowledge/";
           
         },
-      },{id: "post-econ-politics-the-market-as-a-process-of-discovery",
+      },{id: "post-econ-politics-why-prices-cannot-be-replaced",
         
-          title: "Econ-Politics: The Market as a Process of Discovery",
+          title: "Econ-Politics: Why Prices Cannot Be Replaced",
         
-        description: "It is common to talk about the economy as if it were a mechanical engine, something governments can speed up or slow down by simply adjusting a few levers of monetary policy.",
+        description: "The argument was not that central planning is difficult. The argument was that economic calculation without market prices is logically impossible.",
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2025/econ-politics-market-as-process-of-discovery/";
+            window.location.href = "/blog/2025/econ-politics-why-prices-cannot-be-replaced/";
           
         },
-      },{id: "post-ai-ml-the-danger-of-rewards",
+      },{id: "post-ai-ml-when-the-reward-is-wrong",
         
-          title: "AI/ML: The Danger of Rewards",
+          title: "AI/ML: When the Reward Is Wrong",
         
-        description: "Imagine you are training a dog. You give it a treat when it sits. Machine learning, at its core, operates on a surprisingly similar principle.",
+        description: "Machine learning doesn&#39;t think. It optimizes. That distinction matters more than most discussions let on.",
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2025/ai-ml-the-danger-of-rewards/";
+            window.location.href = "/blog/2025/ai-ml-when-the-reward-is-wrong/";
           
         },
-      },{id: "post-social-sciences-the-arithmetic-of-the-irrational",
+      },{id: "post-social-sciences-irrationality-is-not-an-argument-for-planners",
         
-          title: "Social Sciences: The Arithmetic of the Irrational",
+          title: "Social Sciences: Irrationality Is Not an Argument for Planners",
         
-        description: "Many of us grew up with the idea that human beings are strictly rational actors.",
+        description: "If irrationality undermines market outcomes, it also undermines the judgment of the planners who would correct those outcomes.",
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2024/social-sciences-arithmetic-of-the-irrational/";
+            window.location.href = "/blog/2024/social-sciences-irrationality-is-not-an-argument-for-planners/";
           
         },
-      },{id: "post-abm-the-world-in-miniature",
+      },{id: "post-abm-the-method-that-starts-with-the-individual",
         
-          title: "ABM: The World in Miniature",
+          title: "ABM: The Method That Starts with the Individual",
         
-        description: "Traditional statistics often tries to predict human behavior using massive, sweeping equations.",
+        description: "Nobody chose segregation at the system level. It emerged from decisions that, individually, seemed almost neutral.",
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2024/abm-the-world-in-miniature/";
+            window.location.href = "/blog/2024/abm-the-method-that-starts-with-the-individual/";
           
         },
-      },{id: "post-robotics-the-intelligence-of-the-mechanical-crowd",
+      },{id: "post-robotics-engineering-spontaneous-order",
         
-          title: "Robotics: The Intelligence of the Mechanical Crowd",
+          title: "Robotics: Engineering Spontaneous Order",
         
-        description: "When you watch a flock of starlings murmurating at dusk, it is hard not to look for the invisible conductor.",
+        description: "Reynolds hadn&#39;t programmed flocking behavior. He had programmed the conditions for it to emerge.",
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2023/robotics-intelligence-of-the-mechanical-crowd/";
+            window.location.href = "/blog/2023/robotics-engineering-spontaneous-order/";
           
         },
-      },{id: "post-engineering-systems-that-build-themselves",
+      },{id: "post-engineering-designing-conditions-not-outcomes",
         
-          title: "Engineering: Systems That Build Themselves",
+          title: "Engineering: Designing Conditions, Not Outcomes",
         
-        description: "Software engineering used to be a lot like clockmaking.",
+        description: "The engineer&#39;s job is shifting from writing correct behavior to designing the conditions under which correct behavior tends to emerge.",
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2023/engineering-systems-that-build-themselves/";
+            window.location.href = "/blog/2023/engineering-designing-conditions-not-outcomes/";
           
         },
-      },{id: "post-complex-systems-the-architecture-of-contagion",
+      },{id: "post-complex-systems-order-without-a-designer",
         
-          title: "Complex Systems: The Architecture of Contagion",
+          title: "Complex Systems: Order Without a Designer",
         
-        description: "A biological virus, a fake news story, and a bank run all spread following the same fundamental laws.",
+        description: "The vocabulary of network science arrived late. The phenomena it describes did not.",
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2022/complex-systems-architecture-of-contagion/";
+            window.location.href = "/blog/2022/complex-systems-order-without-a-designer/";
           
         },
       },{id: "books-agent-based-modeling-and-simulation",

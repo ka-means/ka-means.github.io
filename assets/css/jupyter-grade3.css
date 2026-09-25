@@ -594,8 +594,7 @@ input.raw_input {
   box-shadow: none;
 }
 
-audio,
-video {
+audio {
   display: inline;
   vertical-align: middle;
   align-content: center;
