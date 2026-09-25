@@ -1,0 +1,494 @@
+<!DOCTYPE html> <html lang="en"> <head> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <title> The Calculation Problem and the Alignment Problem: A Shared Structure | Ka-means </title> <meta name="author" content="Katherin Molina"> <meta name="description" content="Two traditions arrived at the same problem from opposite directions: Austrian economics from the theory of human action, and AI alignment from the practice of training reinforcement learning systems."> <meta name="keywords" content="research, complex-systems, economics, politics, science, technology, engineering"> <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; media-src 'self' https:; frame-src 'self' https:; connect-src 'self' https:;"> <style>
+  :root {
+    --max-content-width: 930px;
+  }
+</style> <link rel="stylesheet" href="/assets/css/tailwind.css?v=50c64c15cbb9fd1ce6056fdb8bcb4b62"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css" integrity="sha256-MVopmdyC2tYTiJ8wlktf0uh0v4NgT+vNdyVFepi7Q0c=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.5/css/academicons.min.css" integrity="sha256-SzrCOBJbGVFMahewkgjwnApaV2+av1DwMAA+/QGLyZw=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/scholar-icons@1.0.3/css/scholar-icons.css" integrity="sha256-VY3hHVj/hNX3fYG6wtbA6TcKJQl7+FthzGSyIB64klY=" crossorigin="anonymous"> <link defer rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,600&amp;family=JetBrains+Mono:wght@400;500&amp;family=Material+Icons&amp;display=swap"> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-github.css?v=591dab5a4e56573bf4ef7fd332894c99" media="" id="highlight_theme_light"> <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%F0%9F%9F%A1&lt;/text&gt;&lt;/svg&gt;"> <link rel="stylesheet" href="/assets/css/main.css?v=b7e280e57e2bc547c94fb59c914ff711"> <link rel="canonical" href="https://kameans.site/blog/2025/the-calculation-problem-and-the-alignment-problem/"> </head> <body class="fixed-top-nav "> <header> <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top" role="navigation"> <div class="container"> <a class="navbar-brand title font-weight-lighter" href="/"> Ka-means </a> <button class="navbar-toggler collapsed navbar-toggler-main" type="button" data-nav-toggle="navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar top-bar"></span> <span class="icon-bar middle-bar"></span> <span class="icon-bar bottom-bar"></span> </button> <div class="collapse navbar-collapse navbar-collapse-main" id="navbarNav"> <ul class="navbar-nav navbar-menu-list flex-nowrap"> <li class="nav-item "> <a class="nav-link" href="/">About </a> </li> <li class="nav-item active"> <a class="nav-link" href="/blog/">Blog </a> </li> <li class="nav-item "> <a class="nav-link" href="/publications/">Publications </a> </li> <li class="nav-item "> <a class="nav-link" href="/projects/">Projects </a> </li> <li class="nav-item "> <a class="nav-link" href="/repositories/">Repositories </a> </li> <li class="nav-item "> <a class="nav-link" href="/media/">Media </a> </li> <li class="nav-item "> <a class="nav-link" href="/vault/">Vault </a> </li> <li class="nav-item "> <a class="nav-link" href="/cv/">CV </a> </li> <li class="nav-item "> <a class="nav-link" href="/thesaurus/">Thesaurus </a> </li> <li class="nav-item"> <button id="search-toggle" type="button" title="Search" aria-label="Open search"> <span class="nav-link">ctrl k <i class="fa-solid fa-magnifying-glass"></i></span> </button> </li> </ul> </div> </div> </nav> <progress id="progress" value="0"> <div class="progress-container"> <span class="progress-bar"></span> </div> </progress> </header> <div class="container mt-5" role="main"> <div class="post"> <header class="post-header"> <h1 class="post-title">The Calculation Problem and the Alignment Problem: A Shared Structure</h1> <p class="post-meta"> Created on May 06, 2025 </p> <p class="post-tags"> <a href="/blog/2025"> <i class="fa-solid fa-calendar fa-sm"></i> 2025 </a>   ·   <a href="/blog/tag/ai-ml"> <i class="fa-solid fa-hashtag fa-sm"></i> AI/ML</a> </p> </header> <article class="post-content"> <div id="markdown-content"> <p><strong>Parent article:</strong> <a href="/blog/2025/ai-ml-when-the-reward-is-wrong/">AI/ML: When the Reward Is Wrong</a> <strong>Origin question:</strong> The economic calculation argument of Mises and the specification gaming problem in AI share the same logical structure. Has there been a formal treatment of this parallel in either the economics or the AI alignment literature?</p> <hr> <p>There is not, as far as I know, an academic paper that has formally established this parallel. What exists are two traditions that independently arrived at the same problem from opposite directions: Austrian economics from the theory of human action, and AI alignment research from the practice of training reinforcement learning systems. That they have not yet met is an anomaly.</p> <p>Mises’ argument establishes that economic calculation requires prices, and that prices require voluntary exchange under private property, because the values that prices reflect are subjective, ordinal, and situational. You cannot aggregate them into a social welfare function without making normative choices that the theory cannot justify. The problem is not about data or computational capacity. It is about the nature of value.</p> <p>The specification gaming problem establishes that any reward function you design for an artificial agent will be exploited in ways you did not anticipate, because the values you are trying to encode are subjective, contextual, and change with every act of choice. You cannot compress them into a scalar without losing precisely the information that makes them valuable.</p> <p>The structure is identical in both cases: the problem is not that data or processing power is insufficient. It is that what we want to maximize does not exist in a form that can be maximized without transforming it into something else.</p> <p>The literature closest to a formalization of this parallel is in the work of Nate Soares and collaborators at the Machine Intelligence Research Institute (MIRI), particularly their essays on utility indifference and corrigibility. Soares argues that you cannot specify a utility function that captures everything you value because any sufficiently simple function will generate behaviors that clearly violate your values in cases you did not anticipate. This is Mises applied to artificial agents, though Soares does not cite Mises.</p> <p>Arrow’s impossibility theorem is the third node in this structure. Arrow proved in 1951 that there is no method of aggregating individual ordinal preference rankings into a collective social preference that simultaneously satisfies a small set of minimum fairness conditions. That is exactly the problem faced by anyone designing a reward function for an agent that must act on behalf of multiple people with different preferences. Mises, Arrow, and specification gaming converge on the same conclusion: the compression of values into a scalar function produces losses that are structurally unavoidable, not accidentally correctable.</p> <p>From my point of view, if the structures are equivalent, the proposed solutions in each domain should have analogs in the other. Mises’ answer is that the problem has no central solution: only the market process can handle that information, because the information is generated in the process of exchange and does not exist outside of it. The analog in AI alignment would not be a more refined reward function but a system designed to continuously update its objectives in response to real human feedback generated in the process of interaction, not specified in advance. This is close to what Paul Christiano calls iterated amplification, though without the Austrian connection.</p> <h2 id="questions-worth-investigating">Questions worth investigating</h2> <ol> <li>Is there a formal theorem establishing the impossibility of a complete reward function for agents acting on behalf of humans with heterogeneous ordinal preferences, as a direct extension of Arrow’s result?</li> <li>If the structure of Mises’ calculation problem and the AI alignment problem are equivalent, what does the theory of the market as a discovery process imply for the design of AI systems in multi-agent environments?</li> </ol> <h2 id="references">References</h2> <p>Arrow, K. J. (1951). <em>Social Choice and Individual Values</em>. Wiley.</p> <p>Christiano, P., Leike, J., Brown, T. B., Martic, M., Legg, S., &amp; Amodei, D. (2017). Deep reinforcement learning from human preferences. <em>Advances in Neural Information Processing Systems (NeurIPS 2017)</em>. arXiv:1706.03741.</p> <p>Goodhart, C. A. E. (1975). Problems of monetary management: The UK experience. In A. S. Courakis (Ed.), <em>Inflation, Depression and Economic Policy in the West</em>. Barnes &amp; Noble.</p> <p>Krakovna, V., Uesato, J., Mikulik, V., Martic, M., Tobin, J., Bai, P., … Legg, S. (2020). Specification gaming: The flip side of AI ingenuity. <em>arXiv:2010.09720</em>.</p> <p>Mises, L. von (1920/1935). Economic calculation in the socialist commonwealth (S. Adler, Trans.). In F. A. Hayek (Ed.), <em>Collectivist Economic Planning</em>. Routledge.</p> <p>Soares, N., &amp; Fallenstein, B. (2014). <em>Aligning superintelligence with human interests: A technical research agenda</em>. MIRI Technical Report 2014-8.</p> </div> </article> </div> </div> <footer class="fixed-bottom" role="contentinfo"> <div class="container mt-0"> © Copyright 2026 Katherin Molina. </div> </footer> <script>
+  window.alFolio = {
+    compatBootstrap: false
+  };
+</script> <script src="/assets/js/nav-toggle.js?v=141bd79a73ebc0f0b6ea58e440ae79fc"></script> <script defer src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script> <script defer src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js" integrity="sha256-htrLFfZJ6v5udOG+3kNLINIKh2gvoKqwEhHYfTTMICc=" crossorigin="anonymous"></script> <script defer src="/assets/js/masonry.js?v=e49affc7bd2646f6acdad1dbe02c2359" type="text/javascript"></script> <script defer type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js" integrity="sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI=" crossorigin="anonymous"></script> <script src="/assets/al_math/js/mathjax-setup.js"></script> <script src="/assets/js/tooltips-setup.js?v=fe487e99db6c43751e6e7bdb2d6a0611"></script> <script src="/assets/js/no_defer.js?v=53b1b1a645525975c963ce8bf8bfefcf"></script> <script defer src="/assets/js/common.js?v=87baac90f765f2f3362dcf6aaf312a8a"></script> <script defer src="/assets/js/copy_code.js?v=c8a01c11a92744d44b093fc3bda915df" type="text/javascript"></script> <script defer src="/assets/js/jupyter_new_tab.js?v=896d254890d9b47f0281f63bfccf0dee"></script> <script async src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script> <script async src="https://badge.dimensions.ai/badge.js"></script> <script defer src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous"></script> <script defer src="/assets/al_img_tools/js/zoom.js"></script> <script defer src="/assets/js/progress-bar.js?v=499464c5c63ced6cf7ad62509f1e2610" type="text/javascript"></script> <script src="https://cdn.jsdelivr.net/npm/vanilla-back-to-top@7.2.1/dist/vanilla-back-to-top.min.js" integrity="sha256-uMJJ3EoTyfRBoTbR+lrfu1uRQ87RZG8AR3cVNuQVeFg=" crossorigin="anonymous"></script> <script>
+    addBackToTop();
+  </script> <script type="module" src="/assets/al_search/js/search/ninja-keys.min.js"></script> <ninja-keys hidebreadcrumbs noautoloadmdicons placeholder="Type to start searching"></ninja-keys> <script src="/assets/al_search/js/search-setup.js"></script> <script>
+// get the ninja-keys element
+const ninja = document.querySelector('ninja-keys');
+
+// add the home and posts menu items
+ninja.data = [{
+    id: "nav-about",
+    title: "About",
+    section: "Navigation",
+    handler: () => {
+      window.location.href = "/";
+    },
+  },{id: "nav-blog",
+          title: "Blog",
+          description: "",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/blog/";
+          },
+        },{id: "nav-publications",
+          title: "Publications",
+          description: "Research publications, organized by topic.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/publications/";
+          },
+        },{id: "nav-projects",
+          title: "Projects",
+          description: "Engineering and research projects, linked to their GitHub repos.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/projects/";
+          },
+        },{id: "nav-repositories",
+          title: "Repositories",
+          description: "Live-pulled public repositories from GitHub (ka-means personal account), forks excluded, sorted by last updated.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/repositories/";
+          },
+        },{id: "nav-media",
+          title: "Media",
+          description: "Curated third-party learning resources, and my own recorded talks and podcast appearances.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/media/";
+          },
+        },{id: "nav-vault",
+          title: "Vault",
+          description: "Notes, Colab notebooks, slides, and reports &amp; concept maps.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/vault/";
+          },
+        },{id: "nav-cv",
+          title: "CV",
+          description: "Curriculum vitae, generated from _data/cv.yml.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/cv/";
+          },
+        },{id: "nav-thesaurus",
+          title: "Thesaurus",
+          description: "A glossary of terms developed across the blog&#39;s eight article categories, cross-referenced as a conceptual map.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/thesaurus/";
+          },
+        },{id: "post-sci-tech-the-difference-between-data-and-knowledge",
+        
+          title: "Sci-Tech: The Difference Between Data and Knowledge",
+        
+        description: "A forecast that tells you something you already knew carries zero information regardless of how many bytes it occupies.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/sci-tech-the-difference-between-data-and-knowledge/";
+          
+        },
+      },{id: "post-econ-politics-why-prices-cannot-be-replaced",
+        
+          title: "Econ-Politics: Why Prices Cannot Be Replaced",
+        
+        description: "The argument was not that central planning is difficult. The argument was that economic calculation without market prices is logically impossible.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/econ-politics-why-prices-cannot-be-replaced/";
+          
+        },
+      },{id: "post-the-calculation-problem-and-the-alignment-problem-a-shared-structure",
+        
+          title: "The Calculation Problem and the Alignment Problem: A Shared Structure",
+        
+        description: "Two traditions arrived at the same problem from opposite directions: Austrian economics from the theory of human action, and AI alignment from the practice of training reinforcement learning systems.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/the-calculation-problem-and-the-alignment-problem/";
+          
+        },
+      },{id: "post-ai-ml-when-the-reward-is-wrong",
+        
+          title: "AI/ML: When the Reward Is Wrong",
+        
+        description: "Machine learning doesn&#39;t think. It optimizes. That distinction matters more than most discussions let on.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/ai-ml-when-the-reward-is-wrong/";
+          
+        },
+      },{id: "post-social-sciences-irrationality-is-not-an-argument-for-planners",
+        
+          title: "Social Sciences: Irrationality Is Not an Argument for Planners",
+        
+        description: "If irrationality undermines market outcomes, it also undermines the judgment of the planners who would correct those outcomes.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/social-sciences-irrationality-is-not-an-argument-for-planners/";
+          
+        },
+      },{id: "post-money-as-emergence-from-menger-39-s-argument-to-the-agent-based-model",
+        
+          title: "Money as Emergence: From Menger&#39;s Argument to the Agent-Based Model",
+        
+        description: "Menger described a mechanism. Kiyotaki and Wright built exactly what he had described verbally, and the model predicted more than the argument did.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/money-as-emergence-menger-agent-based-model/";
+          
+        },
+      },{id: "post-abm-the-method-that-starts-with-the-individual",
+        
+          title: "ABM: The Method That Starts with the Individual",
+        
+        description: "Nobody chose segregation at the system level. It emerged from decisions that, individually, seemed almost neutral.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/abm-the-method-that-starts-with-the-individual/";
+          
+        },
+      },{id: "post-robotics-engineering-spontaneous-order",
+        
+          title: "Robotics: Engineering Spontaneous Order",
+        
+        description: "Reynolds hadn&#39;t programmed flocking behavior. He had programmed the conditions for it to emerge.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2023/robotics-engineering-spontaneous-order/";
+          
+        },
+      },{id: "post-engineering-designing-conditions-not-outcomes",
+        
+          title: "Engineering: Designing Conditions, Not Outcomes",
+        
+        description: "The engineer&#39;s job is shifting from writing correct behavior to designing the conditions under which correct behavior tends to emerge.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2023/engineering-designing-conditions-not-outcomes/";
+          
+        },
+      },{id: "post-hayek-and-prigogine-two-paths-to-order-without-a-designer",
+        
+          title: "Hayek and Prigogine: Two Paths to Order Without a Designer",
+        
+        description: "Neither cited the other. Both described how order emerges from interaction under constraints without an external designer.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2023/hayek-and-prigogine-two-paths-to-order/";
+          
+        },
+      },{id: "post-complex-systems-order-without-a-designer",
+        
+          title: "Complex Systems: Order Without a Designer",
+        
+        description: "The vocabulary of network science arrived late. The phenomena it describes did not.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2022/complex-systems-order-without-a-designer/";
+          
+        },
+      },{id: "books-agent-based-modeling-and-simulation",
+          title: 'Agent-based Modeling and Simulation',
+          description: "Edited by Simon JE Taylor — The OR Essentials series (Palgrave Macmillan, 2014).",
+          section: "Books",handler: () => {
+              window.location.href = "/vault/books/agent-based-modeling-and-simulation/";
+            },},{id: "books-artificial-intelligence-a-modern-approach",
+          title: 'Artificial Intelligence: A Modern Approach',
+          description: "By Stuart Russell and Peter Norvig — the book that shaped how I think about this field.",
+          section: "Books",handler: () => {
+              window.location.href = "/vault/books/artificial-intelligence-a-modern-approach/";
+            },},{id: "colab-calibration-and-tum-accounting",
+          title: 'Calibration and TUM Accounting',
+          description: "Digital-twin validation experiment testing whether a compact haulage simulator reproduces the operation&#39;s aggregated indicators closely enough to support policy comparisons.",
+          section: "Colab",handler: () => {
+              window.location.href = "/vault/colab/calibration-and-tum-accounting/";
+            },},{id: "colab-network-dynamics-and-evolution-independent-cascade-model",
+          title: 'Network Dynamics and Evolution — Independent Cascade Model',
+          description: "Implementation of an independent cascade (diffusion/infection) model on a network, as a network science course exercise.",
+          section: "Colab",handler: () => {
+              window.location.href = "/vault/colab/dinamicas-y-evolucion-de-redes/";
+            },},{id: "colab-heterogeneous-autonomous-communication",
+          title: 'Heterogeneous Autonomous Communication',
+          description: "Digital-twin experiment measuring the production value of interoperability when an autonomous haul fleet shares the mine with other manufacturers&#39; equipment and manually driven vehicles.",
+          section: "Colab",handler: () => {
+              window.location.href = "/vault/colab/heterogeneous-autonomous-communication/";
+            },},{id: "colab-human-in-the-loop-vs-autonomous-vs-autopoietic",
+          title: 'Human-in-the-Loop vs. Autonomous vs. Autopoietic',
+          description: "Digital-twin experiment comparing five dispatch-governance configurations — human-only, human-in-the-loop, human-on-the-loop, central autonomy, and decentralized stigmergic control — under normal operation and simulated FMS or shovel failures.",
+          section: "Colab",handler: () => {
+              window.location.href = "/vault/colab/human-in-the-loop-vs-autonomous-vs-autopoietic/";
+            },},{id: "colab-machine-learning-on-graphs-graph-embeddings",
+          title: 'Machine Learning on Graphs — Graph Embeddings',
+          description: "Lab on graph embedding methods (DeepWalk, Node2Vec) for applying machine learning to network data.",
+          section: "Colab",handler: () => {
+              window.location.href = "/vault/colab/machine-learning-en-grafos/";
+            },},{id: "colab-implementation-of-the-coevolution-model",
+          title: 'Implementation of the Coevolution Model',
+          description: "Implementation of a coevolution model where node opinions and network structure change together, as a network science course exercise.",
+          section: "Colab",handler: () => {
+              window.location.href = "/vault/colab/modelo-de-coevolucion/";
+            },},{id: "colab-building-gpt-from-scratch-course-lab",
+          title: 'Building GPT from Scratch — Course Lab',
+          description: "Course lab implementing a GPT-style transformer decoder, including causal self-attention, from scratch.",
+          section: "Colab",handler: () => {
+              window.location.href = "/vault/colab/nlp-building-gpt-lab/";
+            },},{id: "colab-introduction-to-nlp-course-lab",
+          title: 'Introduction to NLP — Course Lab',
+          description: "Course lab introducing core Natural Language Processing concepts and tools.",
+          section: "Colab",handler: () => {
+              window.location.href = "/vault/colab/nlp-introduction-lab/";
+            },},{id: "colab-word2vec-course-lab",
+          title: 'Word2Vec — Course Lab',
+          description: "Course lab on Word2Vec word embeddings for Natural Language Processing.",
+          section: "Colab",handler: () => {
+              window.location.href = "/vault/colab/nlp-word2vec-lab/";
+            },},{id: "colab-rl-dispatch-under-information-latency",
+          title: 'RL Dispatch Under Information Latency',
+          description: "Digital-twin experiment on reinforcement-learning dispatch for autonomous haul fleets when telemetry arrives late.",
+          section: "Colab",handler: () => {
+              window.location.href = "/vault/colab/rl-dispatch-information-latency/";
+            },},{id: "colab-schelling-segregation-model-interactive-notebook",
+          title: 'Schelling Segregation Model — Interactive Notebook',
+          description: "Run the agent-based segregation model from the Models series blog post directly in Colab, no local setup required.",
+          section: "Colab",handler: () => {
+              window.location.href = "/vault/colab/segregation-model-colab/";
+            },},{id: "media-game-theory",
+          title: 'Game Theory',
+          description: "Game Theory, a full course taught by Ben Polak.",
+          section: "Media",handler: () => {
+              window.location.href = "/media/game-theory-ben-polak/";
+            },},{id: "media-cs223a-introduction-to-robotics",
+          title: 'CS223A: Introduction to Robotics',
+          description: "Full course on the fundamentals of robotics — kinematics, dynamics, trajectory planning, and control.",
+          section: "Media",handler: () => {
+              window.location.href = "/media/cs223a-introduction-to-robotics/";
+            },},{id: "media-lecciones-de-economía",
+          title: 'Lecciones de Economía',
+          description: "Lecciones de Economía, impartidas por Jesús Huerta de Soto.",
+          section: "Media",handler: () => {
+              window.location.href = "/media/lecciones-de-economia-huerta-de-soto/";
+            },},{id: "media-adaptive-computing",
+          title: 'Adaptive Computing',
+          description: "Curso sobre computación adaptativa.",
+          section: "Media",handler: () => {
+              window.location.href = "/media/adaptive-computing/";
+            },},{id: "media-pensamiento-sistémico-y-las-ciencias",
+          title: 'Pensamiento Sistémico y las Ciencias',
+          description: "Curso sobre pensamiento sistémico y las ciencias.",
+          section: "Media",handler: () => {
+              window.location.href = "/media/pensamiento-sistemico-y-las-ciencias/";
+            },},{id: "media-sistemas-complejos-y-teoría-de-redes",
+          title: 'Sistemas Complejos y Teoría de Redes',
+          description: "Curso sobre sistemas complejos y teoría de redes.",
+          section: "Media",handler: () => {
+              window.location.href = "/media/sistemas-complejos-teoria-de-redes/";
+            },},{id: "media-random-walks-tutorial",
+          title: 'Random Walks Tutorial',
+          description: "A tutorial playlist on random walks, published by Complexity Explorer.",
+          section: "Media",handler: () => {
+              window.location.href = "/media/random-walks-tutorial/";
+            },},{id: "media-dynamical-systems-and-chaos",
+          title: 'Dynamical Systems and Chaos',
+          description: "A playlist on dynamical systems and chaos theory, published by Complexity Explorer.",
+          section: "Media",handler: () => {
+              window.location.href = "/media/dynamical-systems-and-chaos/";
+            },},{id: "media-introduction-to-complexity",
+          title: 'Introduction to Complexity',
+          description: "These are videos from the Introduction to Complexity online course hosted on Complexity Explorer.",
+          section: "Media",handler: () => {
+              window.location.href = "/media/introduction-to-complexity/";
+            },},{id: "media-robotics-education-matlab-and-simulink-robotics-arena",
+          title: 'Robotics Education: MATLAB and Simulink Robotics Arena',
+          description: "A playlist on robotics education using MATLAB and Simulink, published by MathWorks&#39; Robotics Arena.",
+          section: "Media",handler: () => {
+              window.location.href = "/media/matlab-simulink-robotics-arena/";
+            },},{id: "media-análisis-y-diseño-de-algoritmos-a2025",
+          title: 'Análisis y Diseño de Algoritmos (A2025)',
+          description: "Curso de Análisis y Diseño de Algoritmos (A2025), publicado por el canal NDS LAB del Centro de Investigación en Computación del IPN.",
+          section: "Media",handler: () => {
+              window.location.href = "/media/algorithm-design-analysis-course/";
+            },},{id: "media-curso-de-aprendizaje-profundo-deep-learning",
+          title: 'Curso de Aprendizaje Profundo (Deep Learning)',
+          description: "Curso de Aprendizaje Profundo (Deep Learning), publicado por el canal NDS LAB del Centro de Investigación en Computación del IPN.",
+          section: "Media",handler: () => {
+              window.location.href = "/media/deep-learning-course-ipn/";
+            },},{id: "media-curso-de-aprendizaje-por-refuerzo",
+          title: 'Curso de Aprendizaje por Refuerzo',
+          description: "Curso de Aprendizaje por Refuerzo impartido por el Dr. Rolando Menchaca Méndez en el Centro de Investigación en Computación del IPN.",
+          section: "Media",handler: () => {
+              window.location.href = "/media/reinforcement-learning-course-ipn/";
+            },},{id: "media-autonomous-agents-run-google-and-siri",
+          title: 'Autonomous Agents Run Google and Siri',
+          description: "An AI-generated audio overview exploring how autonomous agents power products like Google Assistant and Siri.",
+          section: "Media",handler: () => {
+              window.location.href = "/media/autonomous-agents-google-siri/";
+            },},{id: "media-the-engineering-behind-artemis-ii",
+          title: 'The Engineering Behind Artemis II',
+          description: "An AI-generated audio overview exploring the engineering behind NASA&#39;s Artemis II mission.",
+          section: "Media",handler: () => {
+              window.location.href = "/media/engineering-behind-artemis-ii/";
+            },},{id: "notes-week-1-networks-and-emergence",
+          title: 'Week 1 — Networks and Emergence',
+          description: "Wiki-style notes from the first week of a graduate seminar on network science and emergent behavior.",
+          section: "Notes",handler: () => {
+              window.location.href = "/vault/notes/networks-and-emergence-week1/";
+            },},{id: "notes-the-clash-of-models-agent-based-vs-equation-based-modeling",
+          title: 'The Clash of Models: Agent-Based vs. Equation-Based Modeling',
+          description: "Notes on why Agent-Based Models (ABM) and Equation-Based Models (EBM) diverge, and how they complement rather than compete with each other.",
+          section: "Notes",handler: () => {
+              window.location.href = "/vault/notes/clash-of-models-abm-vs-ebm/";
+            },},{id: "projects-agent-based-simulation-toolkit",
+          title: 'Agent-Based Simulation Toolkit',
+          description: "A lightweight Python toolkit for building and visualizing agent-based models of complex adaptive systems.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/agent-based-simulation-toolkit/";
+            },},{id: "projects-real-autonomy-in-mining-four-experiments-to-understand-what-happens-beyond-the-autonomous-truck",
+          title: 'Real Autonomy in Mining: Four Experiments to Understand What Happens Beyond the Autonomous...',
+          description: "A vehicle may operate without a driver and still belong to a fragile, poorly coordinated system that depends on human decisions. This project uses a digital twin to study four less visible dimensions of mining autonomy — model validity, information latency, interoperability, and the distribution of control among people, centralised systems, and decentralised agents.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/real-autonomy-in-mining/";
+            },},{id: "reports-complex-systems-research-concept-map",
+          title: 'Complex Systems Research — Concept Map',
+          description: "A standalone concept map of how the four research areas on this site (complex systems, econ &amp; politics, sci-tech, engineering) connect, exported from Whimsical.",
+          section: "Reports",handler: () => {
+              window.location.href = "/vault/reports/complex-systems-research-map/";
+            },},{id: "reports-german-credit-credit-risk-case-study",
+          title: 'German Credit — Credit Risk Case Study',
+          description: "Logistic regression model for credit risk classification on the German Credit dataset, for the Modelos Analíticos course at Pontificia Universidad Católica de Chile.",
+          section: "Reports",handler: () => {
+              window.location.href = "/vault/reports/german-credit-case/";
+            },},{id: "reports-presenting-banking-products-amp-women-and-children-first-on-the-titanic-hbs-case-analyses",
+          title: 'Presenting Banking Products &amp;amp; Women and Children First on the Titanic — HBS...',
+          description: "Statistical analysis of two Harvard Business School cases, for the Modelos Analíticos course at Pontificia Universidad Católica de Chile.",
+          section: "Reports",handler: () => {
+              window.location.href = "/vault/reports/hbs-cases-banking-titanic/";
+            },},{id: "reports-survival-analysis-of-recidivism-rossi-tarp-study",
+          title: 'Survival Analysis of Recidivism (Rossi/TARP Study)',
+          description: "Survival analysis of recidivism risk on the classic Rossi/TARP dataset, for the MCD - Estadística Aplicada course at Pontificia Universidad Católica de Chile.",
+          section: "Reports",handler: () => {
+              window.location.href = "/vault/reports/survival-analysis-rossi-tarp/";
+            },},{id: "reports-mixed-effects-models-orthodont-case",
+          title: 'Mixed-Effects Models — Orthodont Case',
+          description: "Linear mixed-effects model of craniofacial growth on the classic Orthodont dataset, for the MCD - Estadística Aplicada course at Pontificia Universidad Católica de Chile.",
+          section: "Reports",handler: () => {
+              window.location.href = "/vault/reports/mixed-effects-models-orthodont-case/";
+            },},{id: "slides-engineering-autonomy-from-software-agents-to-human-agent-teaming",
+          title: 'Engineering Autonomy: From Software Agents to Human-Agent Teaming',
+          description: "A system-theoretic synthesis tracing the path from individual software agents to multi-agent systems to human-agent teams.",
+          section: "Slides",handler: () => {
+              window.location.href = "/vault/slides/engineering-autonomy-human-agent-teaming/";
+            },},{id: "slides-modeling-complexity-at-scale",
+          title: 'Modeling Complexity at Scale',
+          description: "A high-level strategic guide to Agent-Based Models (ABM) vs. traditional equation-based paradigms.",
+          section: "Slides",handler: () => {
+              window.location.href = "/vault/slides/modeling-complexity-at-scale/";
+            },},{id: "slides-research-overview-complex-systems-autonomy-and-coordination",
+          title: 'Research Overview: Complex Systems, Autonomy, and Coordination',
+          description: "Slide deck accompanying the Media section, exported from Keynote as PDF.",
+          section: "Slides",handler: () => {
+              window.location.href = "/vault/slides/research-overview-slides/";
+            },},{id: "teachings-data-science-fundamentals",
+          title: 'Data Science Fundamentals',
+          description: "This course covers the foundational aspects of data science, including data collection, cleaning, analysis, and visualization. Students will learn practical skills for working with real-world datasets.",
+          section: "Teachings",handler: () => {
+              window.location.href = "/teachings/data-science-fundamentals/";
+            },},{id: "teachings-introduction-to-machine-learning",
+          title: 'Introduction to Machine Learning',
+          description: "This course provides an introduction to machine learning concepts, algorithms, and applications. Students will learn about supervised and unsupervised learning, model evaluation, and practical implementations.",
+          section: "Teachings",handler: () => {
+              window.location.href = "/teachings/introduction-to-machine-learning/";
+            },},{id: "thesaurus-agent-based-modeling-abm",
+          title: 'Agent-Based Modeling (ABM)',
+          description: "Thesaurus of terms from the ABM category — agent, methodological individualism, emergence, validation, path dependence, and Misesian apriorism.",
+          section: "Thesaurus",handler: () => {
+              window.location.href = "/thesaurus/agent-based-modeling/";
+            },},{id: "thesaurus-artificial-intelligence-machine-learning",
+          title: 'Artificial Intelligence / Machine Learning',
+          description: "Thesaurus of terms from the AI/ML category — gradient descent, reinforcement learning, specification gaming, Goodhart&#39;s Law, AI alignment, and loss functions.",
+          section: "Thesaurus",handler: () => {
+              window.location.href = "/thesaurus/ai-ml/";
+            },},{id: "thesaurus-complex-systems-network-science",
+          title: 'Complex Systems / Network Science',
+          description: "Thesaurus of terms from the Complex Systems category — scale-free networks, threshold dynamics, contagion models, dissipative structures, circular causality, and spontaneous order as discovery process.",
+          section: "Thesaurus",handler: () => {
+              window.location.href = "/thesaurus/complex-systems-network-science/";
+            },},{id: "thesaurus-information-theory-science-and-technology",
+          title: 'Information Theory / Science and Technology',
+          description: "Thesaurus of terms from the Sci-Tech category — Shannon entropy, Kolmogorov complexity, noise vs. signal, graceful degradation, data vs. knowledge, and informational resilience.",
+          section: "Thesaurus",handler: () => {
+              window.location.href = "/thesaurus/information-theory-sci-tech/";
+            },},{id: "thesaurus-praxeology-austrian-political-economy",
+          title: 'Praxeology / Austrian Political Economy',
+          description: "Thesaurus of terms from the Econ-Politics category — praxeology, ordinal value, the economic calculation problem, tacit knowledge, Arrow&#39;s impossibility theorem, and catallactics.",
+          section: "Thesaurus",handler: () => {
+              window.location.href = "/thesaurus/praxeology-austrian-political-economy/";
+            },},{id: "thesaurus-robotics-swarm-systems",
+          title: 'Robotics / Swarm Systems',
+          description: "Thesaurus of terms from the Robotics category — stigmergy, network topology, spontaneous order, emergence, resilience, and distributed accountability.",
+          section: "Thesaurus",handler: () => {
+              window.location.href = "/thesaurus/robotics-swarm-systems/";
+            },},{id: "thesaurus-social-sciences-behavioral-economics",
+          title: 'Social Sciences / Behavioral Economics',
+          description: "Thesaurus of terms from the Social Sciences category — subjective value, Prospect Theory, the endowment effect, nudge, public choice, and constitutional economics.",
+          section: "Thesaurus",handler: () => {
+              window.location.href = "/thesaurus/social-sciences-behavioral-economics/";
+            },},{id: "thesaurus-systems-engineering",
+          title: 'Systems Engineering',
+          description: "Thesaurus of terms from the Engineering category — graceful degradation, cosmos/taxis applied to software, microservices, adaptive systems, and formal specification.",
+          section: "Thesaurus",handler: () => {
+              window.location.href = "/thesaurus/systems-engineering/";
+            },},{
+        id: 'social-email',
+        title: 'email',
+        section: 'Socials',
+        handler: () => {
+          window.open("mailto:%6B%61%74%68.%6B%61%68%6C%6F@%68%6F%74%6D%61%69%6C.%63%6F%6D", "_blank");
+        },
+      },{
+        id: 'social-github',
+        title: 'GitHub',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://github.com/ka-means", "_blank");
+        },
+      },{
+        id: 'social-linkedin',
+        title: 'LinkedIn',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://www.linkedin.com/in/katherin-molina", "_blank");
+        },
+      },{
+        id: 'social-medium',
+        title: 'Medium',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://medium.com/@ka-means", "_blank");
+        },
+      },{
+        id: 'social-orcid',
+        title: 'ORCID',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://orcid.org/0009-0002-7194-9021", "_blank");
+        },
+      },{
+        id: 'social-rss',
+        title: 'RSS Feed',
+        section: 'Socials',
+        handler: () => {
+          window.open("/feed.xml", "_blank");
+        },
+      },];
+
+</script> <script src="/assets/al_search/js/shortcut-key.js"></script> </body> </html>
