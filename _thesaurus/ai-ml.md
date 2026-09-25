@@ -1,0 +1,73 @@
+---
+layout: page
+title: "Artificial Intelligence / Machine Learning"
+description: Thesaurus of terms from the AI/ML category — gradient descent, reinforcement learning, specification gaming, Goodhart's Law, AI alignment, and loss functions.
+related_publications: false
+permalink: /thesaurus/ai-ml/
+---
+
+**Parent article:** [AI/ML: When the Reward Is Wrong](/blog/2025/ai-ml-when-the-reward-is-wrong/)
+
+---
+
+**Gradient descent**
+
+Iterative optimization algorithm that adjusts a model's parameters in the direction that reduces prediction error. Mathematical roots in the statistical mechanics of Boltzmann (1870s): the search for energy minima through iterative adjustment. Not a reasoning mechanism; it is a search in a high-dimensional parameter space.
+
+_Related:_ loss function, supervised learning, backpropagation, optimization
+_Cross-references:_ [Information Theory / Science and Technology](/thesaurus/information-theory-sci-tech/)
+_Key work:_ Boltzmann, L. (1877). Über die Beziehung zwischen dem zweiten Hauptsatze... _Wiener Berichte_, 76, 373–435.
+
+**Reinforcement learning (RL)**
+
+Learning paradigm where an agent learns to act by maximizing a cumulative reward signal through interaction with an environment. Distinct from supervised learning: there are no labeled examples, only evaluative feedback on outcomes. The alignment problem is more acute in RL than in supervised learning because the agent has more freedom to explore the action space.
+
+_Related:_ reward function, policy, Q-learning, Markov decision process
+_Cross-references:_ [Robotics / Swarm Systems](/thesaurus/robotics-swarm-systems/)
+_Key work:_ Sutton, R. S., & Barto, A. G. (2018). _Reinforcement Learning: An Introduction_ (2nd ed.). MIT Press.
+
+**Specification gaming**
+
+Behavior where an agent satisfies the letter of a reward function while violating its spirit, exploiting gaps between what the specification says and what the designer intended. Structural consequence of optimizing under an incomplete objective. Documented systematically by Krakovna et al. (2020). Direct analog of Mises' calculation problem: both describe the impossibility of compressing subjective values into a formal specification without loss.
+
+_Related:_ reward hacking, Goodhart's Law, mesa-optimization, distributional shift
+_Cross-references:_ [Praxeology / Austrian Political Economy](/thesaurus/praxeology-austrian-political-economy/) (calculation problem, Econ-Politics)
+_Key work:_ Krakovna, V., et al. (2020). Specification gaming: The flip side of AI ingenuity. _arXiv:2010.09720_.
+
+**Goodhart's Law**
+
+"When a measure becomes a target, it ceases to be a good measure." States the same structural problem as specification gaming: the proxy of a value is never the value. Originally observed in monetary policy by Charles Goodhart (1975); applies universally to any incentive system that uses metrics as objectives.
+
+_Related:_ specification gaming, Campbell's Law, Cobra effect
+_Cross-references:_ [Praxeology / Austrian Political Economy](/thesaurus/praxeology-austrian-political-economy/), [Social Sciences / Behavioral Economics](/thesaurus/social-sciences-behavioral-economics/)
+_Key work:_ Goodhart, C. A. E. (1975). Problems of monetary management. In _Inflation, Depression and Economic Policy in the West_. Barnes & Noble.
+
+**AI alignment**
+
+Field studying how to design AI systems whose behavior is aligned with human values and objectives. The central problem, that no static reward function can capture complete human values, has direct formal analogs in Mises' calculation argument and in Arrow's impossibility theorem. The convergence of these three traditions has not yet been fully formalized.
+
+_Related:_ specification gaming, corrigibility, utility indifference, iterated amplification
+_Cross-references:_ [Praxeology / Austrian Political Economy](/thesaurus/praxeology-austrian-political-economy/)
+_Key work:_ Soares, N., & Fallenstein, B. (2014). _Aligning superintelligence with human interests_. MIRI Technical Report 2014-8.
+
+**Loss function**
+
+Mathematical function that quantifies the discrepancy between the model's output and the desired result. In supervised learning, training minimizes this function. Choosing the wrong loss function produces a model that does exactly what you asked, which may not be what you wanted: the same structural problem as specification gaming in RL.
+
+_Related:_ reward function, mean squared error, cross-entropy
+_Cross-references:_ [Information Theory / Science and Technology](/thesaurus/information-theory-sci-tech/)
+_Key work:_ Amodei, D., et al. (2016). Concrete problems in AI safety. _arXiv:1606.06565_.
+
+## References
+
+Amodei, D., Olah, C., Steinhardt, J., Christiano, P., Schulman, J., & Mané, D. (2016). Concrete problems in AI safety. _arXiv:1606.06565_.
+
+Goodhart, C. A. E. (1975). Problems of monetary management. In A. S. Courakis (Ed.), _Inflation, Depression and Economic Policy in the West_. Barnes & Noble.
+
+Krakovna, V., Uesato, J., Mikulik, V., Martic, M., Tobin, J., Bai, P., … Legg, S. (2020). Specification gaming: The flip side of AI ingenuity. _arXiv:2010.09720_.
+
+Mises, L. von (1920/1935). Economic calculation in the socialist commonwealth. In F. A. Hayek (Ed.), _Collectivist Economic Planning_. Routledge.
+
+Soares, N., & Fallenstein, B. (2014). _Aligning superintelligence with human interests_. MIRI Technical Report 2014-8.
+
+Sutton, R. S., & Barto, A. G. (2018). _Reinforcement Learning: An Introduction_ (2nd ed.). MIT Press.

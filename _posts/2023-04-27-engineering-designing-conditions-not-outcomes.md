@@ -14,15 +14,25 @@ For most of computing history, software was unambiguously taxis. Every branch sp
 
 That model remains appropriate for systems with stable and fully enumerable requirements. But it has become inadequate for a class of problems that grew rapidly in the last decade: systems operating in dynamic environments, interacting with unpredictable users, needing to maintain service while being continuously modified.
 
-The response has been a gradual, mostly tacit, shift from specifying behavior to specifying conditions. Continuous deployment pipelines don't rewrite code autonomously. They automate the testing and release process, shrinking the feedback loop between writing a change and seeing it in production. Microservices replace a single monolithic program with many small services communicating through well-defined interfaces. When one fails, the others continue. The system degrades gracefully rather than collapsing completely. These are not autonomous systems. They are engineering disciplines that acknowledge the designer's inability to anticipate every future state.
+The response has been a gradual, mostly tacit, shift from specifying behavior to specifying conditions. Continuous deployment pipelines do not rewrite code autonomously. They automate the testing and release process, shrinking the feedback loop between writing a change and seeing it in production. Microservices replace a single monolithic program with many small services communicating through well-defined interfaces. When one fails, the others continue. The system degrades gracefully rather than collapsing completely. These are not autonomous systems. They are engineering disciplines that acknowledge the designer's inability to anticipate every future state.
 
 The biological borrowings in this evolution are specific and traceable. The internet's packet routing was designed to route around damage, a property directly inspired by the resilience of neural networks. ARPA's original brief asked for a communication network that could survive partial destruction. The solution, distributed routing with no central coordinator, was informed by research on how biological systems maintain function under damage. Immune-system-inspired algorithms apply the principle of adaptive, distributed threat response to network security. These are not metaphors. Engineers looked at systems that had been selected for resilience over millions of years and asked what mechanisms produced that resilience.
 
-The systems that genuinely modify their own parameters based on feedback, recommendation engines, adaptive control systems, anomaly detectors that recalibrate on what they observe, are doing something meaningfully different from a conventional program. They are not following a fixed rule. They are refining the rule based on experience. That changes what the engineer's job is: from writing correct behavior to designing the conditions under which correct behavior tends to emerge and incorrect behavior tends to be corrected.
+The systems that genuinely modify their own parameters based on feedback, recommendation engines, adaptive control systems, anomaly detectors that recalibrate on what they observe, are doing something meaningfully different from a conventional program. They are not following a fixed rule. They are refining the rule based on experience. That changes what the engineer's job is: from writing correct behavior to designing the conditions in which correct behavior tends to emerge and incorrect behavior tends to be corrected.
 
-From my point of view, the engineering temperament trained on deterministic systems consistently underestimates how much order can arise without top-down specification, and overestimates how much control top-down specification actually delivers. Real systems are always more complex than their specifications. The question is whether you design for that gap or pretend it doesn't exist and call what falls through it a bug.
+From my point of view, the engineering temperament trained on deterministic systems consistently underestimates how much order can arise without top-down specification, and overestimates how much control top-down specification actually delivers. Real systems are always more complex than their specifications. The question is whether you design for that gap or pretend it does not exist.
 
 ## Questions worth investigating
 
 1. Hayek's cosmos/taxis distinction was developed for social systems. Has it been formally applied in distributed systems theory or software architecture, and with what results?
 2. Beyond neural networks and immune systems, which biological resilience mechanisms have been most productively formalized in distributed computing architectures?
+
+## References
+
+Fowler, M., & Lewis, J. (2014). Microservices. _martinfowler.com_. https://martinfowler.com/articles/microservices.html
+
+Hayek, F. A. (1973). _Law, Legislation and Liberty, Vol. 1: Rules and Order_. University of Chicago Press.
+
+Jerne, N. K. (1974). Towards a network theory of the immune system. _Annals of Immunology_, 125C(1–2), 373–389.
+
+Leiner, B. M., Cerf, V. G., Clark, D. D., Kahn, R. E., Kleinrock, L., Lynch, D. C., … Wolff, S. (2009). A brief history of the Internet. _ACM SIGCOMM Computer Communication Review_, 39(5), 22–31.

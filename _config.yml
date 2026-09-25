@@ -205,6 +205,9 @@ collections:
   reports:
     output: true
     permalink: /vault/reports/:path/
+  thesaurus:
+    output: true
+    permalink: /thesaurus/:path/
 
 # -----------------------------------------------------------------------------
 # Jekyll settings
