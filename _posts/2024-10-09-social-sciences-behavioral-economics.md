@@ -1,9 +1,10 @@
 ---
-layout: page
+layout: post
 title: "Social Sciences / Behavioral Economics"
-description: Thesaurus of terms from the Social Sciences category — subjective value, Prospect Theory, the endowment effect, nudge, public choice, and constitutional economics.
-related_publications: false
-permalink: /thesaurus/social-sciences-behavioral-economics/
+date: 2024-10-09 09:00:00-0000
+description: "Thesaurus of terms from the Social Sciences category — subjective value, Prospect Theory, the endowment effect, nudge, public choice, and constitutional economics."
+categories: [thesaurus]
+related_posts: false
 ---
 
 **Parent article:** [Social Sciences: Irrationality Is Not an Argument for Planners](/blog/2024/social-sciences-irrationality-is-not-an-argument-for-planners/)
@@ -15,7 +16,7 @@ permalink: /thesaurus/social-sciences-behavioral-economics/
 Principle that the value of a good is not a property of the good itself but of the relationship between the good, the individual evaluating it, and the context of that evaluation. Origin: Carl Menger (1871). Pillar of Austrian economics. Necessary condition for Mises' calculation argument: if value were objective, it could in principle be calculated; because it is subjective, it can only be revealed through voluntary exchange.
 
 _Related:_ ordinal value, preferences, subjective utility, valuation
-_Cross-references:_ [Praxeology / Austrian Political Economy](/thesaurus/praxeology-austrian-political-economy/)
+_Cross-references:_ [Praxeology / Austrian Political Economy](/blog/2025/praxeology-austrian-political-economy/)
 _Key work:_ Menger, C. (1871/1950). _Principles of Economics_. Free Press.
 
 **Prospect Theory** (Kahneman & Tversky, 1979)
@@ -39,7 +40,7 @@ _Key work:_ Kahneman, D., Knetsch, J. L., & Thaler, R. H. (1990). Experimental t
 Intervention in choice architecture that alters predictable behavior without prohibiting options or materially changing economic incentives. From an Austrian standpoint: soft paternalism with the same epistemological problem as hard paternalism. The nudge designer assumes knowledge of what the best outcome is for individuals whose preferences they cannot fully access.
 
 _Related:_ choice architecture, libertarian paternalism, default, opt-in/opt-out
-_Cross-references:_ [Praxeology / Austrian Political Economy](/thesaurus/praxeology-austrian-political-economy/)
+_Cross-references:_ [Praxeology / Austrian Political Economy](/blog/2025/praxeology-austrian-political-economy/)
 _Key work:_ Thaler, R. H., & Sunstein, C. R. (2008). _Nudge_. Yale University Press.
 
 **Public choice** (Buchanan & Tullock, 1962)
@@ -47,7 +48,7 @@ _Key work:_ Thaler, R. H., & Sunstein, C. R. (2008). _Nudge_. Yale University Pr
 Application of economic methods and assumptions to the analysis of political and institutional behavior. Result: politicians, bureaucrats, and regulators respond to personal and institutional incentives, not to aggregate social welfare. Direct critique of the benevolent planner assumption underlying behavioral policy proposals.
 
 _Related:_ rent-seeking, regulatory capture, government failure, institutional incentives
-_Cross-references:_ [Praxeology / Austrian Political Economy](/thesaurus/praxeology-austrian-political-economy/)
+_Cross-references:_ [Praxeology / Austrian Political Economy](/blog/2025/praxeology-austrian-political-economy/)
 _Key work:_ Buchanan, J. M., & Tullock, G. (1962). _The Calculus of Consent_. University of Michigan Press.
 
 **Constitutional economics** (Buchanan)
@@ -55,7 +56,7 @@ _Key work:_ Buchanan, J. M., & Tullock, G. (1962). _The Calculus of Consent_. Un
 Branch of political economy studying the rules of the game rather than outcomes within the game. Core argument: the outcomes of the political process depend fundamentally on the constitutional rules under which it operates, more than on the intentions of decision-makers within that process. Implication for behavioral policy: the design of choice architecture should be subject to constitutional constraints, not left to expert discretion.
 
 _Related:_ public choice, social contract, rules vs. discretion
-_Cross-references:_ [Praxeology / Austrian Political Economy](/thesaurus/praxeology-austrian-political-economy/)
+_Cross-references:_ [Praxeology / Austrian Political Economy](/blog/2025/praxeology-austrian-political-economy/)
 _Key work:_ Buchanan, J. M. (1990). _The Economics and the Ethics of Constitutional Order_. University of Michigan Press.
 
 ## References

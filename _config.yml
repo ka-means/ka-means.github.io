@@ -205,9 +205,6 @@ collections:
   reports:
     output: true
     permalink: /vault/reports/:path/
-  thesaurus:
-    output: true
-    permalink: /thesaurus/:path/
 
 # -----------------------------------------------------------------------------
 # Jekyll settings
@@ -374,7 +371,7 @@ jekyll-archives:
       tags: "/vault/reports/:type/:name/"
 
 display_tags: ["Robotics", "ABM", "AI/ML", "Engineering", "Social Sciences"] # these tags will be displayed on the front page of your blog
-display_categories: ["complex-systems", "econ-politics", "sci-tech", "engineering"] # these categories will be displayed on the front page of your blog
+display_categories: ["complex-systems", "econ-politics", "sci-tech", "engineering", "thesaurus"] # these categories will be displayed on the front page of your blog
 
 # -----------------------------------------------------------------------------
 # Jekyll Scholar
