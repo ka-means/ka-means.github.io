@@ -371,7 +371,7 @@ jekyll-archives:
       tags: "/vault/reports/:type/:name/"
 
 display_tags: ["Robotics", "ABM", "AI/ML", "Engineering", "Social Sciences"] # these tags will be displayed on the front page of your blog
-display_categories: ["complex-systems", "econ-politics", "sci-tech", "engineering", "thesaurus"] # these categories will be displayed on the front page of your blog
+display_categories: ["complex-systems", "econ-politics", "sci-tech", "engineering", "thesaurus", "presenting"] # these categories will be displayed on the front page of your blog
 
 # -----------------------------------------------------------------------------
 # Jekyll Scholar

@@ -200,6 +200,35 @@ samp,
 }
 
 // -----------------------------------------------------------------------------
+// Portrait duotone: grayscale + brand-yellow multiply overlay, for figures in
+// the "Presenting" blog category (person portraits). Pure CSS so it always
+// matches --global-theme-color, rather than a pre-filtered image asset.
+// -----------------------------------------------------------------------------
+
+.portrait-duotone {
+  position: relative;
+  display: inline-block;
+  max-width: 320px;
+  margin-bottom: 1rem;
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    filter: grayscale(1) contrast(1.05);
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: var(--global-theme-color);
+    mix-blend-mode: multiply;
+    pointer-events: none;
+  }
+}
+
+// -----------------------------------------------------------------------------
 // About page hero: bigger "Ka-means" title, more breathing room before the bio.
 // -----------------------------------------------------------------------------
 
