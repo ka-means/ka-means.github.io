@@ -2,7 +2,7 @@
   :root {
     --max-content-width: 930px;
   }
-</style> <link rel="stylesheet" href="/assets/css/tailwind.css?v=50c64c15cbb9fd1ce6056fdb8bcb4b62"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css" integrity="sha256-MVopmdyC2tYTiJ8wlktf0uh0v4NgT+vNdyVFepi7Q0c=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.5/css/academicons.min.css" integrity="sha256-SzrCOBJbGVFMahewkgjwnApaV2+av1DwMAA+/QGLyZw=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/scholar-icons@1.0.3/css/scholar-icons.css" integrity="sha256-VY3hHVj/hNX3fYG6wtbA6TcKJQl7+FthzGSyIB64klY=" crossorigin="anonymous"> <link defer rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,600&amp;family=JetBrains+Mono:wght@400;500&amp;family=Material+Icons&amp;display=swap"> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-github.css?v=591dab5a4e56573bf4ef7fd332894c99" media="" id="highlight_theme_light"> <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%F0%9F%9F%A1&lt;/text&gt;&lt;/svg&gt;"> <link rel="stylesheet" href="/assets/css/main.css?v=b7e280e57e2bc547c94fb59c914ff711"> <link rel="canonical" href="https://kameans.site/blog/2024/money-as-emergence-menger-agent-based-model/"> </head> <body class="fixed-top-nav "> <header> <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top" role="navigation"> <div class="container"> <a class="navbar-brand title font-weight-lighter" href="/"> Ka-means </a> <button class="navbar-toggler collapsed navbar-toggler-main" type="button" data-nav-toggle="navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar top-bar"></span> <span class="icon-bar middle-bar"></span> <span class="icon-bar bottom-bar"></span> </button> <div class="collapse navbar-collapse navbar-collapse-main" id="navbarNav"> <ul class="navbar-nav navbar-menu-list flex-nowrap"> <li class="nav-item "> <a class="nav-link" href="/">About </a> </li> <li class="nav-item active"> <a class="nav-link" href="/blog/">Blog </a> </li> <li class="nav-item "> <a class="nav-link" href="/publications/">Publications </a> </li> <li class="nav-item "> <a class="nav-link" href="/projects/">Projects </a> </li> <li class="nav-item "> <a class="nav-link" href="/repositories/">Repositories </a> </li> <li class="nav-item "> <a class="nav-link" href="/media/">Media </a> </li> <li class="nav-item "> <a class="nav-link" href="/vault/">Vault </a> </li> <li class="nav-item "> <a class="nav-link" href="/cv/">CV </a> </li> <li class="nav-item "> <a class="nav-link" href="/thesaurus/">Thesaurus </a> </li> <li class="nav-item"> <button id="search-toggle" type="button" title="Search" aria-label="Open search"> <span class="nav-link">ctrl k <i class="fa-solid fa-magnifying-glass"></i></span> </button> </li> </ul> </div> </div> </nav> <progress id="progress" value="0"> <div class="progress-container"> <span class="progress-bar"></span> </div> </progress> </header> <div class="container mt-5" role="main"> <div class="post"> <header class="post-header"> <h1 class="post-title">Money as Emergence: From Menger's Argument to the Agent-Based Model</h1> <p class="post-meta"> Created on August 19, 2024 </p> <p class="post-tags"> <a href="/blog/2024"> <i class="fa-solid fa-calendar fa-sm"></i> 2024 </a>   ·   <a href="/blog/tag/abm"> <i class="fa-solid fa-hashtag fa-sm"></i> ABM</a> </p> </header> <article class="post-content"> <div id="markdown-content"> <p><strong>Parent article:</strong> <a href="/blog/2024/abm-the-method-that-starts-with-the-individual/">ABM: The Method That Starts with the Individual</a> <strong>Origin question:</strong> Carl Menger’s origin-of-money argument is structurally identical to what ABM researchers would call an emergence argument. Has anyone built a formal agent-based model of Menger’s account, and what does it predict that the verbal argument does not?</p> <hr> <p>Carl Menger described the origin of money in 1871 without any mathematical model. What he had was a mechanism: individual traders, acting in their own interest, discover that certain commodities are easier to exchange than others. Gradually, without any explicit agreement and without any authority decreeing it, those commodities become generalized media of exchange. Money emerges from interaction, not from design.</p> <p>Kiyotaki and Wright formalized this mechanism for the first time in 1989, building exactly what Menger had described verbally: agents who choose what to accept as payment based on their expectation of how widely others will accept it. The result was a search-theoretic model of money where multiple equilibria are possible, and convergence toward one of them depends on initial expectations and the distribution of agent types in the population. It is not a design. It is an equilibrium selected by the dynamics of interaction.</p> <p>What the model predicts that Menger’s verbal argument does not is precisely this aspect of multiple equilibria. Several types of money can emerge simultaneously in different segments of the same population. The convergence process can be slow and non-monotonic. Exogenous shocks can destabilize a monetary equilibrium even when individual preferences have not changed.</p> <p>Later work extended this further. Ruilin Zhou (1997) showed that the selection of the monetary good depends on the topology of the exchange network, not only on the intrinsic properties of the goods. In hub-and-spoke networks, convergence toward a common medium of exchange is faster but more fragile: the collapse of a central hub can reverse the equilibrium. In distributed networks, convergence is slower but more robust to local perturbations. That was not in Menger.</p> <p>Epstein and Axtell in Sugarscape explored the emergence of trade and money from endowment and local preference rules. Their simulations showed something that traditional general equilibrium models do not capture: the path matters. Two populations with identical preferences and identical endowments can arrive at completely different monetary equilibria depending on the order in which early exchanges occurred. That is path dependence, and it is a prediction the verbal argument does not contain but the ABM generates directly.</p> <p>From my point of view, the most productive connection for future research goes in a direction no one has fully explored: Bitcoin. Bitcoin was not decreed by any government. It emerged from a network of individual adoption exactly as Menger would have predicted. The Kiyotaki-Wright models suggest that its stability as a medium of exchange would depend on the density and topology of the adopter network, not on its intrinsic technical properties. If that network has scale-free structure, as most technology adoption networks do, then it is highly vulnerable to the exit or collapse of adoption hubs, regardless of the properties of the underlying protocol. That is a testable prediction that follows from Menger’s argument, formalized as an ABM.</p> <h2 id="questions-worth-investigating">Questions worth investigating</h2> <ol> <li>How do monetary emergence models explain the coexistence of multiple currencies in the same economic system, and what conditions lead to the dominance of one over the others?</li> <li>If Bitcoin’s adoption follows the Kiyotaki-Wright logic, what do those models predict about the long-term stability of currencies without government backing in networks with scale-free structure?</li> </ol> <h2 id="references">References</h2> <p>Epstein, J. M., &amp; Axtell, R. (1996). <em>Growing Artificial Societies: Social Science from the Bottom Up</em>. Brookings Institution Press.</p> <p>Kiyotaki, N., &amp; Wright, R. (1989). On money as a medium of exchange. <em>Journal of Political Economy</em>, 97(4), 927–954.</p> <p>Kiyotaki, N., &amp; Wright, R. (1993). A search-theoretic approach to monetary economics. <em>American Economic Review</em>, 83(1), 63–77.</p> <p>Menger, C. (1871/1950). <em>Principles of Economics</em> (J. Dingwall &amp; B. F. Hoselitz, Trans.). Free Press.</p> <p>Nakamoto, S. (2008). <em>Bitcoin: A peer-to-peer electronic cash system</em>. https://bitcoin.org/bitcoin.pdf</p> <p>Zhou, R. (1997). Currency exchange in a random search model. <em>Review of Economic Studies</em>, 64(2), 289–310.</p> </div> </article> </div> </div> <footer class="fixed-bottom" role="contentinfo"> <div class="container mt-0"> © Copyright 2026 Katherin Molina. </div> </footer> <script>
+</style> <link rel="stylesheet" href="/assets/css/tailwind.css?v=50c64c15cbb9fd1ce6056fdb8bcb4b62"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css" integrity="sha256-MVopmdyC2tYTiJ8wlktf0uh0v4NgT+vNdyVFepi7Q0c=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.5/css/academicons.min.css" integrity="sha256-SzrCOBJbGVFMahewkgjwnApaV2+av1DwMAA+/QGLyZw=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/scholar-icons@1.0.3/css/scholar-icons.css" integrity="sha256-VY3hHVj/hNX3fYG6wtbA6TcKJQl7+FthzGSyIB64klY=" crossorigin="anonymous"> <link defer rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,600&amp;family=JetBrains+Mono:wght@400;500&amp;family=Material+Icons&amp;display=swap"> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-github.css?v=591dab5a4e56573bf4ef7fd332894c99" media="" id="highlight_theme_light"> <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%F0%9F%9F%A1&lt;/text&gt;&lt;/svg&gt;"> <link rel="stylesheet" href="/assets/css/main.css?v=b7e280e57e2bc547c94fb59c914ff711"> <link rel="canonical" href="https://kameans.site/blog/2024/money-as-emergence-menger-agent-based-model/"> </head> <body class="fixed-top-nav "> <header> <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top" role="navigation"> <div class="container"> <a class="navbar-brand title font-weight-lighter" href="/"> Ka-means </a> <button class="navbar-toggler collapsed navbar-toggler-main" type="button" data-nav-toggle="navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar top-bar"></span> <span class="icon-bar middle-bar"></span> <span class="icon-bar bottom-bar"></span> </button> <div class="collapse navbar-collapse navbar-collapse-main" id="navbarNav"> <ul class="navbar-nav navbar-menu-list flex-nowrap"> <li class="nav-item "> <a class="nav-link" href="/">About </a> </li> <li class="nav-item active"> <a class="nav-link" href="/blog/">Blog </a> </li> <li class="nav-item "> <a class="nav-link" href="/publications/">Publications </a> </li> <li class="nav-item "> <a class="nav-link" href="/projects/">Projects </a> </li> <li class="nav-item "> <a class="nav-link" href="/repositories/">Repositories </a> </li> <li class="nav-item "> <a class="nav-link" href="/media/">Media </a> </li> <li class="nav-item "> <a class="nav-link" href="/vault/">Vault </a> </li> <li class="nav-item "> <a class="nav-link" href="/cv/">CV </a> </li> <li class="nav-item"> <button id="search-toggle" type="button" title="Search" aria-label="Open search"> <span class="nav-link">ctrl k <i class="fa-solid fa-magnifying-glass"></i></span> </button> </li> </ul> </div> </div> </nav> <progress id="progress" value="0"> <div class="progress-container"> <span class="progress-bar"></span> </div> </progress> </header> <div class="container mt-5" role="main"> <div class="post"> <header class="post-header"> <h1 class="post-title">Money as Emergence: From Menger's Argument to the Agent-Based Model</h1> <p class="post-meta"> Created on August 19, 2024 </p> <p class="post-tags"> <a href="/blog/2024"> <i class="fa-solid fa-calendar fa-sm"></i> 2024 </a>   ·   <a href="/blog/tag/abm"> <i class="fa-solid fa-hashtag fa-sm"></i> ABM</a> </p> </header> <article class="post-content"> <div id="markdown-content"> <p><strong>Parent article:</strong> <a href="/blog/2024/abm-the-method-that-starts-with-the-individual/">ABM: The Method That Starts with the Individual</a> <strong>Origin question:</strong> Carl Menger’s origin-of-money argument is structurally identical to what ABM researchers would call an emergence argument. Has anyone built a formal agent-based model of Menger’s account, and what does it predict that the verbal argument does not?</p> <hr> <p>Carl Menger described the origin of money in 1871 without any mathematical model. What he had was a mechanism: individual traders, acting in their own interest, discover that certain commodities are easier to exchange than others. Gradually, without any explicit agreement and without any authority decreeing it, those commodities become generalized media of exchange. Money emerges from interaction, not from design.</p> <p>Kiyotaki and Wright formalized this mechanism for the first time in 1989, building exactly what Menger had described verbally: agents who choose what to accept as payment based on their expectation of how widely others will accept it. The result was a search-theoretic model of money where multiple equilibria are possible, and convergence toward one of them depends on initial expectations and the distribution of agent types in the population. It is not a design. It is an equilibrium selected by the dynamics of interaction.</p> <p>What the model predicts that Menger’s verbal argument does not is precisely this aspect of multiple equilibria. Several types of money can emerge simultaneously in different segments of the same population. The convergence process can be slow and non-monotonic. Exogenous shocks can destabilize a monetary equilibrium even when individual preferences have not changed.</p> <p>Later work extended this further. Ruilin Zhou (1997) showed that the selection of the monetary good depends on the topology of the exchange network, not only on the intrinsic properties of the goods. In hub-and-spoke networks, convergence toward a common medium of exchange is faster but more fragile: the collapse of a central hub can reverse the equilibrium. In distributed networks, convergence is slower but more robust to local perturbations. That was not in Menger.</p> <p>Epstein and Axtell in Sugarscape explored the emergence of trade and money from endowment and local preference rules. Their simulations showed something that traditional general equilibrium models do not capture: the path matters. Two populations with identical preferences and identical endowments can arrive at completely different monetary equilibria depending on the order in which early exchanges occurred. That is path dependence, and it is a prediction the verbal argument does not contain but the ABM generates directly.</p> <p>From my point of view, the most productive connection for future research goes in a direction no one has fully explored: Bitcoin. Bitcoin was not decreed by any government. It emerged from a network of individual adoption exactly as Menger would have predicted. The Kiyotaki-Wright models suggest that its stability as a medium of exchange would depend on the density and topology of the adopter network, not on its intrinsic technical properties. If that network has scale-free structure, as most technology adoption networks do, then it is highly vulnerable to the exit or collapse of adoption hubs, regardless of the properties of the underlying protocol. That is a testable prediction that follows from Menger’s argument, formalized as an ABM.</p> <h2 id="questions-worth-investigating">Questions worth investigating</h2> <ol> <li>How do monetary emergence models explain the coexistence of multiple currencies in the same economic system, and what conditions lead to the dominance of one over the others?</li> <li>If Bitcoin’s adoption follows the Kiyotaki-Wright logic, what do those models predict about the long-term stability of currencies without government backing in networks with scale-free structure?</li> </ol> <h2 id="references">References</h2> <p>Epstein, J. M., &amp; Axtell, R. (1996). <em>Growing Artificial Societies: Social Science from the Bottom Up</em>. Brookings Institution Press.</p> <p>Kiyotaki, N., &amp; Wright, R. (1989). On money as a medium of exchange. <em>Journal of Political Economy</em>, 97(4), 927–954.</p> <p>Kiyotaki, N., &amp; Wright, R. (1993). A search-theoretic approach to monetary economics. <em>American Economic Review</em>, 83(1), 63–77.</p> <p>Menger, C. (1871/1950). <em>Principles of Economics</em> (J. Dingwall &amp; B. F. Hoselitz, Trans.). Free Press.</p> <p>Nakamoto, S. (2008). <em>Bitcoin: A peer-to-peer electronic cash system</em>. https://bitcoin.org/bitcoin.pdf</p> <p>Zhou, R. (1997). Currency exchange in a random search model. <em>Review of Economic Studies</em>, 64(2), 289–310.</p> </div> </article> </div> </div> <footer class="fixed-bottom" role="contentinfo"> <div class="container mt-0"> © Copyright 2026 Katherin Molina. </div> </footer> <script>
   window.alFolio = {
     compatBootstrap: false
   };
@@ -69,14 +69,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/cv/";
           },
-        },{id: "nav-thesaurus",
-          title: "Thesaurus",
-          description: "A glossary of terms developed across the blog&#39;s eight article categories, cross-referenced as a conceptual map.",
-          section: "Navigation",
-          handler: () => {
-            window.location.href = "/thesaurus/";
-          },
-        },{id: "post-sci-tech-the-difference-between-data-and-knowledge",
+        },{id: "post-information-theory-science-and-technology",
+        
+          title: "Information Theory / Science and Technology",
+        
+        description: "Thesaurus of terms from the Sci-Tech category — Shannon entropy, Kolmogorov complexity, noise vs. signal, graceful degradation, data vs. knowledge, and informational resilience.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/information-theory-sci-tech/";
+          
+        },
+      },{id: "post-sci-tech-the-difference-between-data-and-knowledge",
         
           title: "Sci-Tech: The Difference Between Data and Knowledge",
         
@@ -85,6 +89,17 @@ ninja.data = [{
         handler: () => {
           
             window.location.href = "/blog/2026/sci-tech-the-difference-between-data-and-knowledge/";
+          
+        },
+      },{id: "post-praxeology-austrian-political-economy",
+        
+          title: "Praxeology / Austrian Political Economy",
+        
+        description: "Thesaurus of terms from the Econ-Politics category — praxeology, ordinal value, the economic calculation problem, tacit knowledge, Arrow&#39;s impossibility theorem, and catallactics.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/praxeology-austrian-political-economy/";
           
         },
       },{id: "post-econ-politics-why-prices-cannot-be-replaced",
@@ -109,6 +124,17 @@ ninja.data = [{
             window.location.href = "/blog/2025/the-calculation-problem-and-the-alignment-problem/";
           
         },
+      },{id: "post-artificial-intelligence-machine-learning",
+        
+          title: "Artificial Intelligence / Machine Learning",
+        
+        description: "Thesaurus of terms from the AI/ML category — gradient descent, reinforcement learning, specification gaming, Goodhart&#39;s Law, AI alignment, and loss functions.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/ai-ml/";
+          
+        },
       },{id: "post-ai-ml-when-the-reward-is-wrong",
         
           title: "AI/ML: When the Reward Is Wrong",
@@ -118,6 +144,17 @@ ninja.data = [{
         handler: () => {
           
             window.location.href = "/blog/2025/ai-ml-when-the-reward-is-wrong/";
+          
+        },
+      },{id: "post-social-sciences-behavioral-economics",
+        
+          title: "Social Sciences / Behavioral Economics",
+        
+        description: "Thesaurus of terms from the Social Sciences category — subjective value, Prospect Theory, the endowment effect, nudge, public choice, and constitutional economics.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/social-sciences-behavioral-economics/";
           
         },
       },{id: "post-social-sciences-irrationality-is-not-an-argument-for-planners",
@@ -142,6 +179,17 @@ ninja.data = [{
             window.location.href = "/blog/2024/money-as-emergence-menger-agent-based-model/";
           
         },
+      },{id: "post-agent-based-modeling-abm",
+        
+          title: "Agent-Based Modeling (ABM)",
+        
+        description: "Thesaurus of terms from the ABM category — agent, methodological individualism, emergence, validation, path dependence, and Misesian apriorism.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/agent-based-modeling/";
+          
+        },
       },{id: "post-abm-the-method-that-starts-with-the-individual",
         
           title: "ABM: The Method That Starts with the Individual",
@@ -153,6 +201,17 @@ ninja.data = [{
             window.location.href = "/blog/2024/abm-the-method-that-starts-with-the-individual/";
           
         },
+      },{id: "post-robotics-swarm-systems",
+        
+          title: "Robotics / Swarm Systems",
+        
+        description: "Thesaurus of terms from the Robotics category — stigmergy, network topology, spontaneous order, emergence, resilience, and distributed accountability.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2023/robotics-swarm-systems/";
+          
+        },
       },{id: "post-robotics-engineering-spontaneous-order",
         
           title: "Robotics: Engineering Spontaneous Order",
@@ -162,6 +221,17 @@ ninja.data = [{
         handler: () => {
           
             window.location.href = "/blog/2023/robotics-engineering-spontaneous-order/";
+          
+        },
+      },{id: "post-systems-engineering",
+        
+          title: "Systems Engineering",
+        
+        description: "Thesaurus of terms from the Engineering category — graceful degradation, cosmos/taxis applied to software, microservices, adaptive systems, and formal specification.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2023/systems-engineering/";
           
         },
       },{id: "post-engineering-designing-conditions-not-outcomes",
@@ -184,6 +254,17 @@ ninja.data = [{
         handler: () => {
           
             window.location.href = "/blog/2023/hayek-and-prigogine-two-paths-to-order/";
+          
+        },
+      },{id: "post-complex-systems-network-science",
+        
+          title: "Complex Systems / Network Science",
+        
+        description: "Thesaurus of terms from the Complex Systems category — scale-free networks, threshold dynamics, contagion models, dissipative structures, circular causality, and spontaneous order as discovery process.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2022/complex-systems-network-science/";
           
         },
       },{id: "post-complex-systems-order-without-a-designer",
@@ -407,46 +488,6 @@ ninja.data = [{
           description: "This course provides an introduction to machine learning concepts, algorithms, and applications. Students will learn about supervised and unsupervised learning, model evaluation, and practical implementations.",
           section: "Teachings",handler: () => {
               window.location.href = "/teachings/introduction-to-machine-learning/";
-            },},{id: "thesaurus-agent-based-modeling-abm",
-          title: 'Agent-Based Modeling (ABM)',
-          description: "Thesaurus of terms from the ABM category — agent, methodological individualism, emergence, validation, path dependence, and Misesian apriorism.",
-          section: "Thesaurus",handler: () => {
-              window.location.href = "/thesaurus/agent-based-modeling/";
-            },},{id: "thesaurus-artificial-intelligence-machine-learning",
-          title: 'Artificial Intelligence / Machine Learning',
-          description: "Thesaurus of terms from the AI/ML category — gradient descent, reinforcement learning, specification gaming, Goodhart&#39;s Law, AI alignment, and loss functions.",
-          section: "Thesaurus",handler: () => {
-              window.location.href = "/thesaurus/ai-ml/";
-            },},{id: "thesaurus-complex-systems-network-science",
-          title: 'Complex Systems / Network Science',
-          description: "Thesaurus of terms from the Complex Systems category — scale-free networks, threshold dynamics, contagion models, dissipative structures, circular causality, and spontaneous order as discovery process.",
-          section: "Thesaurus",handler: () => {
-              window.location.href = "/thesaurus/complex-systems-network-science/";
-            },},{id: "thesaurus-information-theory-science-and-technology",
-          title: 'Information Theory / Science and Technology',
-          description: "Thesaurus of terms from the Sci-Tech category — Shannon entropy, Kolmogorov complexity, noise vs. signal, graceful degradation, data vs. knowledge, and informational resilience.",
-          section: "Thesaurus",handler: () => {
-              window.location.href = "/thesaurus/information-theory-sci-tech/";
-            },},{id: "thesaurus-praxeology-austrian-political-economy",
-          title: 'Praxeology / Austrian Political Economy',
-          description: "Thesaurus of terms from the Econ-Politics category — praxeology, ordinal value, the economic calculation problem, tacit knowledge, Arrow&#39;s impossibility theorem, and catallactics.",
-          section: "Thesaurus",handler: () => {
-              window.location.href = "/thesaurus/praxeology-austrian-political-economy/";
-            },},{id: "thesaurus-robotics-swarm-systems",
-          title: 'Robotics / Swarm Systems',
-          description: "Thesaurus of terms from the Robotics category — stigmergy, network topology, spontaneous order, emergence, resilience, and distributed accountability.",
-          section: "Thesaurus",handler: () => {
-              window.location.href = "/thesaurus/robotics-swarm-systems/";
-            },},{id: "thesaurus-social-sciences-behavioral-economics",
-          title: 'Social Sciences / Behavioral Economics',
-          description: "Thesaurus of terms from the Social Sciences category — subjective value, Prospect Theory, the endowment effect, nudge, public choice, and constitutional economics.",
-          section: "Thesaurus",handler: () => {
-              window.location.href = "/thesaurus/social-sciences-behavioral-economics/";
-            },},{id: "thesaurus-systems-engineering",
-          title: 'Systems Engineering',
-          description: "Thesaurus of terms from the Engineering category — graceful degradation, cosmos/taxis applied to software, microservices, adaptive systems, and formal specification.",
-          section: "Thesaurus",handler: () => {
-              window.location.href = "/thesaurus/systems-engineering/";
             },},{
         id: 'social-email',
         title: 'email',

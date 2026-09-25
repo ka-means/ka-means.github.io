@@ -2,7 +2,7 @@
   :root {
     --max-content-width: 930px;
   }
-</style> <link rel="stylesheet" href="/assets/css/tailwind.css?v=50c64c15cbb9fd1ce6056fdb8bcb4b62"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css" integrity="sha256-MVopmdyC2tYTiJ8wlktf0uh0v4NgT+vNdyVFepi7Q0c=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.5/css/academicons.min.css" integrity="sha256-SzrCOBJbGVFMahewkgjwnApaV2+av1DwMAA+/QGLyZw=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/scholar-icons@1.0.3/css/scholar-icons.css" integrity="sha256-VY3hHVj/hNX3fYG6wtbA6TcKJQl7+FthzGSyIB64klY=" crossorigin="anonymous"> <link defer rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,600&amp;family=JetBrains+Mono:wght@400;500&amp;family=Material+Icons&amp;display=swap"> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-github.css?v=591dab5a4e56573bf4ef7fd332894c99" media="" id="highlight_theme_light"> <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%F0%9F%9F%A1&lt;/text&gt;&lt;/svg&gt;"> <link rel="stylesheet" href="/assets/css/main.css?v=b7e280e57e2bc547c94fb59c914ff711"> <link rel="canonical" href="https://kameans.site/thesaurus/systems-engineering/"> </head> <body class="fixed-top-nav "> <header> <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top" role="navigation"> <div class="container"> <a class="navbar-brand title font-weight-lighter" href="/"> Ka-means </a> <button class="navbar-toggler collapsed navbar-toggler-main" type="button" data-nav-toggle="navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar top-bar"></span> <span class="icon-bar middle-bar"></span> <span class="icon-bar bottom-bar"></span> </button> <div class="collapse navbar-collapse navbar-collapse-main" id="navbarNav"> <ul class="navbar-nav navbar-menu-list flex-nowrap"> <li class="nav-item "> <a class="nav-link" href="/">About </a> </li> <li class="nav-item "> <a class="nav-link" href="/blog/">Blog </a> </li> <li class="nav-item "> <a class="nav-link" href="/publications/">Publications </a> </li> <li class="nav-item "> <a class="nav-link" href="/projects/">Projects </a> </li> <li class="nav-item "> <a class="nav-link" href="/repositories/">Repositories </a> </li> <li class="nav-item "> <a class="nav-link" href="/media/">Media </a> </li> <li class="nav-item "> <a class="nav-link" href="/vault/">Vault </a> </li> <li class="nav-item "> <a class="nav-link" href="/cv/">CV </a> </li> <li class="nav-item active"> <a class="nav-link" href="/thesaurus/">Thesaurus <span class="sr-only">(current)</span> </a> </li> <li class="nav-item"> <button id="search-toggle" type="button" title="Search" aria-label="Open search"> <span class="nav-link">ctrl k <i class="fa-solid fa-magnifying-glass"></i></span> </button> </li> </ul> </div> </div> </nav> <progress id="progress" value="0"> <div class="progress-container"> <span class="progress-bar"></span> </div> </progress> </header> <div class="container mt-5" role="main"> <div class="post"> <header class="post-header"> <h1 class="post-title">Systems Engineering</h1> <p class="post-description">Thesaurus of terms from the Engineering category — graceful degradation, cosmos/taxis applied to software, microservices, adaptive systems, and formal specification.</p> </header> <article> <p><strong>Parent article:</strong> <a href="/blog/2023/engineering-designing-conditions-not-outcomes/">Engineering: Designing Conditions, Not Outcomes</a></p> <hr> <p><strong>Graceful degradation</strong></p> <p>Capacity of a system to maintain its critical functions while losing peripheral ones in a predictable and recoverable way under stress or partial failure. Contrast: catastrophic failure, where one component’s failure collapses the whole system. Biological systems, the internet, and markets exhibit this property; most enterprise software does not.</p> <p><em>Related:</em> resilience, redundancy, fault tolerance, antifragility <em>Cross-references:</em> <a href="/thesaurus/robotics-swarm-systems/">Robotics / Swarm Systems</a>, <a href="/thesaurus/information-theory-sci-tech/">Information Theory / Science and Technology</a>, <a href="/thesaurus/complex-systems-network-science/">Complex Systems / Network Science</a> <em>Key work:</em> Leiner, B. M., et al. (2009). A brief history of the Internet. <em>ACM SIGCOMM Computer Communication Review</em>, 39(5), 22–31.</p> <p><strong>Cosmos / Taxis applied to software</strong></p> <p>In systems engineering: the distinction between specifying the system’s behavior (taxis) and specifying the conditions from which behavior emerges (minimal cosmos). Microservices are taxis in their interface contracts and cosmos in their aggregate behavior. Software architecture is progressively moving from the former to the latter.</p> <p><em>Related:</em> emergent architecture, interface contracts, condition design <em>Cross-references:</em> <a href="/thesaurus/praxeology-austrian-political-economy/">Praxeology / Austrian Political Economy</a>, <a href="/thesaurus/robotics-swarm-systems/">Robotics / Swarm Systems</a>, <a href="/thesaurus/complex-systems-network-science/">Complex Systems / Network Science</a> <em>Key work:</em> Hayek, F. A. (1973). <em>Law, Legislation and Liberty, Vol. 1</em>. University of Chicago Press.</p> <p><strong>Microservices</strong></p> <p>Architectural pattern where an application is built as a set of small, independent services communicating through well-defined APIs. Coordination emerges from interface contracts, not from central direction. The failure of one service does not propagate to the whole system. Cost: greater complexity in observability and orchestration.</p> <p><em>Related:</em> distributed architecture, API, decoupling, service mesh <em>Cross-references:</em> <a href="/thesaurus/complex-systems-network-science/">Complex Systems / Network Science</a> <em>Key work:</em> Fowler, M., &amp; Lewis, J. (2014). Microservices. https://martinfowler.com/articles/microservices.html</p> <p><strong>Adaptive systems</strong></p> <p>Systems that modify their own parameters in response to environmental feedback without direct human intervention. Critical distinction: parameter adaptation (the system learns within a fixed architecture) versus architectural adaptation (the system modifies its own structure). Most current ML systems do the former; the latter remains an open problem.</p> <p><em>Related:</em> machine learning, adaptive control, feedback, self-modification <em>Cross-references:</em> <a href="/thesaurus/ai-ml/">Artificial Intelligence / Machine Learning</a> <em>Key work:</em> Jerne, N. K. (1974). Towards a network theory of the immune system. <em>Annals of Immunology</em>, 125C(1–2), 373–389.</p> <p><strong>Formal specification</strong></p> <p>Mathematically precise description of a system’s expected behavior. In deterministic systems: sufficient to verify correctness. In probabilistic and emergent systems: insufficient, because the relevant behavior cannot be enumerated in advance. The boundary between formal specification and condition design is where software engineering becomes complex systems science.</p> <p><em>Related:</em> formal verification, behavior model, contracts, preconditions <em>Cross-references:</em> <a href="/thesaurus/agent-based-modeling/">Agent-Based Modeling (ABM)</a>, <a href="/thesaurus/ai-ml/">Artificial Intelligence / Machine Learning</a> <em>Key work:</em> Brooks, F. P. (1975). <em>The Mythical Man-Month</em>. Addison-Wesley.</p> <h2 id="references">References</h2> <p>Brooks, F. P. (1975). <em>The Mythical Man-Month</em>. Addison-Wesley.</p> <p>Fowler, M., &amp; Lewis, J. (2014). Microservices. <em>martinfowler.com</em>. https://martinfowler.com/articles/microservices.html</p> <p>Hayek, F. A. (1973). <em>Law, Legislation and Liberty, Vol. 1: Rules and Order</em>. University of Chicago Press.</p> <p>Jerne, N. K. (1974). Towards a network theory of the immune system. <em>Annals of Immunology</em>, 125C(1–2), 373–389.</p> <p>Leiner, B. M., Cerf, V. G., Clark, D. D., Kahn, R. E., Kleinrock, L., Lynch, D. C., … Wolff, S. (2009). A brief history of the Internet. <em>ACM SIGCOMM Computer Communication Review</em>, 39(5), 22–31.</p> </article> </div> </div> <footer class="fixed-bottom" role="contentinfo"> <div class="container mt-0"> © Copyright 2026 Katherin Molina. </div> </footer> <script>
+</style> <link rel="stylesheet" href="/assets/css/tailwind.css?v=50c64c15cbb9fd1ce6056fdb8bcb4b62"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css" integrity="sha256-MVopmdyC2tYTiJ8wlktf0uh0v4NgT+vNdyVFepi7Q0c=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.5/css/academicons.min.css" integrity="sha256-SzrCOBJbGVFMahewkgjwnApaV2+av1DwMAA+/QGLyZw=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/scholar-icons@1.0.3/css/scholar-icons.css" integrity="sha256-VY3hHVj/hNX3fYG6wtbA6TcKJQl7+FthzGSyIB64klY=" crossorigin="anonymous"> <link defer rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,600&amp;family=JetBrains+Mono:wght@400;500&amp;family=Material+Icons&amp;display=swap"> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-github.css?v=591dab5a4e56573bf4ef7fd332894c99" media="" id="highlight_theme_light"> <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%F0%9F%9F%A1&lt;/text&gt;&lt;/svg&gt;"> <link rel="stylesheet" href="/assets/css/main.css?v=b7e280e57e2bc547c94fb59c914ff711"> <link rel="canonical" href="https://kameans.site/blog/2023/systems-engineering/"> </head> <body class="fixed-top-nav "> <header> <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top" role="navigation"> <div class="container"> <a class="navbar-brand title font-weight-lighter" href="/"> Ka-means </a> <button class="navbar-toggler collapsed navbar-toggler-main" type="button" data-nav-toggle="navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar top-bar"></span> <span class="icon-bar middle-bar"></span> <span class="icon-bar bottom-bar"></span> </button> <div class="collapse navbar-collapse navbar-collapse-main" id="navbarNav"> <ul class="navbar-nav navbar-menu-list flex-nowrap"> <li class="nav-item "> <a class="nav-link" href="/">About </a> </li> <li class="nav-item active"> <a class="nav-link" href="/blog/">Blog </a> </li> <li class="nav-item "> <a class="nav-link" href="/publications/">Publications </a> </li> <li class="nav-item "> <a class="nav-link" href="/projects/">Projects </a> </li> <li class="nav-item "> <a class="nav-link" href="/repositories/">Repositories </a> </li> <li class="nav-item "> <a class="nav-link" href="/media/">Media </a> </li> <li class="nav-item "> <a class="nav-link" href="/vault/">Vault </a> </li> <li class="nav-item "> <a class="nav-link" href="/cv/">CV </a> </li> <li class="nav-item"> <button id="search-toggle" type="button" title="Search" aria-label="Open search"> <span class="nav-link">ctrl k <i class="fa-solid fa-magnifying-glass"></i></span> </button> </li> </ul> </div> </div> </nav> <progress id="progress" value="0"> <div class="progress-container"> <span class="progress-bar"></span> </div> </progress> </header> <div class="container mt-5" role="main"> <div class="post"> <header class="post-header"> <h1 class="post-title">Systems Engineering</h1> <p class="post-meta"> Created on April 28, 2023 </p> <p class="post-tags"> <a href="/blog/2023"> <i class="fa-solid fa-calendar fa-sm"></i> 2023 </a>   ·   <a href="/blog/category/thesaurus"> <i class="fa-solid fa-tag fa-sm"></i> thesaurus</a> </p> </header> <article class="post-content"> <div id="markdown-content"> <p><strong>Parent article:</strong> <a href="/blog/2023/engineering-designing-conditions-not-outcomes/">Engineering: Designing Conditions, Not Outcomes</a></p> <hr> <p><strong>Graceful degradation</strong></p> <p>Capacity of a system to maintain its critical functions while losing peripheral ones in a predictable and recoverable way under stress or partial failure. Contrast: catastrophic failure, where one component’s failure collapses the whole system. Biological systems, the internet, and markets exhibit this property; most enterprise software does not.</p> <p><em>Related:</em> resilience, redundancy, fault tolerance, antifragility <em>Cross-references:</em> <a href="/blog/2023/robotics-swarm-systems/">Robotics / Swarm Systems</a>, <a href="/blog/2026/information-theory-sci-tech/">Information Theory / Science and Technology</a>, <a href="/blog/2022/complex-systems-network-science/">Complex Systems / Network Science</a> <em>Key work:</em> Leiner, B. M., et al. (2009). A brief history of the Internet. <em>ACM SIGCOMM Computer Communication Review</em>, 39(5), 22–31.</p> <p><strong>Cosmos / Taxis applied to software</strong></p> <p>In systems engineering: the distinction between specifying the system’s behavior (taxis) and specifying the conditions from which behavior emerges (minimal cosmos). Microservices are taxis in their interface contracts and cosmos in their aggregate behavior. Software architecture is progressively moving from the former to the latter.</p> <p><em>Related:</em> emergent architecture, interface contracts, condition design <em>Cross-references:</em> <a href="/blog/2025/praxeology-austrian-political-economy/">Praxeology / Austrian Political Economy</a>, <a href="/blog/2023/robotics-swarm-systems/">Robotics / Swarm Systems</a>, <a href="/blog/2022/complex-systems-network-science/">Complex Systems / Network Science</a> <em>Key work:</em> Hayek, F. A. (1973). <em>Law, Legislation and Liberty, Vol. 1</em>. University of Chicago Press.</p> <p><strong>Microservices</strong></p> <p>Architectural pattern where an application is built as a set of small, independent services communicating through well-defined APIs. Coordination emerges from interface contracts, not from central direction. The failure of one service does not propagate to the whole system. Cost: greater complexity in observability and orchestration.</p> <p><em>Related:</em> distributed architecture, API, decoupling, service mesh <em>Cross-references:</em> <a href="/blog/2022/complex-systems-network-science/">Complex Systems / Network Science</a> <em>Key work:</em> Fowler, M., &amp; Lewis, J. (2014). Microservices. https://martinfowler.com/articles/microservices.html</p> <p><strong>Adaptive systems</strong></p> <p>Systems that modify their own parameters in response to environmental feedback without direct human intervention. Critical distinction: parameter adaptation (the system learns within a fixed architecture) versus architectural adaptation (the system modifies its own structure). Most current ML systems do the former; the latter remains an open problem.</p> <p><em>Related:</em> machine learning, adaptive control, feedback, self-modification <em>Cross-references:</em> <a href="/blog/2025/ai-ml/">Artificial Intelligence / Machine Learning</a> <em>Key work:</em> Jerne, N. K. (1974). Towards a network theory of the immune system. <em>Annals of Immunology</em>, 125C(1–2), 373–389.</p> <p><strong>Formal specification</strong></p> <p>Mathematically precise description of a system’s expected behavior. In deterministic systems: sufficient to verify correctness. In probabilistic and emergent systems: insufficient, because the relevant behavior cannot be enumerated in advance. The boundary between formal specification and condition design is where software engineering becomes complex systems science.</p> <p><em>Related:</em> formal verification, behavior model, contracts, preconditions <em>Cross-references:</em> <a href="/blog/2024/agent-based-modeling/">Agent-Based Modeling (ABM)</a>, <a href="/blog/2025/ai-ml/">Artificial Intelligence / Machine Learning</a> <em>Key work:</em> Brooks, F. P. (1975). <em>The Mythical Man-Month</em>. Addison-Wesley.</p> <h2 id="references">References</h2> <p>Brooks, F. P. (1975). <em>The Mythical Man-Month</em>. Addison-Wesley.</p> <p>Fowler, M., &amp; Lewis, J. (2014). Microservices. <em>martinfowler.com</em>. https://martinfowler.com/articles/microservices.html</p> <p>Hayek, F. A. (1973). <em>Law, Legislation and Liberty, Vol. 1: Rules and Order</em>. University of Chicago Press.</p> <p>Jerne, N. K. (1974). Towards a network theory of the immune system. <em>Annals of Immunology</em>, 125C(1–2), 373–389.</p> <p>Leiner, B. M., Cerf, V. G., Clark, D. D., Kahn, R. E., Kleinrock, L., Lynch, D. C., … Wolff, S. (2009). A brief history of the Internet. <em>ACM SIGCOMM Computer Communication Review</em>, 39(5), 22–31.</p> </div> </article> </div> </div> <footer class="fixed-bottom" role="contentinfo"> <div class="container mt-0"> © Copyright 2026 Katherin Molina. </div> </footer> <script>
   window.alFolio = {
     compatBootstrap: false
   };
@@ -69,14 +69,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/cv/";
           },
-        },{id: "nav-thesaurus",
-          title: "Thesaurus",
-          description: "A glossary of terms developed across the blog&#39;s eight article categories, cross-referenced as a conceptual map.",
-          section: "Navigation",
-          handler: () => {
-            window.location.href = "/thesaurus/";
-          },
-        },{id: "post-sci-tech-the-difference-between-data-and-knowledge",
+        },{id: "post-information-theory-science-and-technology",
+        
+          title: "Information Theory / Science and Technology",
+        
+        description: "Thesaurus of terms from the Sci-Tech category — Shannon entropy, Kolmogorov complexity, noise vs. signal, graceful degradation, data vs. knowledge, and informational resilience.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/information-theory-sci-tech/";
+          
+        },
+      },{id: "post-sci-tech-the-difference-between-data-and-knowledge",
         
           title: "Sci-Tech: The Difference Between Data and Knowledge",
         
@@ -85,6 +89,17 @@ ninja.data = [{
         handler: () => {
           
             window.location.href = "/blog/2026/sci-tech-the-difference-between-data-and-knowledge/";
+          
+        },
+      },{id: "post-praxeology-austrian-political-economy",
+        
+          title: "Praxeology / Austrian Political Economy",
+        
+        description: "Thesaurus of terms from the Econ-Politics category — praxeology, ordinal value, the economic calculation problem, tacit knowledge, Arrow&#39;s impossibility theorem, and catallactics.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/praxeology-austrian-political-economy/";
           
         },
       },{id: "post-econ-politics-why-prices-cannot-be-replaced",
@@ -109,6 +124,17 @@ ninja.data = [{
             window.location.href = "/blog/2025/the-calculation-problem-and-the-alignment-problem/";
           
         },
+      },{id: "post-artificial-intelligence-machine-learning",
+        
+          title: "Artificial Intelligence / Machine Learning",
+        
+        description: "Thesaurus of terms from the AI/ML category — gradient descent, reinforcement learning, specification gaming, Goodhart&#39;s Law, AI alignment, and loss functions.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/ai-ml/";
+          
+        },
       },{id: "post-ai-ml-when-the-reward-is-wrong",
         
           title: "AI/ML: When the Reward Is Wrong",
@@ -118,6 +144,17 @@ ninja.data = [{
         handler: () => {
           
             window.location.href = "/blog/2025/ai-ml-when-the-reward-is-wrong/";
+          
+        },
+      },{id: "post-social-sciences-behavioral-economics",
+        
+          title: "Social Sciences / Behavioral Economics",
+        
+        description: "Thesaurus of terms from the Social Sciences category — subjective value, Prospect Theory, the endowment effect, nudge, public choice, and constitutional economics.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/social-sciences-behavioral-economics/";
           
         },
       },{id: "post-social-sciences-irrationality-is-not-an-argument-for-planners",
@@ -142,6 +179,17 @@ ninja.data = [{
             window.location.href = "/blog/2024/money-as-emergence-menger-agent-based-model/";
           
         },
+      },{id: "post-agent-based-modeling-abm",
+        
+          title: "Agent-Based Modeling (ABM)",
+        
+        description: "Thesaurus of terms from the ABM category — agent, methodological individualism, emergence, validation, path dependence, and Misesian apriorism.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/agent-based-modeling/";
+          
+        },
       },{id: "post-abm-the-method-that-starts-with-the-individual",
         
           title: "ABM: The Method That Starts with the Individual",
@@ -153,6 +201,17 @@ ninja.data = [{
             window.location.href = "/blog/2024/abm-the-method-that-starts-with-the-individual/";
           
         },
+      },{id: "post-robotics-swarm-systems",
+        
+          title: "Robotics / Swarm Systems",
+        
+        description: "Thesaurus of terms from the Robotics category — stigmergy, network topology, spontaneous order, emergence, resilience, and distributed accountability.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2023/robotics-swarm-systems/";
+          
+        },
       },{id: "post-robotics-engineering-spontaneous-order",
         
           title: "Robotics: Engineering Spontaneous Order",
@@ -162,6 +221,17 @@ ninja.data = [{
         handler: () => {
           
             window.location.href = "/blog/2023/robotics-engineering-spontaneous-order/";
+          
+        },
+      },{id: "post-systems-engineering",
+        
+          title: "Systems Engineering",
+        
+        description: "Thesaurus of terms from the Engineering category — graceful degradation, cosmos/taxis applied to software, microservices, adaptive systems, and formal specification.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2023/systems-engineering/";
           
         },
       },{id: "post-engineering-designing-conditions-not-outcomes",
@@ -184,6 +254,17 @@ ninja.data = [{
         handler: () => {
           
             window.location.href = "/blog/2023/hayek-and-prigogine-two-paths-to-order/";
+          
+        },
+      },{id: "post-complex-systems-network-science",
+        
+          title: "Complex Systems / Network Science",
+        
+        description: "Thesaurus of terms from the Complex Systems category — scale-free networks, threshold dynamics, contagion models, dissipative structures, circular causality, and spontaneous order as discovery process.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2022/complex-systems-network-science/";
           
         },
       },{id: "post-complex-systems-order-without-a-designer",
@@ -407,46 +488,6 @@ ninja.data = [{
           description: "This course provides an introduction to machine learning concepts, algorithms, and applications. Students will learn about supervised and unsupervised learning, model evaluation, and practical implementations.",
           section: "Teachings",handler: () => {
               window.location.href = "/teachings/introduction-to-machine-learning/";
-            },},{id: "thesaurus-agent-based-modeling-abm",
-          title: 'Agent-Based Modeling (ABM)',
-          description: "Thesaurus of terms from the ABM category — agent, methodological individualism, emergence, validation, path dependence, and Misesian apriorism.",
-          section: "Thesaurus",handler: () => {
-              window.location.href = "/thesaurus/agent-based-modeling/";
-            },},{id: "thesaurus-artificial-intelligence-machine-learning",
-          title: 'Artificial Intelligence / Machine Learning',
-          description: "Thesaurus of terms from the AI/ML category — gradient descent, reinforcement learning, specification gaming, Goodhart&#39;s Law, AI alignment, and loss functions.",
-          section: "Thesaurus",handler: () => {
-              window.location.href = "/thesaurus/ai-ml/";
-            },},{id: "thesaurus-complex-systems-network-science",
-          title: 'Complex Systems / Network Science',
-          description: "Thesaurus of terms from the Complex Systems category — scale-free networks, threshold dynamics, contagion models, dissipative structures, circular causality, and spontaneous order as discovery process.",
-          section: "Thesaurus",handler: () => {
-              window.location.href = "/thesaurus/complex-systems-network-science/";
-            },},{id: "thesaurus-information-theory-science-and-technology",
-          title: 'Information Theory / Science and Technology',
-          description: "Thesaurus of terms from the Sci-Tech category — Shannon entropy, Kolmogorov complexity, noise vs. signal, graceful degradation, data vs. knowledge, and informational resilience.",
-          section: "Thesaurus",handler: () => {
-              window.location.href = "/thesaurus/information-theory-sci-tech/";
-            },},{id: "thesaurus-praxeology-austrian-political-economy",
-          title: 'Praxeology / Austrian Political Economy',
-          description: "Thesaurus of terms from the Econ-Politics category — praxeology, ordinal value, the economic calculation problem, tacit knowledge, Arrow&#39;s impossibility theorem, and catallactics.",
-          section: "Thesaurus",handler: () => {
-              window.location.href = "/thesaurus/praxeology-austrian-political-economy/";
-            },},{id: "thesaurus-robotics-swarm-systems",
-          title: 'Robotics / Swarm Systems',
-          description: "Thesaurus of terms from the Robotics category — stigmergy, network topology, spontaneous order, emergence, resilience, and distributed accountability.",
-          section: "Thesaurus",handler: () => {
-              window.location.href = "/thesaurus/robotics-swarm-systems/";
-            },},{id: "thesaurus-social-sciences-behavioral-economics",
-          title: 'Social Sciences / Behavioral Economics',
-          description: "Thesaurus of terms from the Social Sciences category — subjective value, Prospect Theory, the endowment effect, nudge, public choice, and constitutional economics.",
-          section: "Thesaurus",handler: () => {
-              window.location.href = "/thesaurus/social-sciences-behavioral-economics/";
-            },},{id: "thesaurus-systems-engineering",
-          title: 'Systems Engineering',
-          description: "Thesaurus of terms from the Engineering category — graceful degradation, cosmos/taxis applied to software, microservices, adaptive systems, and formal specification.",
-          section: "Thesaurus",handler: () => {
-              window.location.href = "/thesaurus/systems-engineering/";
             },},{
         id: 'social-email',
         title: 'email',
