@@ -26,7 +26,7 @@ To explore these questions, we developed a series of four computational notebook
 - [Notebook 0 — Calibration and TUM Accounting](/vault/colab/calibration-and-tum-accounting/)
 - [Notebook 1 — RL Dispatch Under Information Latency](/vault/colab/rl-dispatch-information-latency/)
 - [Notebook 2 — Heterogeneous Autonomous Communication](/vault/colab/heterogeneous-autonomous-communication/)
-- [Notebook 3 — Human-in-the-Loop vs. Autonomous vs. Autopoietic](/vault/colab/human-in-the-loop-vs-autonomous-vs-autopoietic/)
+- [Notebook 3 — Human-in-the-Loop vs. Autonomous vs. Stigmergic-Inspired Heuristic](/vault/colab/human-in-the-loop-vs-autonomous-vs-stigmergic-control/)
 
 ## A Small but Deliberately Transparent Digital Twin
 
@@ -83,7 +83,7 @@ In other words, the model can approximate the aggregated indicators it was desig
 
 The most informative test was the one that failed. Simulated shovel hang time reached 4.41 minutes, almost twice the dashboard value of 2.24 minutes. This discrepancy suggested that the five-shovel structure and the 9-5-4-3-2 baseline allocation might be generating a congestion pattern different from the one observed at the mine.
 
-We therefore tested five alternative structures. In every case, a greedy dispatcher using current information outperformed the baseline plan, but the size of the improvement ranged from 4.5% to 23.1%. With four reliable shovels and a more balanced allocation, shovel hang time fell to 2.3 minutes — very close to the dashboard. Yet that same variant did not simultaneously reproduce the observed queue and utilisation.
+We therefore tested five alternative structures. In every case, a greedy dispatcher using current information outperformed the baseline plan, but the size of the improvement ranged from 5.5% to 16.7%. With four reliable shovels and a more balanced allocation, shovel hang time fell to 2.2 minutes — very close to the dashboard. Yet that same variant did not simultaneously reproduce the observed queue and utilisation.
 
 The most honest conclusion from Notebook 0 is therefore twofold:
 
@@ -102,7 +102,7 @@ We do not describe this result as an "upper bound." The algorithm does not obser
 - Would the comparison change if grade, blending, and production priorities were included?
 - Do the conclusions survive in a period of data not used for calibration?
 
-The natural next step is not more algorithmic complexity. It is structural validation using Fleet Management System (FMS) events and a period held out from calibration.
+The natural next step is not more algorithmic complexity. It is structural validation using Fleet Management System (FMS) events and a period held out from calibration. Since no such data is available for this project, the notebook also includes a synthetic, event-level log built from the simulator itself, used only to demonstrate what a calibration-versus-holdout validation would look like methodologically. Reconstructed cycle time and throughput track the model's own internal figures within a few percent, but reconstructed queue durations diverge sharply from the dashboard-calibrated ones, because the two are different statistics: a per-occurrence mean computed from logged events versus a per-trip mean that also counts trips with no queue at all. This is not a validation against Mine A. It is a reminder that an event-log pipeline can silently redefine the indicator it claims to measure.
 
 ## Notebook 1: What Does Stale Information Cost, and What Does RL Actually Add? {#notebook-1}
 
@@ -224,7 +224,7 @@ The notebook offers a conditional answer about productivity. Safety and certific
 
 ## Notebook 3: Who Should Close the Control Loop? {#notebook-3}
 
-_[Run the interactive notebook →](/vault/colab/human-in-the-loop-vs-autonomous-vs-autopoietic/)_
+_[Run the interactive notebook →](/vault/colab/human-in-the-loop-vs-autonomous-vs-stigmergic-control/)_
 
 ### The Question
 
@@ -234,9 +234,9 @@ The final notebook shifts the focus from information to governance. It compares 
 2. Human-in-the-loop (HITL): an optimiser proposes and a person approves every assignment.
 3. Human-on-the-loop (HOTL): the optimiser executes while a person supervises exceptions.
 4. Central autonomy: a central optimiser with no human approval for each decision.
-5. Stigmergic or "autopoietic" configuration: decentralised coordination through environmental flow and cost marks that evaporate over time.
+5. Stigmergic-inspired heuristic: decentralised coordination through environmental cost marks that evaporate over time.
 
-The term autopoietic is used here in a narrow operational sense. The model does not reproduce full biological autopoiesis. The stigmergic policy does not read the global queue vector or central dispatch log. Each truck contributes to shared marks based on its local outcome; when it reaches a failed shovel and diverts, it leaves a temporary repellent signal.
+An earlier version of this notebook called the fifth configuration "autopoietic," a term we have since dropped: the model does not reproduce biological autopoiesis, and "stigmergic" describes the actual mechanism without the extra metaphorical weight. Each truck contributes to shared marks based on its own local outcome; when it reaches a failed shovel and diverts, it leaves a temporary repellent mark there so other trucks avoid it until the mark decays. No truck reads a global queue vector or a central dispatch log.
 
 We tested all five configurations during a normal shift, a 120-minute FMS outage, a 120-minute shovel failure, and a compound failure in which both events occur simultaneously.
 
@@ -248,19 +248,19 @@ These configurations do not differ along only one dimension. Information lag, no
 
 Mean throughput was:
 
-- human-only: 10,916 t/h;
-- HITL: 11,156 t/h;
+- human-only: 10,993 t/h;
+- HITL: 11,265 t/h;
 - HOTL: 11,630 t/h;
 - central autonomy: 11,533 t/h;
-- stigmergic: 11,721 t/h.
+- stigmergic-inspired heuristic: 11,610 t/h.
 
-HOTL, central autonomy, and stigmergic control are statistically indistinguishable during a normal shift. Stigmergic control exceeds central autonomy by 187 ± 218 t/h, while HOTL exceeds it by 97 ± 219 t/h; both intervals include zero.
+HOTL, central autonomy, and the stigmergic-inspired heuristic are statistically indistinguishable during a normal shift. The stigmergic heuristic exceeds central autonomy by 77 ± 231 t/h, while HOTL exceeds it by 97 ± 219 t/h; both intervals include zero.
 
-The HITL configuration performs 475 ± 200 t/h below HOTL. Part of the difference appears as approval waiting time: HITL accumulates 1.77 minutes of hold per trip. The system reduces some queueing, but replaces it with time spent waiting for a decision.
+The HITL configuration performs 366 ± 205 t/h below HOTL. Part of the difference appears as approval waiting time: HITL accumulates 1.78 minutes of hold per trip. The system reduces some queueing, but replaces it with time spent waiting for a decision.
 
-The sensitivity experiment confirms that approval latency is decisive. HITL produces 11,547 t/h with near-instant approval of 0.05 minutes, 11,191 with 1.5 minutes, 10,763 with 3 minutes, and 10,115 with 6 minutes. Near-zero approval is competitive with HOTL; at three minutes, its mean has already fallen below human radio dispatch.
+The sensitivity experiment confirms that approval latency is decisive. With an 8% veto rate, HITL produces 11,586 t/h with near-instant approval of 0.05 minutes, 11,201 with 1.5 minutes, 10,939 with 3 minutes, and 10,130 with 6 minutes. Near-zero approval is competitive with HOTL; by three minutes its mean has already fallen close to human radio dispatch.
 
-The 8% veto does not show a consistent cost. Removing it produces differences ranging from −64 to +110 t/h depending on latency. The evidence does not support assigning a fixed "veto cost."
+The 8% veto does not show a consistent cost. Removing it produces differences ranging from about −79 to +107 t/h depending on latency. The evidence does not support assigning a fixed "veto cost."
 
 ### The Provisional Answer Under Failure
 
@@ -268,20 +268,20 @@ Under an FMS-only outage, human-only and stigmergic modes remain unchanged by co
 
 Under a shovel-only outage, losses are modest across all five modes. The stigmergic system must locally detect the failed shovel, mark it, and redistribute itself; that process has a cost, although a limited one in this implementation.
 
-The difference appears during the compound failure. Stigmergic control maintains 11,555 t/h, compared with 10,905 for HOTL, 10,848 for central autonomy, and 10,536 for HITL. Its advantage is:
+The difference appears during the compound failure. The stigmergic heuristic maintains 11,464 t/h, compared with 10,905 for HOTL, 10,848 for central autonomy, and 10,622 for HITL. Its advantage is:
 
-- 650 ± 169 t/h over HOTL;
-- 707 ± 148 t/h over central autonomy.
+- 559 ± 185 t/h over HOTL;
+- 616 ± 147 t/h over central autonomy.
 
-However, the result depends on the fallback selected for the centralised architectures. In the model, after waiting for several minutes, they return to a static allocation that may continue sending trucks to the failed shovel. As the fallback delay increases from 2 to 30 minutes, the advantage of the stigmergic mode grows. If the central modes simply hold until the FMS returns, throughput falls to around 9,000 t/h.
+However, the result depends on the fallback selected for the centralised architectures. In the model, after waiting for several minutes, they return to a static allocation that may continue sending trucks to the failed shovel. As the fallback delay increases from 2 to 30 minutes, the advantage of the stigmergic heuristic grows. If the central modes simply hold until the FMS returns, throughput falls to around 9,000 t/h.
 
 This does not demonstrate that decentralisation is always superior. It demonstrates something more specific: a decentralised layer may provide resilience when the alternative is a naive central fallback or prolonged waiting without local decision authority. A central fallback supported by local sensing, radio dispatch, or a distributed backup layer could reduce or eliminate the difference.
 
 ### What About Human Workload?
 
-Human-only and HITL record approximately 331 and 338 control interventions per shift; HOTL records 4.5; central and stigmergic modes record zero control-room interventions under this metric.
+Human-only and HITL record approximately 366 and 373 control interventions per shift; HOTL, central autonomy, and the stigmergic heuristic each record around 4 to 4.5.
 
-"Zero" does not mean an absence of human work. The model does not count every physical action performed by field crews, maintenance teams, or emergency responders. The table measures control decisions and exceptions — not total employment or operational responsibility.
+This near-zero residual does not mean an absence of human work. The model does not count every physical action performed by field crews, maintenance teams, or emergency responders. The table measures control decisions and exceptions — not total employment or operational responsibility.
 
 ### The Questions It Opens
 
@@ -291,7 +291,7 @@ Human-only and HITL record approximately 331 and 338 control interventions per s
 - Which events must always be escalated to a person?
 - How do the results change under network partitions, GNSS loss, weather, cyberattacks, or multiple simultaneous failures?
 - How should resilience be measured without reducing it to throughput?
-- What operational meaning can legitimately be assigned to autopoiesis without turning it into an overly broad metaphor?
+- What is the right level of locality for the stigmergic marks: does each truck need to sense the shovel directly, or is a shared but unauthenticated mark still an honest test of decentralisation?
 - How should responsibility and authority be allocated when multiple agents make local decisions?
 
 ## What Cross-Cutting Answers Does the Project Offer?
@@ -316,7 +316,7 @@ Reducing road stops and shovel-related delays increases production, but it may a
 
 ### 5. Decentralisation Is Valuable for the Failure It Allows the System to Survive
 
-The stigmergic mode has no detectable advantage over HOTL or central autonomy during normal operation. Its value emerges when a central outage and local failure coincide, and when the central fallback is weak. The right question is not "centralised or decentralised?" but "Which capabilities must survive locally when global coordination is lost?"
+The stigmergic-inspired heuristic has no detectable advantage over HOTL or central autonomy during normal operation. Its value emerges when a central outage and local failure coincide, and when the central fallback is weak. The right question is not "centralised or decentralised?" but "Which capabilities must survive locally when global coordination is lost?"
 
 ## What We Still Cannot Claim
 
