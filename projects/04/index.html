@@ -1,0 +1,651 @@
+<!DOCTYPE html> <html lang="en"> <head> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <title> 04 Explainable Reinforcement Learning | Ka-means </title> <meta name="author" content="Katherin Molina"> <meta name="description" content="What does it mean for an intelligent system to understand and explain its own decisions?"> <meta name="keywords" content="research, complex-systems, economics, politics, science, technology, engineering"> <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; media-src 'self' https:; frame-src 'self' https:; connect-src 'self' https:;"> <style>
+  :root {
+    --max-content-width: 930px;
+  }
+</style> <link rel="stylesheet" href="/assets/css/tailwind.css?v=50c64c15cbb9fd1ce6056fdb8bcb4b62"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css" integrity="sha256-MVopmdyC2tYTiJ8wlktf0uh0v4NgT+vNdyVFepi7Q0c=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.5/css/academicons.min.css" integrity="sha256-SzrCOBJbGVFMahewkgjwnApaV2+av1DwMAA+/QGLyZw=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/scholar-icons@1.0.3/css/scholar-icons.css" integrity="sha256-VY3hHVj/hNX3fYG6wtbA6TcKJQl7+FthzGSyIB64klY=" crossorigin="anonymous"> <link defer rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,600&amp;family=JetBrains+Mono:wght@400;500&amp;family=Material+Icons&amp;display=swap"> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-github.css?v=591dab5a4e56573bf4ef7fd332894c99" media="" id="highlight_theme_light"> <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%F0%9F%9F%A1&lt;/text&gt;&lt;/svg&gt;"> <link rel="stylesheet" href="/assets/css/main.css?v=b7e280e57e2bc547c94fb59c914ff711"> <link rel="canonical" href="https://kameans.site/projects/04/"> </head> <body class="fixed-top-nav "> <header> <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top" role="navigation"> <div class="container"> <a class="navbar-brand title font-weight-lighter" href="/"> Ka-means </a> <button class="navbar-toggler collapsed navbar-toggler-main" type="button" data-nav-toggle="navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar top-bar"></span> <span class="icon-bar middle-bar"></span> <span class="icon-bar bottom-bar"></span> </button> <div class="collapse navbar-collapse navbar-collapse-main" id="navbarNav"> <ul class="navbar-nav navbar-menu-list flex-nowrap"> <li class="nav-item "> <a class="nav-link" href="/">About </a> </li> <li class="nav-item "> <a class="nav-link" href="/blog/">Blog </a> </li> <li class="nav-item "> <a class="nav-link" href="/publications/">Publications </a> </li> <li class="nav-item active"> <a class="nav-link" href="/projects/">Projects <span class="sr-only">(current)</span> </a> </li> <li class="nav-item "> <a class="nav-link" href="/repositories/">Repositories </a> </li> <li class="nav-item "> <a class="nav-link" href="/media/">Media </a> </li> <li class="nav-item "> <a class="nav-link" href="/vault/">Vault </a> </li> <li class="nav-item "> <a class="nav-link" href="/cv/">CV </a> </li> <li class="nav-item"> <button id="search-toggle" type="button" title="Search" aria-label="Open search"> <span class="nav-link">ctrl k <i class="fa-solid fa-magnifying-glass"></i></span> </button> </li> </ul> </div> </div> </nav> <progress id="progress" value="0"> <div class="progress-container"> <span class="progress-bar"></span> </div> </progress> </header> <div class="container mt-5" role="main"> <div class="post"> <header class="post-header"> <h1 class="post-title">04 Explainable Reinforcement Learning</h1> <p class="post-description">What does it mean for an intelligent system to understand and explain its own decisions?</p> </header> <article> <p><strong>Area 04: Explainable Reinforcement Learning</strong></p> <h2 id="master-question">Master Question</h2> <p>What does it mean for an intelligent system to understand and explain its own decisions?</p> <h2 id="what-we-want-to-discover">What We Want to Discover</h2> <p>A policy that performs well is not the same as a policy whose behavior can be understood. This area studies what forms of explanation are meaningful for sequential decision making, whether an explanation is faithful to the actual computation the agent performed, and whether an explanation is useful to the person receiving it.</p> <h2 id="why-it-matters">Why It Matters</h2> <p>Trust, debugging, certification, and human oversight all depend on some form of explanation. A system that cannot explain a harmful decision is difficult to correct and difficult to certify, regardless of how well it performs on average.</p> <h2 id="core-concepts">Core Concepts</h2> <ul> <li>Policy interpretability</li> <li>Saliency and attention based explanation</li> <li>Reward decomposition</li> <li>Counterfactual explanation</li> <li>Faithfulness versus plausibility of an explanation</li> </ul> <h2 id="relevant-disciplines">Relevant Disciplines</h2> <ul> <li>Philosophy of explanation</li> <li>Cognitive science</li> <li>Human computer interaction</li> <li>Safety engineering</li> </ul> <h2 id="potential-mimicry-sources">Potential Mimicry Sources</h2> <ul> <li>How humans explain their own decisions after the fact</li> <li>Expert reasoning in high stakes professions</li> <li>Scientific explanation and causal reasoning</li> </ul> <h2 id="projects">Projects</h2> <p>No projects yet.</p> <h2 id="active-questions">Active Questions</h2> <p>No projects yet, so there are no active derived questions to report.</p> <h2 id="key-findings-across-projects">Key Findings Across Projects</h2> <p>Pending. No projects in this area have produced findings yet.</p> <h2 id="unresolved-questions">Unresolved Questions</h2> <p>Pending.</p> <h2 id="connections-to-other-areas">Connections to Other Areas</h2> <p>Pending. Connections will be identified as projects in this area develop.</p> </article> </div> </div> <footer class="fixed-bottom" role="contentinfo"> <div class="container mt-0"> © Copyright 2026 Katherin Molina. </div> </footer> <script>
+  window.alFolio = {
+    compatBootstrap: false
+  };
+</script> <script src="/assets/js/nav-toggle.js?v=141bd79a73ebc0f0b6ea58e440ae79fc"></script> <script defer src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script> <script defer src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js" integrity="sha256-htrLFfZJ6v5udOG+3kNLINIKh2gvoKqwEhHYfTTMICc=" crossorigin="anonymous"></script> <script defer src="/assets/js/masonry.js?v=e49affc7bd2646f6acdad1dbe02c2359" type="text/javascript"></script> <script defer type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js" integrity="sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI=" crossorigin="anonymous"></script> <script src="/assets/al_math/js/mathjax-setup.js"></script> <script src="/assets/js/tooltips-setup.js?v=fe487e99db6c43751e6e7bdb2d6a0611"></script> <script src="/assets/js/no_defer.js?v=53b1b1a645525975c963ce8bf8bfefcf"></script> <script defer src="/assets/js/common.js?v=87baac90f765f2f3362dcf6aaf312a8a"></script> <script defer src="/assets/js/copy_code.js?v=c8a01c11a92744d44b093fc3bda915df" type="text/javascript"></script> <script defer src="/assets/js/jupyter_new_tab.js?v=896d254890d9b47f0281f63bfccf0dee"></script> <script async src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script> <script async src="https://badge.dimensions.ai/badge.js"></script> <script defer src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous"></script> <script defer src="/assets/al_img_tools/js/zoom.js"></script> <script defer src="/assets/js/progress-bar.js?v=499464c5c63ced6cf7ad62509f1e2610" type="text/javascript"></script> <script src="https://cdn.jsdelivr.net/npm/vanilla-back-to-top@7.2.1/dist/vanilla-back-to-top.min.js" integrity="sha256-uMJJ3EoTyfRBoTbR+lrfu1uRQ87RZG8AR3cVNuQVeFg=" crossorigin="anonymous"></script> <script>
+    addBackToTop();
+  </script> <script type="module" src="/assets/al_search/js/search/ninja-keys.min.js"></script> <ninja-keys hidebreadcrumbs noautoloadmdicons placeholder="Type to start searching"></ninja-keys> <script src="/assets/al_search/js/search-setup.js"></script> <script>
+// get the ninja-keys element
+const ninja = document.querySelector('ninja-keys');
+
+// add the home and posts menu items
+ninja.data = [{
+    id: "nav-about",
+    title: "About",
+    section: "Navigation",
+    handler: () => {
+      window.location.href = "/";
+    },
+  },{id: "nav-blog",
+          title: "Blog",
+          description: "",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/blog/";
+          },
+        },{id: "nav-publications",
+          title: "Publications",
+          description: "Research publications, organized by topic.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/publications/";
+          },
+        },{id: "nav-projects",
+          title: "Projects",
+          description: "Engineering and research projects, linked to their GitHub repos.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/projects/";
+          },
+        },{id: "nav-repositories",
+          title: "Repositories",
+          description: "Live-pulled public repositories from GitHub (ka-means personal account), forks excluded, sorted by last updated.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/repositories/";
+          },
+        },{id: "nav-media",
+          title: "Media",
+          description: "Curated third-party learning resources, and my own recorded talks and podcast appearances.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/media/";
+          },
+        },{id: "nav-vault",
+          title: "Vault",
+          description: "Notes, Colab notebooks, slides, and reports &amp; concept maps.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/vault/";
+          },
+        },{id: "nav-cv",
+          title: "CV",
+          description: "Curriculum vitae, generated from _data/cv.yml.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/cv/";
+          },
+        },{id: "post-presenting-andrei-kolmogorov",
+        
+          title: "Presenting: Andrei Kolmogorov",
+        
+        description: "There are mathematicians who solve problems. And there are mathematicians who change the way everyone else asks questions. Andrei Nikolaevich Kolmogorov was the second kind.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/presenting-andrei-kolmogorov/";
+          
+        },
+      },{id: "post-information-theory-science-and-technology",
+        
+          title: "Information Theory / Science and Technology",
+        
+        description: "Thesaurus of terms from the Sci-Tech category — Shannon entropy, Kolmogorov complexity, noise vs. signal, graceful degradation, data vs. knowledge, and informational resilience.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/information-theory-sci-tech/";
+          
+        },
+      },{id: "post-sci-tech-the-difference-between-data-and-knowledge",
+        
+          title: "Sci-Tech: The Difference Between Data and Knowledge",
+        
+        description: "A forecast that tells you something you already knew carries zero information regardless of how many bytes it occupies.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/sci-tech-the-difference-between-data-and-knowledge/";
+          
+        },
+      },{id: "post-praxeology-austrian-political-economy",
+        
+          title: "Praxeology / Austrian Political Economy",
+        
+        description: "Thesaurus of terms from the Econ-Politics category — praxeology, ordinal value, the economic calculation problem, tacit knowledge, Arrow&#39;s impossibility theorem, and catallactics.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/praxeology-austrian-political-economy/";
+          
+        },
+      },{id: "post-econ-politics-why-prices-cannot-be-replaced",
+        
+          title: "Econ-Politics: Why Prices Cannot Be Replaced",
+        
+        description: "The argument was not that central planning is difficult. The argument was that economic calculation without market prices is logically impossible.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/econ-politics-why-prices-cannot-be-replaced/";
+          
+        },
+      },{id: "post-the-calculation-problem-and-the-alignment-problem-a-shared-structure",
+        
+          title: "The Calculation Problem and the Alignment Problem: A Shared Structure",
+        
+        description: "Two traditions arrived at the same problem from opposite directions: Austrian economics from the theory of human action, and AI alignment from the practice of training reinforcement learning systems.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/the-calculation-problem-and-the-alignment-problem/";
+          
+        },
+      },{id: "post-artificial-intelligence-machine-learning",
+        
+          title: "Artificial Intelligence / Machine Learning",
+        
+        description: "Thesaurus of terms from the AI/ML category — gradient descent, reinforcement learning, specification gaming, Goodhart&#39;s Law, AI alignment, and loss functions.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/ai-ml/";
+          
+        },
+      },{id: "post-ai-ml-when-the-reward-is-wrong",
+        
+          title: "AI/ML: When the Reward Is Wrong",
+        
+        description: "Machine learning doesn&#39;t think. It optimizes. That distinction matters more than most discussions let on.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/ai-ml-when-the-reward-is-wrong/";
+          
+        },
+      },{id: "post-social-sciences-behavioral-economics",
+        
+          title: "Social Sciences / Behavioral Economics",
+        
+        description: "Thesaurus of terms from the Social Sciences category — subjective value, Prospect Theory, the endowment effect, nudge, public choice, and constitutional economics.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/social-sciences-behavioral-economics/";
+          
+        },
+      },{id: "post-social-sciences-irrationality-is-not-an-argument-for-planners",
+        
+          title: "Social Sciences: Irrationality Is Not an Argument for Planners",
+        
+        description: "If irrationality undermines market outcomes, it also undermines the judgment of the planners who would correct those outcomes.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/social-sciences-irrationality-is-not-an-argument-for-planners/";
+          
+        },
+      },{id: "post-money-as-emergence-from-menger-39-s-argument-to-the-agent-based-model",
+        
+          title: "Money as Emergence: From Menger&#39;s Argument to the Agent-Based Model",
+        
+        description: "Menger described a mechanism. Kiyotaki and Wright built exactly what he had described verbally, and the model predicted more than the argument did.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/money-as-emergence-menger-agent-based-model/";
+          
+        },
+      },{id: "post-agent-based-modeling-abm",
+        
+          title: "Agent-Based Modeling (ABM)",
+        
+        description: "Thesaurus of terms from the ABM category — agent, methodological individualism, emergence, validation, path dependence, and Misesian apriorism.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/agent-based-modeling/";
+          
+        },
+      },{id: "post-abm-the-method-that-starts-with-the-individual",
+        
+          title: "ABM: The Method That Starts with the Individual",
+        
+        description: "Nobody chose segregation at the system level. It emerged from decisions that, individually, seemed almost neutral.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/abm-the-method-that-starts-with-the-individual/";
+          
+        },
+      },{id: "post-robotics-swarm-systems",
+        
+          title: "Robotics / Swarm Systems",
+        
+        description: "Thesaurus of terms from the Robotics category — stigmergy, network topology, spontaneous order, emergence, resilience, and distributed accountability.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2023/robotics-swarm-systems/";
+          
+        },
+      },{id: "post-robotics-engineering-spontaneous-order",
+        
+          title: "Robotics: Engineering Spontaneous Order",
+        
+        description: "Reynolds hadn&#39;t programmed flocking behavior. He had programmed the conditions for it to emerge.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2023/robotics-engineering-spontaneous-order/";
+          
+        },
+      },{id: "post-systems-engineering",
+        
+          title: "Systems Engineering",
+        
+        description: "Thesaurus of terms from the Engineering category — graceful degradation, cosmos/taxis applied to software, microservices, adaptive systems, and formal specification.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2023/systems-engineering/";
+          
+        },
+      },{id: "post-engineering-designing-conditions-not-outcomes",
+        
+          title: "Engineering: Designing Conditions, Not Outcomes",
+        
+        description: "The engineer&#39;s job is shifting from writing correct behavior to designing the conditions under which correct behavior tends to emerge.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2023/engineering-designing-conditions-not-outcomes/";
+          
+        },
+      },{id: "post-hayek-and-prigogine-two-paths-to-order-without-a-designer",
+        
+          title: "Hayek and Prigogine: Two Paths to Order Without a Designer",
+        
+        description: "Neither cited the other. Both described how order emerges from interaction under constraints without an external designer.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2023/hayek-and-prigogine-two-paths-to-order/";
+          
+        },
+      },{id: "post-complex-systems-network-science",
+        
+          title: "Complex Systems / Network Science",
+        
+        description: "Thesaurus of terms from the Complex Systems category — scale-free networks, threshold dynamics, contagion models, dissipative structures, circular causality, and spontaneous order as discovery process.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2022/complex-systems-network-science/";
+          
+        },
+      },{id: "post-complex-systems-order-without-a-designer",
+        
+          title: "Complex Systems: Order Without a Designer",
+        
+        description: "The vocabulary of network science arrived late. The phenomena it describes did not.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2022/complex-systems-order-without-a-designer/";
+          
+        },
+      },{id: "books-agent-based-modeling-and-simulation",
+          title: 'Agent-based Modeling and Simulation',
+          description: "Edited by Simon JE Taylor — The OR Essentials series (Palgrave Macmillan, 2014).",
+          section: "Books",handler: () => {
+              window.location.href = "/vault/books/agent-based-modeling-and-simulation/";
+            },},{id: "books-artificial-intelligence-a-modern-approach",
+          title: 'Artificial Intelligence: A Modern Approach',
+          description: "By Stuart Russell and Peter Norvig — the book that shaped how I think about this field.",
+          section: "Books",handler: () => {
+              window.location.href = "/vault/books/artificial-intelligence-a-modern-approach/";
+            },},{id: "colab-calibration-and-tum-accounting",
+          title: 'Calibration and TUM Accounting',
+          description: "Digital-twin validation experiment testing whether a compact haulage simulator reproduces the operation&#39;s aggregated indicators closely enough to support policy comparisons.",
+          section: "Colab",handler: () => {
+              window.location.href = "/vault/colab/calibration-and-tum-accounting/";
+            },},{id: "colab-network-dynamics-and-evolution-independent-cascade-model",
+          title: 'Network Dynamics and Evolution — Independent Cascade Model',
+          description: "Implementation of an independent cascade (diffusion/infection) model on a network, as a network science course exercise.",
+          section: "Colab",handler: () => {
+              window.location.href = "/vault/colab/dinamicas-y-evolucion-de-redes/";
+            },},{id: "colab-heterogeneous-autonomous-communication",
+          title: 'Heterogeneous Autonomous Communication',
+          description: "Digital-twin experiment measuring the production value of interoperability when an autonomous haul fleet shares the mine with other manufacturers&#39; equipment and manually driven vehicles.",
+          section: "Colab",handler: () => {
+              window.location.href = "/vault/colab/heterogeneous-autonomous-communication/";
+            },},{id: "colab-human-in-the-loop-vs-autonomous-vs-stigmergic-inspired-heuristic",
+          title: 'Human-in-the-Loop vs. Autonomous vs. Stigmergic-Inspired Heuristic',
+          description: "Digital-twin experiment comparing five dispatch-governance configurations — human-only, human-in-the-loop, human-on-the-loop, central autonomy, and a decentralized stigmergic-inspired heuristic — under normal operation and simulated FMS or shovel failures.",
+          section: "Colab",handler: () => {
+              window.location.href = "/vault/colab/human-in-the-loop-vs-autonomous-vs-stigmergic-control/";
+            },},{id: "colab-machine-learning-on-graphs-graph-embeddings",
+          title: 'Machine Learning on Graphs — Graph Embeddings',
+          description: "Lab on graph embedding methods (DeepWalk, Node2Vec) for applying machine learning to network data.",
+          section: "Colab",handler: () => {
+              window.location.href = "/vault/colab/machine-learning-en-grafos/";
+            },},{id: "colab-implementation-of-the-coevolution-model",
+          title: 'Implementation of the Coevolution Model',
+          description: "Implementation of a coevolution model where node opinions and network structure change together, as a network science course exercise.",
+          section: "Colab",handler: () => {
+              window.location.href = "/vault/colab/modelo-de-coevolucion/";
+            },},{id: "colab-building-gpt-from-scratch-course-lab",
+          title: 'Building GPT from Scratch — Course Lab',
+          description: "Course lab implementing a GPT-style transformer decoder, including causal self-attention, from scratch.",
+          section: "Colab",handler: () => {
+              window.location.href = "/vault/colab/nlp-building-gpt-lab/";
+            },},{id: "colab-introduction-to-nlp-course-lab",
+          title: 'Introduction to NLP — Course Lab',
+          description: "Course lab introducing core Natural Language Processing concepts and tools.",
+          section: "Colab",handler: () => {
+              window.location.href = "/vault/colab/nlp-introduction-lab/";
+            },},{id: "colab-word2vec-course-lab",
+          title: 'Word2Vec — Course Lab',
+          description: "Course lab on Word2Vec word embeddings for Natural Language Processing.",
+          section: "Colab",handler: () => {
+              window.location.href = "/vault/colab/nlp-word2vec-lab/";
+            },},{id: "colab-rl-dispatch-under-information-latency",
+          title: 'RL Dispatch Under Information Latency',
+          description: "Digital-twin experiment on reinforcement-learning dispatch for autonomous haul fleets when telemetry arrives late.",
+          section: "Colab",handler: () => {
+              window.location.href = "/vault/colab/rl-dispatch-information-latency/";
+            },},{id: "colab-schelling-segregation-model-interactive-notebook",
+          title: 'Schelling Segregation Model — Interactive Notebook',
+          description: "Run the agent-based segregation model from the Models series blog post directly in Colab, no local setup required.",
+          section: "Colab",handler: () => {
+              window.location.href = "/vault/colab/segregation-model-colab/";
+            },},{id: "media-game-theory",
+          title: 'Game Theory',
+          description: "Game Theory, a full course taught by Ben Polak.",
+          section: "Media",handler: () => {
+              window.location.href = "/media/game-theory-ben-polak/";
+            },},{id: "media-cs223a-introduction-to-robotics",
+          title: 'CS223A: Introduction to Robotics',
+          description: "Full course on the fundamentals of robotics — kinematics, dynamics, trajectory planning, and control.",
+          section: "Media",handler: () => {
+              window.location.href = "/media/cs223a-introduction-to-robotics/";
+            },},{id: "media-lecciones-de-economía",
+          title: 'Lecciones de Economía',
+          description: "Lecciones de Economía, impartidas por Jesús Huerta de Soto.",
+          section: "Media",handler: () => {
+              window.location.href = "/media/lecciones-de-economia-huerta-de-soto/";
+            },},{id: "media-adaptive-computing",
+          title: 'Adaptive Computing',
+          description: "Curso sobre computación adaptativa.",
+          section: "Media",handler: () => {
+              window.location.href = "/media/adaptive-computing/";
+            },},{id: "media-pensamiento-sistémico-y-las-ciencias",
+          title: 'Pensamiento Sistémico y las Ciencias',
+          description: "Curso sobre pensamiento sistémico y las ciencias.",
+          section: "Media",handler: () => {
+              window.location.href = "/media/pensamiento-sistemico-y-las-ciencias/";
+            },},{id: "media-sistemas-complejos-y-teoría-de-redes",
+          title: 'Sistemas Complejos y Teoría de Redes',
+          description: "Curso sobre sistemas complejos y teoría de redes.",
+          section: "Media",handler: () => {
+              window.location.href = "/media/sistemas-complejos-teoria-de-redes/";
+            },},{id: "media-random-walks-tutorial",
+          title: 'Random Walks Tutorial',
+          description: "A tutorial playlist on random walks, published by Complexity Explorer.",
+          section: "Media",handler: () => {
+              window.location.href = "/media/random-walks-tutorial/";
+            },},{id: "media-dynamical-systems-and-chaos",
+          title: 'Dynamical Systems and Chaos',
+          description: "A playlist on dynamical systems and chaos theory, published by Complexity Explorer.",
+          section: "Media",handler: () => {
+              window.location.href = "/media/dynamical-systems-and-chaos/";
+            },},{id: "media-introduction-to-complexity",
+          title: 'Introduction to Complexity',
+          description: "These are videos from the Introduction to Complexity online course hosted on Complexity Explorer.",
+          section: "Media",handler: () => {
+              window.location.href = "/media/introduction-to-complexity/";
+            },},{id: "media-robotics-education-matlab-and-simulink-robotics-arena",
+          title: 'Robotics Education: MATLAB and Simulink Robotics Arena',
+          description: "A playlist on robotics education using MATLAB and Simulink, published by MathWorks&#39; Robotics Arena.",
+          section: "Media",handler: () => {
+              window.location.href = "/media/matlab-simulink-robotics-arena/";
+            },},{id: "media-análisis-y-diseño-de-algoritmos-a2025",
+          title: 'Análisis y Diseño de Algoritmos (A2025)',
+          description: "Curso de Análisis y Diseño de Algoritmos (A2025), publicado por el canal NDS LAB del Centro de Investigación en Computación del IPN.",
+          section: "Media",handler: () => {
+              window.location.href = "/media/algorithm-design-analysis-course/";
+            },},{id: "media-curso-de-aprendizaje-profundo-deep-learning",
+          title: 'Curso de Aprendizaje Profundo (Deep Learning)',
+          description: "Curso de Aprendizaje Profundo (Deep Learning), publicado por el canal NDS LAB del Centro de Investigación en Computación del IPN.",
+          section: "Media",handler: () => {
+              window.location.href = "/media/deep-learning-course-ipn/";
+            },},{id: "media-curso-de-aprendizaje-por-refuerzo",
+          title: 'Curso de Aprendizaje por Refuerzo',
+          description: "Curso de Aprendizaje por Refuerzo impartido por el Dr. Rolando Menchaca Méndez en el Centro de Investigación en Computación del IPN.",
+          section: "Media",handler: () => {
+              window.location.href = "/media/reinforcement-learning-course-ipn/";
+            },},{id: "media-autonomous-agents-run-google-and-siri",
+          title: 'Autonomous Agents Run Google and Siri',
+          description: "An AI-generated audio overview exploring how autonomous agents power products like Google Assistant and Siri.",
+          section: "Media",handler: () => {
+              window.location.href = "/media/autonomous-agents-google-siri/";
+            },},{id: "media-the-engineering-behind-artemis-ii",
+          title: 'The Engineering Behind Artemis II',
+          description: "An AI-generated audio overview exploring the engineering behind NASA&#39;s Artemis II mission.",
+          section: "Media",handler: () => {
+              window.location.href = "/media/engineering-behind-artemis-ii/";
+            },},{id: "notes-week-1-networks-and-emergence",
+          title: 'Week 1 — Networks and Emergence',
+          description: "Wiki-style notes from the first week of a graduate seminar on network science and emergent behavior.",
+          section: "Notes",handler: () => {
+              window.location.href = "/vault/notes/networks-and-emergence-week1/";
+            },},{id: "notes-the-clash-of-models-agent-based-vs-equation-based-modeling",
+          title: 'The Clash of Models: Agent-Based vs. Equation-Based Modeling',
+          description: "Notes on why Agent-Based Models (ABM) and Equation-Based Models (EBM) diverge, and how they complement rather than compete with each other.",
+          section: "Notes",handler: () => {
+              window.location.href = "/vault/notes/clash-of-models-abm-vs-ebm/";
+            },},{id: "projects-agent-based-simulation-toolkit",
+          title: 'Agent-Based Simulation Toolkit',
+          description: "A lightweight Python toolkit for building and visualizing agent-based models of complex adaptive systems.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/agent-based-simulation-toolkit/";
+            },},{id: "projects-real-autonomy-in-mining-four-experiments-to-understand-what-happens-beyond-the-autonomous-truck",
+          title: 'Real Autonomy in Mining: Four Experiments to Understand What Happens Beyond the Autonomous...',
+          description: "A vehicle may operate without a driver and still belong to a fragile, poorly coordinated system that depends on human decisions. This project uses a digital twin to study four less visible dimensions of mining autonomy — model validity, information latency, interoperability, and the distribution of control among people, centralised systems, and decentralised agents.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/real-autonomy-in-mining/";
+            },},{id: "projects-research-portfolio",
+          title: 'Research Portfolio',
+          description: "A structured research system on autonomous intelligent systems, organized around 20 research areas, master questions, hypotheses, experiments, and their connections to each other.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/research-portfolio/";
+            },},{id: "reports-complex-systems-research-concept-map",
+          title: 'Complex Systems Research — Concept Map',
+          description: "A standalone concept map of how the four research areas on this site (complex systems, econ &amp; politics, sci-tech, engineering) connect, exported from Whimsical.",
+          section: "Reports",handler: () => {
+              window.location.href = "/vault/reports/complex-systems-research-map/";
+            },},{id: "reports-german-credit-credit-risk-case-study",
+          title: 'German Credit — Credit Risk Case Study',
+          description: "Logistic regression model for credit risk classification on the German Credit dataset, for the Modelos Analíticos course at Pontificia Universidad Católica de Chile.",
+          section: "Reports",handler: () => {
+              window.location.href = "/vault/reports/german-credit-case/";
+            },},{id: "reports-presenting-banking-products-amp-women-and-children-first-on-the-titanic-hbs-case-analyses",
+          title: 'Presenting Banking Products &amp;amp; Women and Children First on the Titanic — HBS...',
+          description: "Statistical analysis of two Harvard Business School cases, for the Modelos Analíticos course at Pontificia Universidad Católica de Chile.",
+          section: "Reports",handler: () => {
+              window.location.href = "/vault/reports/hbs-cases-banking-titanic/";
+            },},{id: "reports-survival-analysis-of-recidivism-rossi-tarp-study",
+          title: 'Survival Analysis of Recidivism (Rossi/TARP Study)',
+          description: "Survival analysis of recidivism risk on the classic Rossi/TARP dataset, for the MCD - Estadística Aplicada course at Pontificia Universidad Católica de Chile.",
+          section: "Reports",handler: () => {
+              window.location.href = "/vault/reports/survival-analysis-rossi-tarp/";
+            },},{id: "reports-mixed-effects-models-orthodont-case",
+          title: 'Mixed-Effects Models — Orthodont Case',
+          description: "Linear mixed-effects model of craniofacial growth on the classic Orthodont dataset, for the MCD - Estadística Aplicada course at Pontificia Universidad Católica de Chile.",
+          section: "Reports",handler: () => {
+              window.location.href = "/vault/reports/mixed-effects-models-orthodont-case/";
+            },},{id: "research_areas-01-decision-making-under-uncertainty",
+          title: '01 Decision-Making Under Uncertainty',
+          description: "How should an intelligent system act when it cannot know the world completely?",
+          section: "Research_areas",handler: () => {
+              window.location.href = "/projects/01/";
+            },},{id: "research_areas-02-interactive-reinforcement-learning",
+          title: '02 Interactive Reinforcement Learning',
+          description: "How should an intelligent system learn from another intelligence?",
+          section: "Research_areas",handler: () => {
+              window.location.href = "/projects/02/";
+            },},{id: "research_areas-03-controllable-autonomy-amp-agency",
+          title: '03 Controllable Autonomy &amp;amp; Agency',
+          description: "When should an intelligent system act by itself, and when should it surrender agency?",
+          section: "Research_areas",handler: () => {
+              window.location.href = "/projects/03/";
+            },},{id: "research_areas-04-explainable-reinforcement-learning",
+          title: '04 Explainable Reinforcement Learning',
+          description: "What does it mean for an intelligent system to understand and explain its own decisions?",
+          section: "Research_areas",handler: () => {
+              window.location.href = "/projects/04/";
+            },},{id: "research_areas-05-hierarchical-rl-amp-skill-learning",
+          title: '05 Hierarchical RL &amp;amp; Skill Learning',
+          description: "How can complex behaviour emerge from reusable skills?",
+          section: "Research_areas",handler: () => {
+              window.location.href = "/projects/05/";
+            },},{id: "research_areas-06-embodied-robot-learning",
+          title: '06 Embodied Robot Learning',
+          description: "How does having a body change intelligence?",
+          section: "Research_areas",handler: () => {
+              window.location.href = "/projects/06/";
+            },},{id: "research_areas-07-multi-agent-reinforcement-learning",
+          title: '07 Multi-Agent Reinforcement Learning',
+          description: "What changes when intelligence is no longer alone?",
+          section: "Research_areas",handler: () => {
+              window.location.href = "/projects/07/";
+            },},{id: "research_areas-08-emergent-coordination-amp-collective-intelligence",
+          title: '08 Emergent Coordination &amp;amp; Collective Intelligence',
+          description: "How can global order emerge without anyone designing it?",
+          section: "Research_areas",handler: () => {
+              window.location.href = "/projects/08/";
+            },},{id: "research_areas-09-multi-agent-communication",
+          title: '09 Multi-Agent Communication',
+          description: "What information must intelligences exchange in order to cooperate?",
+          section: "Research_areas",handler: () => {
+              window.location.href = "/projects/09/";
+            },},{id: "research_areas-10-distributed-agency",
+          title: '10 Distributed Agency',
+          description: "Where does agency reside when many intelligences control one system?",
+          section: "Research_areas",handler: () => {
+              window.location.href = "/projects/10/";
+            },},{id: "research_areas-11-uav-amp-mobile-robot-autonomy",
+          title: '11 UAV &amp;amp; Mobile Robot Autonomy',
+          description: "What does it take for an intelligent agent to operate independently in an open world?",
+          section: "Research_areas",handler: () => {
+              window.location.href = "/projects/11/";
+            },},{id: "research_areas-12-space-amp-satellite-autonomous-agents",
+          title: '12 Space &amp;amp; Satellite Autonomous Agents',
+          description: "How should intelligence behave when observation, computation, communication and intervention are scarce?",
+          section: "Research_areas",handler: () => {
+              window.location.href = "/projects/12/";
+            },},{id: "research_areas-13-multimodal-robot-learning",
+          title: '13 Multimodal Robot Learning',
+          description: "How should an intelligent system construct one reality from multiple imperfect views of the world?",
+          section: "Research_areas",handler: () => {
+              window.location.href = "/projects/13/";
+            },},{id: "research_areas-14-adaptive-multi-source-learning",
+          title: '14 Adaptive Multi-Source Learning',
+          description: "How should an intelligent system decide whom and what to trust?",
+          section: "Research_areas",handler: () => {
+              window.location.href = "/projects/14/";
+            },},{id: "research_areas-15-continual-learning-amp-online-adaptation",
+          title: '15 Continual Learning &amp;amp; Online Adaptation',
+          description: "How can an intelligent system change without forgetting what made it capable?",
+          section: "Research_areas",handler: () => {
+              window.location.href = "/projects/15/";
+            },},{id: "research_areas-16-failure-recovery-amp-resilience",
+          title: '16 Failure, Recovery &amp;amp; Resilience',
+          description: "What does it mean for an intelligent system to survive failure?",
+          section: "Research_areas",handler: () => {
+              window.location.href = "/projects/16/";
+            },},{id: "research_areas-17-agentic-ai-amp-robotics",
+          title: '17 Agentic AI &amp;amp; Robotics',
+          description: "How can goals become autonomous sequences of meaningful action?",
+          section: "Research_areas",handler: () => {
+              window.location.href = "/projects/17/";
+            },},{id: "research_areas-18-transfer-learning-amp-sim-to-real",
+          title: '18 Transfer Learning &amp;amp; Sim-to-Real',
+          description: "What knowledge remains true when the world changes?",
+          section: "Research_areas",handler: () => {
+              window.location.href = "/projects/18/";
+            },},{id: "research_areas-19-safe-amp-constrained-reinforcement-learning",
+          title: '19 Safe &amp;amp; Constrained Reinforcement Learning',
+          description: "How should an intelligent system pursue goals when some actions must never be acceptable?",
+          section: "Research_areas",handler: () => {
+              window.location.href = "/projects/19/";
+            },},{id: "research_areas-20-scientific-autonomy",
+          title: '20 Scientific Autonomy',
+          description: "Can an intelligent system decide what it needs to discover next?",
+          section: "Research_areas",handler: () => {
+              window.location.href = "/projects/20/";
+            },},{id: "slides-engineering-autonomy-from-software-agents-to-human-agent-teaming",
+          title: 'Engineering Autonomy: From Software Agents to Human-Agent Teaming',
+          description: "A system-theoretic synthesis tracing the path from individual software agents to multi-agent systems to human-agent teams.",
+          section: "Slides",handler: () => {
+              window.location.href = "/vault/slides/engineering-autonomy-human-agent-teaming/";
+            },},{id: "slides-modeling-complexity-at-scale",
+          title: 'Modeling Complexity at Scale',
+          description: "A high-level strategic guide to Agent-Based Models (ABM) vs. traditional equation-based paradigms.",
+          section: "Slides",handler: () => {
+              window.location.href = "/vault/slides/modeling-complexity-at-scale/";
+            },},{id: "slides-research-overview-complex-systems-autonomy-and-coordination",
+          title: 'Research Overview: Complex Systems, Autonomy, and Coordination',
+          description: "Slide deck accompanying the Media section, exported from Keynote as PDF.",
+          section: "Slides",handler: () => {
+              window.location.href = "/vault/slides/research-overview-slides/";
+            },},{id: "teachings-data-science-fundamentals",
+          title: 'Data Science Fundamentals',
+          description: "This course covers the foundational aspects of data science, including data collection, cleaning, analysis, and visualization. Students will learn practical skills for working with real-world datasets.",
+          section: "Teachings",handler: () => {
+              window.location.href = "/teachings/data-science-fundamentals/";
+            },},{id: "teachings-introduction-to-machine-learning",
+          title: 'Introduction to Machine Learning',
+          description: "This course provides an introduction to machine learning concepts, algorithms, and applications. Students will learn about supervised and unsupervised learning, model evaluation, and practical implementations.",
+          section: "Teachings",handler: () => {
+              window.location.href = "/teachings/introduction-to-machine-learning/";
+            },},{
+        id: 'social-email',
+        title: 'email',
+        section: 'Socials',
+        handler: () => {
+          window.open("mailto:%6B%61%74%68.%6B%61%68%6C%6F@%68%6F%74%6D%61%69%6C.%63%6F%6D", "_blank");
+        },
+      },{
+        id: 'social-github',
+        title: 'GitHub',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://github.com/ka-means", "_blank");
+        },
+      },{
+        id: 'social-linkedin',
+        title: 'LinkedIn',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://www.linkedin.com/in/katherin-molina", "_blank");
+        },
+      },{
+        id: 'social-medium',
+        title: 'Medium',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://medium.com/@ka-means", "_blank");
+        },
+      },{
+        id: 'social-orcid',
+        title: 'ORCID',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://orcid.org/0009-0002-7194-9021", "_blank");
+        },
+      },{
+        id: 'social-rss',
+        title: 'RSS Feed',
+        section: 'Socials',
+        handler: () => {
+          window.open("/feed.xml", "_blank");
+        },
+      },];
+
+</script> <script src="/assets/al_search/js/shortcut-key.js"></script> </body> </html>
