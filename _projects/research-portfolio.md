@@ -104,7 +104,3 @@ Across all 20 areas, this portfolio keeps returning to the same underlying set o
 - What knowledge transfers?
 - What actions should remain forbidden?
 - What should the system investigate next?
-
-## What This Portfolio Optimizes For
-
-This portfolio is not optimized for the appearance of completeness. It is optimized for traceability, reproducibility, intellectual coherence, experimental clarity, honest uncertainty, connection between questions, and cumulative knowledge. A project with one well designed experiment and several important open questions is treated as more valuable than many disconnected demonstrations.
