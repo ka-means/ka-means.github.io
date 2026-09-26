@@ -205,6 +205,12 @@ collections:
   reports:
     output: true
     permalink: /vault/reports/:path/
+  research_areas:
+    output: true
+    permalink: /projects/:path/
+  research_projects:
+    output: true
+    permalink: /projects/:path/
 
 # -----------------------------------------------------------------------------
 # Jekyll settings
