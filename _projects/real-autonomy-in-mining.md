@@ -2,6 +2,7 @@
 layout: page
 title: "Real Autonomy in Mining: Four Experiments to Understand What Happens Beyond the Autonomous Truck"
 description: A vehicle may operate without a driver and still belong to a fragile, poorly coordinated system that depends on human decisions. This project uses a digital twin to study four less visible dimensions of mining autonomy — model validity, information latency, interoperability, and the distribution of control among people, centralised systems, and decentralised agents.
+img: assets/img/real-autonomy-in-mining-haul-cycle.png
 importance: 1
 category: AOOS
 tags: engineering
