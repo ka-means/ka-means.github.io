@@ -229,6 +229,51 @@ samp,
 }
 
 // -----------------------------------------------------------------------------
+// Long-form content tables and blockquotes: kramdown emits bare <table> and
+// <blockquote> tags with no theme styling of their own. Used by research-area
+// and project pages (F-series/M-series/experiment tables, pull-quotes).
+// -----------------------------------------------------------------------------
+
+.post article table,
+.post-content table {
+  width: 100%;
+  margin: 1.5rem 0;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+
+  th,
+  td {
+    padding: 0.6rem 0.9rem;
+    border: 1px solid var(--global-divider-color);
+    text-align: left;
+    vertical-align: top;
+  }
+
+  th {
+    background-color: var(--global-code-bg-color);
+    font-family: $font-heading;
+    font-weight: 600;
+  }
+
+  tr:nth-child(even) td {
+    background-color: rgba(0, 0, 0, 0.02);
+  }
+}
+
+.post article blockquote,
+.post-content blockquote {
+  margin: 1.5rem 0;
+  padding: 0.75rem 1.25rem;
+  border-left: 3px solid var(--global-theme-color);
+  background-color: var(--global-code-bg-color);
+  color: var(--global-text-color);
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// -----------------------------------------------------------------------------
 // About page hero: bigger "Ka-means" title, more breathing room before the bio.
 // -----------------------------------------------------------------------------
 
