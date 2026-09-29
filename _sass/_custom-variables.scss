@@ -229,6 +229,19 @@ samp,
 }
 
 // -----------------------------------------------------------------------------
+// Inline callout: yellow-highlighted italic phrase, used in place of a boxed
+// math environment for short emphasis statements in research-area pages.
+// -----------------------------------------------------------------------------
+
+.callout {
+  background-color: var(--global-theme-color);
+  color: #000000;
+  font-style: italic;
+  padding: 0.05em 0.4em;
+  border-radius: 3px;
+}
+
+// -----------------------------------------------------------------------------
 // Long-form content tables and blockquotes: kramdown emits bare <table> and
 // <blockquote> tags with no theme styling of their own. Used by research-area
 // and project pages (F-series/M-series/experiment tables, pull-quotes).
