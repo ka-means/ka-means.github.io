@@ -799,11 +799,19 @@ print("The Blackwell ordering holds (p=1.0 still ≥ p=0.6), but the gap collaps
 # If two sensors each have accuracy p_each, does a Bayesian agent using both
 # outperform one using a single sensor with the same p_each?
 #
-# **Theoretical answer:** yes. Two independent sensors with accuracy p produce
-# a combined posterior that is strictly stronger than either alone — equivalent
-# to having a single sensor with higher effective accuracy p_eff > p_each.
+# **Theoretical answer (prior to experiment):** Two independent sensors with equal
+# accuracy p_each might be expected to produce a stronger combined posterior.
 #
-# **But only if the agent can combine them.**
+# **Mathematical derivation:**
+# For two independent symmetric binary sensors at n_obs=1 with random tie-breaking:
+#   P(both correct)  = p²          → choose correct
+#   P(both wrong)    = (1-p)²      → choose wrong
+#   P(disagree)      = 2p(1-p)     → tie → P(correct | tie) = 0.5
+#   P(correct | dual) = p² + 2p(1-p)·0.5 = p² + p(1-p) = p(p + 1−p) = p
+#
+# Result: P(correct | dual equal sensors) = p — IDENTICAL to one sensor.
+# Two equal sensors at n_obs=1 provide no MAP accuracy improvement over one.
+# Any observed improvement is Monte Carlo noise.
 #
 # Three agents are compared in the dual-sensor environment:
 #
@@ -811,13 +819,13 @@ print("The Blackwell ordering holds (p=1.0 still ≥ p=0.6), but the gap collaps
 #   MajorityVote:  takes majority of all observations (both sensors, all steps)
 #   FirstSensor:   uses only the first sensor's first observation; ignores second
 #
-# **Hypothesis:**
-#   DualBayesian   outperforms SingleBayesian (p_each, n_obs=1)
-#   MajorityVote   underperforms DualBayesian (suboptimal combination)
-#   FirstSensor    performs identically to SingleBayesian (wastes second sensor)
+# **Prediction:**
+#   DualBayesian   ≈ SingleBayesian (p_each, n_obs=1) — equal by math above
+#   MajorityVote   ≈ DualBayesian for equal sensors
+#   FirstSensor    ≈ SingleBayesian (ignores second sensor, which adds nothing)
 #
-# This demonstrates the Blackwell theorem's requirement of OPTIMAL use:
-# the ordering holds for agents that fully exploit the observation structure.
+# This tests a limit of the Blackwell ordering: "more information" does not always
+# translate into better decision accuracy when information is symmetric and redundant.
 
 # %%
 class TwoDoorDualEnv:
@@ -1014,10 +1022,10 @@ ax.fill_between(p_each_sweep, p_each_sweep, effective_p_eff,
                 color=COLORS['bayesian'], alpha=0.1, label='Information gain from second sensor')
 ax.set_xlabel('Per-sensor accuracy  p_each')
 ax.set_ylabel('Effective accuracy')
-ax.set_title('E05 — Second Sensor Gain (DualBayesian)')
+ax.set_title('E05 — DualBayes vs SingleBayes (equal sensors, n_obs=1)\n(Gap ≈ 0 by math; any observed difference is MC noise)')
 ax.legend(fontsize=8)
 
-plt.suptitle('E05: Two sensors help — but only if the agent knows how to use them', y=1.01)
+plt.suptitle('E05: MAP accuracy of two equal sensors vs one — predicted gap: zero', y=1.01)
 plt.tight_layout()
 plt.savefig('e05_dual_sensor.png', bbox_inches='tight')
 plt.show()
