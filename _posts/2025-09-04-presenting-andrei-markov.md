@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Presenting: Andrei Markov"
-date: 2026-09-04 00:00:00-0000
+date: 2025-09-04 00:00:00-0000
 description: "Some mathematicians spend their careers finding the right answers inside an already established framework. Others, realizing that framework cannot capture the complexity of reality, decide to tear it down and build a new one. Andrei Andreyevich Markov belonged to the second kind."
 categories: [presenting]
 related_posts: false
