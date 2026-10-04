@@ -228,6 +228,16 @@ samp,
   }
 }
 
+// Credit line for a .portrait-duotone image (photographer/agency attribution).
+.portrait-caption {
+  max-width: 320px;
+  margin-top: -0.75rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.8rem;
+  font-style: italic;
+  color: var(--global-text-color-light);
+}
+
 // -----------------------------------------------------------------------------
 // Inline callout: yellow-highlighted italic phrase, used in place of a boxed
 // math environment for short emphasis statements in research-area pages.
