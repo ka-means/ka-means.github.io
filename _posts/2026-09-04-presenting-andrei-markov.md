@@ -104,16 +104,16 @@ To make his point, Markov sat down and patiently counted twenty thousand letters
 
 ## References
 
-Markov, A. A. (1906). Extension of the limit theorems of probability theory to a sum of variables connected in a chain. Reprinted in Appendix B of R. Howard, _Dynamic Probabilistic Systems_, Vol. 1, 1971.
+[1] E. Seneta, "Markov and the birth of chain dependence theory," _International Statistical Review_, vol. 64, no. 3, pp. 255 to 263, 1996.
 
-Markov, A. A. (1913). An example of statistical investigation of the text Eugene Onegin concerning the connection of samples in chains. _Bulletin de l'Académie Impériale des Sciences de St.-Pétersbourg_, 7, 153–162.
+[2] I. G. Bashmakova, A. N. Bogolyubov, and S. S. Demidov, _Mathematics and Its Applications: Russian Mathematics in the 19th Century_. Basel: Birkhäuser, 1992.
 
-Bashmakova, I. G., Bogolyubov, A. N., & Demidov, S. S. (1992). _Mathematics and Its Applications: Russian Mathematics in the 19th Century_. Birkhäuser.
+[3] A. A. Markov, "Extension of the limit theorems of probability theory to a sum of variables connected in a chain," (1906). Reprinted in Appendix B of R. Howard, _Dynamic Probabilistic Systems_, vol. 1, 1971.
 
-Brin, S., & Page, L. (1998). The anatomy of a large-scale hypertextual web search engine. _Computer Networks and ISDN Systems_, 30(1–7), 107–117.
+[4] J. J. O'Connor and E. F. Robertson, "Andrey Andreyevich Markov," _MacTutor History of Mathematics Archive_, University of St Andrews, 1999.
 
-Hayes, B. (2013). First links in the Markov chain. _American Scientist_, 101(2), 92–96.
+[5] B. Hayes, "First links in the Markov chain," _American Scientist_, vol. 101, no. 2, pp. 92 to 96, 2013.
 
-O'Connor, J. J., & Robertson, E. F. (1999). Andrey Andreyevich Markov. _MacTutor History of Mathematics Archive_, University of St Andrews.
+[6] A. A. Markov, "An example of statistical investigation of the text Eugene Onegin concerning the connection of samples in chains," _Bulletin de l'Académie Impériale des Sciences de St.-Pétersbourg_, vol. 7, pp. 153 to 162, 1913.
 
-Seneta, E. (1996). Markov and the birth of chain dependence theory. _International Statistical Review_, 64(3), 255–263.
+[7] S. Brin and L. Page, "The anatomy of a large-scale hypertextual web search engine," _Computer Networks and ISDN Systems_, vol. 30, no. 1 to 7, pp. 107 to 117, 1998.
