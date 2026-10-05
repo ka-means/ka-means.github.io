@@ -134,6 +134,35 @@ samp,
   }
 }
 
+// News table (home page): a small filled label identifying the kind of
+// update (e.g. "New Project"), and a muted one-line abstract under the
+// title so a news entry is scannable without opening it.
+.news-tag {
+  display: inline-block;
+  margin-right: 0.5rem;
+  padding: 0.1rem 0.6rem;
+  background-color: var(--global-theme-color);
+  color: #000000;
+  border-color: var(--global-theme-color);
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  cursor: default;
+
+  &:hover {
+    background-color: var(--global-theme-color);
+    border-color: var(--global-theme-color);
+    color: #000000;
+  }
+}
+
+.news-abstract {
+  margin: 0.3rem 0 0;
+  font-size: 0.9rem;
+  color: var(--global-text-color-light);
+}
+
 // Chips for a tag/category with no published content yet: same pill shape,
 // but visibly inactive (dashed border, muted text, no yellow hover invert)
 // since there's nowhere for them to link to.

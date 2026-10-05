@@ -3,7 +3,8 @@ layout: post
 title: "Gondwana IA: connecting ecosystems through open science"
 date: 2026-09-21 00:00:00-0000
 permalink: /news/gondwana-ia/
-description: "Kahlo Group begins a new collaboration to develop Gondwana IA, using open Earth observation data and NASA/IBM's Prithvi-EO-2.0 model to build Ecosystem Passports for mountain ecosystems in Colombia and Australia."
+tag: "New Project"
+description: "A project in collaboration with academics from Australia and Colombia, led by Kahlo Group and Universidad de Manizales (Colombia), studying mountain ecosystems through open Earth observation data."
 ---
 
 **NEW PROJECT · GONDWANA IA**
